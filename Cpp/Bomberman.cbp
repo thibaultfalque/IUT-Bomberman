@@ -102,6 +102,15 @@
 				</Linker>
 			</Target>
 		</Build>
+		<Compiler>
+			<Add directory="include" />
+		</Compiler>
+		<Unit filename="include/General.hpp" />
+		<Unit filename="include/General/Console.hpp" />
+		<Unit filename="include/General/Ressource.hpp" />
+		<Unit filename="main.cpp" />
+		<Unit filename="src/General/Console.cpp" />
+		<Unit filename="src/General/Ressource.cpp" />
 		<Extensions>
 			<code_completion />
 			<debugger />
