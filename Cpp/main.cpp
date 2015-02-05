@@ -10,6 +10,7 @@ int main()
     Console::say("SALUT1");
     Console::say("SALUT2");
     Console::say("SALUT3");
+    Console::say("SALUT4");
     while(window.isOpen()){
         Event e;
         while(window.pollEvent(e)){

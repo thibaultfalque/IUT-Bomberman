@@ -8,7 +8,7 @@ using namespace sf;
 
 struct dbg_msg
 {
-    Clock date; //Peut éventuellement servir à mettre une date de péremption au message. (Effacer un message au bout d'un certain temps...). Non implémenté.
+    Clock date;  //Peut éventuellement servir à mettre une date de péremption au message. (Effacer un message au bout d'un certain temps...). Non implémenté.
     Text msg;
 };
 
