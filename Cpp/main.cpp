@@ -1,6 +1,5 @@
 
-#include <SFML/Graphics.hpp>
-#include "General.hpp"
+#include "Application.hpp"
 using namespace std;
 using namespace sf;
 
@@ -11,7 +10,7 @@ int main()
     Console::say("SALUT2");
     Console::say("SALUT3");
     Console::say("SALUT4");
-    while(window.isOpen()){
+    /*while(window.isOpen()){
         Event e;
         while(window.pollEvent(e)){
             switch(e.type){
@@ -23,6 +22,11 @@ int main()
         window.clear();
         Console::draw(window, RenderStates::Default );
         window.display();
-    }
+    }*/
+
+    srand(time(NULL));
+    Application app;
+    app.run();
+
     return 0;
 }

@@ -19,15 +19,16 @@
 					<Add option="-g" />
 					<Add option="-std=c++11" />
 					<Add directory="SFML-2.1-linux64/include" />
+					<Add directory="include" />
 				</Compiler>
 				<Linker>
 					<Add option="-lGL" />
 					<Add option="-lGLU" />
-					<Add library="SFML-2.1-linux64\lib\libsfml-audio.so" />
-					<Add library="SFML-2.1-linux64\lib\libsfml-graphics.so" />
-					<Add library="SFML-2.1-linux64\lib\libsfml-window.so" />
-					<Add library="SFML-2.1-linux64\lib\libsfml-system.so" />
-					<Add library="SFML-2.1-linux64\lib\libsfml-network.so" />
+					<Add library="SFML-2.1-linux64/lib/libsfml-audio.so" />
+					<Add library="SFML-2.1-linux64/lib/libsfml-graphics.so" />
+					<Add library="SFML-2.1-linux64/lib/libsfml-window.so" />
+					<Add library="SFML-2.1-linux64/lib/libsfml-system.so" />
+					<Add library="SFML-2.1-linux64/lib/libsfml-network.so" />
 					<Add directory="SFML-2.1-linux64/lib" />
 				</Linker>
 			</Target>
@@ -41,16 +42,17 @@
 					<Add option="-O3" />
 					<Add option="-std=c++11" />
 					<Add directory="SFML-2.1-linux64/include" />
+					<Add directory="include" />
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
 					<Add option="-lGL" />
 					<Add option="-lGLU" />
-					<Add library="SFML-2.1-linux64\lib\libsfml-audio.so" />
-					<Add library="SFML-2.1-linux64\lib\libsfml-graphics.so" />
-					<Add library="SFML-2.1-linux64\lib\libsfml-window.so" />
-					<Add library="SFML-2.1-linux64\lib\libsfml-system.so" />
-					<Add library="SFML-2.1-linux64\lib\libsfml-network.so" />
+					<Add library="SFML-2.1-linux64/lib/libsfml-audio.so" />
+					<Add library="SFML-2.1-linux64/lib/libsfml-graphics.so" />
+					<Add library="SFML-2.1-linux64/lib/libsfml-window.so" />
+					<Add library="SFML-2.1-linux64/lib/libsfml-system.so" />
+					<Add library="SFML-2.1-linux64/lib/libsfml-network.so" />
 					<Add directory="SFML-2.1-linux64/lib" />
 				</Linker>
 			</Target>
@@ -67,6 +69,7 @@
 					<Add option="-g" />
 					<Add option="-DSFML_STATIC" />
 					<Add directory="./SFML-2.1/include" />
+					<Add directory="include" />
 				</Compiler>
 				<Linker>
 					<Add option="-lglu32" />
@@ -89,6 +92,7 @@
 					<Add option="-std=c++11" />
 					<Add option="-DSFML_STATIC" />
 					<Add directory="./SFML-2.1/include" />
+					<Add directory="include" />
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
@@ -105,12 +109,19 @@
 		<Compiler>
 			<Add directory="include" />
 		</Compiler>
+		<Unit filename="include/Application.hpp" />
 		<Unit filename="include/General.hpp" />
 		<Unit filename="include/General/Console.hpp" />
 		<Unit filename="include/General/Ressource.hpp" />
+		<Unit filename="include/General/Screen.h" />
+		<Unit filename="include/General/ScreenManager.h" />
+		<Unit filename="include/header.hpp" />
 		<Unit filename="main.cpp" />
+		<Unit filename="src/Application.cpp" />
 		<Unit filename="src/General/Console.cpp" />
 		<Unit filename="src/General/Ressource.cpp" />
+		<Unit filename="src/General/Screen.cpp" />
+		<Unit filename="src/General/ScreenManager.cpp" />
 		<Extensions>
 			<code_completion />
 			<debugger />

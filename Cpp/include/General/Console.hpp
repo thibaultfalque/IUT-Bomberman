@@ -1,3 +1,6 @@
+#ifndef CONSOLE_H
+#define CONSOLE_H
+
 #include <SFML/Graphics.hpp>
 #include <list>
 
@@ -23,3 +26,4 @@ public:
     static void say(string message);
 
 };
+#endif // CONSOLE_HPP
