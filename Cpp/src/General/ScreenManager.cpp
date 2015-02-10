@@ -6,8 +6,10 @@ Screen ScreenManager::screeCourant;
 
 void ScreenManager::goToScreen(string str)
 {
+    cout<<"toto"<<endl;
     if(_screen.find(str)!=_screen.end())
         screeCourant=_screen[str];
+
     else
         Console::say("Cet écran "+str+" n'existe pas ");
 }

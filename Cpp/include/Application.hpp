@@ -3,7 +3,7 @@
 #include <SFML/Graphics.hpp>
 #include <General.hpp>
 #include "header.hpp"
-
+#include "Menu.hpp"
 class Application
 {
     public:

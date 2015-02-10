@@ -1,6 +1,6 @@
 #ifndef SCREEN_H
 #define SCREEN_H
-#include <SFML/Graphics.hpp>
+#include "header.hpp"
 using namespace sf;
 
 class Screen:public sf::Drawable
@@ -10,7 +10,7 @@ class Screen:public sf::Drawable
         virtual void update();
     protected:
         sf::Vector2i* _window_size;
-        virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;
+        virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const ;
     private:
 };
 

@@ -3,7 +3,10 @@
 Application::Application():_window_size(WINDOW_WIDTH,WINDOW_HEIGHT),
  _window(VideoMode(WINDOW_WIDTH,WINDOW_HEIGHT), L"Bomberman", Style::Close | Style::Titlebar | Style::Resize)
 {
-
+    Console::say("SALUT ANTOINE");
+    Menu m(&_window_size);
+    ScreenManager::add(m,"Menu");
+    ScreenManager::goToScreen("Menu");
 }
 
 Application::~Application()
@@ -50,9 +53,10 @@ void Application::update()
 
 void Application::render()
 {
+
 	_window.clear();
 	//_window.draw(_background);
     _window.draw(ScreenManager::screeCourant);
-    Console::draw(_window,RenderStates::Default );
+    Console::draw(_window,RenderStates::Default);
 	_window.display();
 }
