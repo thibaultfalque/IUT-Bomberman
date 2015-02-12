@@ -1,9 +1,10 @@
 #ifndef SCREEN_H
 #define SCREEN_H
 #include "header.hpp"
+#include "Observable.hpp"
 using namespace sf;
 
-class Screen:public sf::Drawable
+class Screen:public Drawable,public Observable
 {
     public:
         virtual void onEvent(sf::Event & event);

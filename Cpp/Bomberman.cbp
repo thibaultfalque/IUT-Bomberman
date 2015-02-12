@@ -124,6 +124,7 @@
 		<Unit filename="include/Observateur.hpp" />
 		<Unit filename="include/gui/Bouton.hpp" />
 		<Unit filename="include/header.hpp" />
+		<Unit filename="include/noClass.hpp" />
 		<Unit filename="include/noClass/Collision.hpp" />
 		<Unit filename="include/noClass/fileManager.hpp" />
 		<Unit filename="include/noClass/fn_random.hpp" />

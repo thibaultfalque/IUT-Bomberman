@@ -10,12 +10,12 @@ class Observable
 {
     public:
         Observable();
-        void addObs(Observateur& ob);
-        void removeObs(Observateur& ob);
-        virtual void updateObs();
+        void addObs(Observateur* ob);
+        void removeObs(Observateur* ob);
+        void updateObs();
         virtual ~Observable();
     protected:
-        vector<Observateur> obs;
+        vector<Observateur*> obs;
     private:
 };
 

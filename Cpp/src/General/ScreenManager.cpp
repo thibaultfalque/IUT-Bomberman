@@ -1,12 +1,11 @@
 #include "General/ScreenManager.h"
 
-map <string,Screen> ScreenManager::_screen;
+map <string,Screen*> ScreenManager::_screen;
 
-Screen ScreenManager::screeCourant;
+Screen* ScreenManager::screeCourant;
 
 void ScreenManager::goToScreen(string str)
 {
-    cout<<"toto"<<endl;
     if(_screen.find(str)!=_screen.end())
         screeCourant=_screen[str];
 
@@ -14,7 +13,7 @@ void ScreenManager::goToScreen(string str)
         Console::say("Cet écran "+str+" n'existe pas ");
 }
 
-void ScreenManager::add(Screen& s,string str){
+void ScreenManager::add(Screen* s,string str){
     _screen[str]=s;
 }
 

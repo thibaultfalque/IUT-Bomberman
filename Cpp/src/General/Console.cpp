@@ -21,7 +21,6 @@ void Console::draw(sf::RenderTarget& target, sf::RenderStates states){
         target.setView(target.getDefaultView());
         int y = target.getView().getSize().y;
         list<dbg_msg>::reverse_iterator it;
-        int cmp=0;
         for(it=messages.rbegin();it!=messages.rend();it++){
             y -=it->msg.getGlobalBounds().height + 10;
             it->msg.setPosition(10, y);
