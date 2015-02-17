@@ -4,6 +4,7 @@
 #include <General.hpp>
 #include "header.hpp"
 #include "Menu.hpp"
+#include "Background.h"
 class Application
 {
     public:
@@ -18,6 +19,7 @@ class Application
         sf::Vector2i _window_size;
         sf::RenderWindow _window;
         sf::ContextSettings _window_setting;
+        Background _background;
 };
 
 #endif // APPLICATION_H

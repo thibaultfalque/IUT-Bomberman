@@ -729,11 +729,12 @@
 1423590167 source:/home/thibault/ownCloud/Documents/01-Programmation/C++/Bomberman/Cpp/src/General/Screen.cpp
 	"General/Screen.h"
 
-1423481878 /home/thibault/ownCloud/Documents/01-Programmation/C++/Bomberman/Cpp/include/Application.hpp
+1424204571 /home/thibault/ownCloud/Documents/01-Programmation/C++/Bomberman/Cpp/include/Application.hpp
 	<SFML/Graphics.hpp>
 	<General.hpp>
 	"header.hpp"
 	"Menu.hpp"
+	"Background.h"
 
 1423477137 /home/thibault/ownCloud/Documents/01-Programmation/C++/Bomberman/Cpp/include/header.hpp
 	<iostream>
@@ -755,7 +756,7 @@
 	<SFML/System.hpp>
 	<SFML/Window.hpp>
 
-1423751163 source:/home/thibault/ownCloud/Documents/01-Programmation/C++/Bomberman/Cpp/src/Application.cpp
+1424204721 source:/home/thibault/ownCloud/Documents/01-Programmation/C++/Bomberman/Cpp/src/Application.cpp
 	"Application.hpp"
 
 1423748701 source:/home/thibault/ownCloud/Documents/01-Programmation/C++/Bomberman/Cpp/src/General/ScreenManager.cpp
@@ -764,18 +765,16 @@
 1423751907 source:/home/thibault/ownCloud/Documents/01-Programmation/C++/Bomberman/Cpp/src/gui/Bouton.cpp
 	"Bouton.hpp"
 
-1423751333 /home/thibault/ownCloud/Documents/01-Programmation/C++/Bomberman/Cpp/include/gui/Bouton.hpp
+1424193152 /home/thibault/ownCloud/Documents/01-Programmation/C++/Bomberman/Cpp/include/gui/Bouton.hpp
 	"Observateur.hpp"
-	"noClass/Collision.hpp"
-	<SFML/Graphics.hpp>
-	<iostream>
-	<string>
+	"noClass.hpp"
 	"General.hpp"
+	"header.hpp"
 
 1423560315 /home/thibault/ownCloud/Documents/01-Programmation/C++/Bomberman/Cpp/include/Observateur.hpp
 	"header.hpp"
 
-1423751386 source:/home/thibault/ownCloud/Documents/01-Programmation/C++/Bomberman/Cpp/src/Menu.cpp
+1423751944 source:/home/thibault/ownCloud/Documents/01-Programmation/C++/Bomberman/Cpp/src/Menu.cpp
 	"Menu.hpp"
 
 1423598509 /home/thibault/ownCloud/Documents/01-Programmation/C++/Bomberman/Cpp/include/Menu.hpp
@@ -885,4 +884,18 @@
 1423477596 /home/thibault/ownCloud/Documents/01-Programmation/C++/Bomberman/Cpp/include/noClass/fn_time.hpp
 	"header.hpp"
 	"fn_string.hpp"
+
+1423758194 /home/thibault/ownCloud/Documents/01-Programmation/C++/Bomberman/Cpp/include/noClass.hpp
+	"noClass/Collision.hpp"
+	"noClass/fileManager.hpp"
+	"noClass/fn_random.hpp"
+	"noClass/fn_string.hpp"
+	"noClass/fn_time.hpp"
+
+1424204752 /home/thibault/ownCloud/Documents/01-Programmation/C++/Bomberman/Cpp/include/Background.h
+	"header.hpp"
+	"General.hpp"
+
+1424204852 source:/home/thibault/ownCloud/Documents/01-Programmation/C++/Bomberman/Cpp/src/Background.cpp
+	"Background.h"
 

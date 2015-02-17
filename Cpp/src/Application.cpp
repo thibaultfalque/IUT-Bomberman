@@ -1,7 +1,8 @@
 #include "Application.hpp"
 
 Application::Application():_window_size(WINDOW_WIDTH,WINDOW_HEIGHT),
- _window(VideoMode(WINDOW_WIDTH,WINDOW_HEIGHT), L"Bomberman", Style::Close | Style::Titlebar | Style::Resize)
+ _window(VideoMode(WINDOW_WIDTH,WINDOW_HEIGHT), L"Bomberman", Style::Close | Style::Titlebar | Style::Resize),
+ _background("backgroundMenu.png")
 {
     Menu* m=new Menu(&_window_size);
     ScreenManager::add(m,"Menu");
@@ -54,7 +55,7 @@ void Application::render()
 {
 
 	_window.clear();
-	//_window.draw(_background);
+	_window.draw(_background);
     _window.draw(*ScreenManager::screeCourant);
     Console::draw(_window,RenderStates::Default);
 	_window.display();
