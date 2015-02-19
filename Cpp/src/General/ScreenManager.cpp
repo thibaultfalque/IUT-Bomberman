@@ -10,7 +10,7 @@ void ScreenManager::goToScreen(string str)
         screeCourant=_screen[str];
 
     else
-        Console::say("Cet écran "+str+" n'existe pas ");
+        Console::say(L"Cet écran "+str+L" n'existe pas ",MSG_ERROR);
 }
 
 void ScreenManager::add(Screen* s,string str){
