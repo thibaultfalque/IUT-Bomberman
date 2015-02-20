@@ -5,6 +5,7 @@
 #include "header.hpp"
 #include "Menu.hpp"
 #include "Background.h"
+#include "MenuIndex.hpp"
 class Application
 {
     public:

@@ -1,0 +1,21 @@
+#include "MenuIndex.hpp"
+
+MenuIndex::MenuIndex(sf::Vector2i* s):Menu(s)
+{
+    sf::Vector2f boutonSize(_window_size->x*0.2,_window_size->y*0.1);
+    sf::Vector2f positionBouton(_window_size->x/2-boutonSize.x/2,_window_size->y/2-boutonSize.y/2);
+    //création des boutons
+
+    addObs(new Bouton("Mode Campagne",boutonSize,Vector2f(positionBouton.x,positionBouton.y+0.1*_window_size->y*0),"Game"));
+    addObs(new Bouton("Mode Multijoueur",boutonSize,Vector2f(positionBouton.x,positionBouton.y+0.1*_window_size->y*1),"Multi"));
+    addObs(new Bouton("Options",boutonSize,Vector2f(positionBouton.x,positionBouton.y+0.1*_window_size->y*2),"Options"));
+    addObs(new Bouton("Options Touches",boutonSize,Vector2f(positionBouton.x,positionBouton.y+0.1*_window_size->y*3),"OptionsTouches"));
+    addObs(new Slider(0,100,50,Vector2f(200,10),Vector2f(10,20)));
+}
+
+MenuIndex::~MenuIndex()
+{
+    //dtor
+}
+
+

@@ -4,9 +4,9 @@ Bouton::Bouton(const string text,Vector2f const& taille,Vector2f const& position
 {
     _rec.setSize(_size);
     _rec.setPosition(_pos);
-    _rec.setFillColor(sf::Color::Black);
+    _rec.setFillColor(sf::Color(0,0,0,0));
     _rec.setOutlineColor(sf::Color::White);
-    _rec.setOutlineThickness(5.f);
+    _rec.setOutlineThickness(2.f);
     _text.setString(text);
     _text.setFont(Ressource::getFont("defaut.ttf"));
     _text.setCharacterSize(15);
@@ -22,13 +22,13 @@ void Bouton::update(){
 
 }
 void Bouton::onEvent(sf::Event& event){
-    if(event.type==sf::Event::MouseMoved && pointInRect(_pos,_size,Vector2f(event.mouseMove.x,event.mouseMove.y)))
-        _rec.setFillColor(sf::Color::White);
+    if( event.type==sf::Event::MouseMoved && pointInRect(_pos,_size,Vector2f(event.mouseMove.x,event.mouseMove.y)))
+        _rec.setFillColor(sf::Color(0,0,0,128));
     else
-        _rec.setFillColor(sf::Color::Black);
+        _rec.setFillColor(sf::Color(0,0,0,0));
 
-    if(event.type==sf::Event::MouseButtonPressed)
-        if (sf::Mouse::isButtonPressed(sf::Mouse::Left) && pointInRect(_pos,_size,Vector2f(event.mouseButton.x,event.mouseButton.y)))
+    if(event.type==sf::Event::MouseButtonReleased)
+        if (event.mouseButton.button == sf::Mouse::Left && pointInRect(_pos,_size,Vector2f(event.mouseButton.x,event.mouseButton.y)))
             ScreenManager::goToScreen(_action);
 
 }

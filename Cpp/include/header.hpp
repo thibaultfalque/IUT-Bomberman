@@ -29,6 +29,7 @@
 #include <SFML/System.hpp>
 #include <SFML/Window.hpp>
 
+#include "noClass.hpp"
 using namespace std;
 using namespace sf;
 #endif // HEADER_HPP_INCLUDED

@@ -30,3 +30,4 @@
 # Others
 Cpp/bin/*
 Cpp/obj/*
+/build/

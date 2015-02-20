@@ -4,7 +4,7 @@ Application::Application():_window_size(WINDOW_WIDTH,WINDOW_HEIGHT),
  _window(VideoMode(WINDOW_WIDTH,WINDOW_HEIGHT), L"Bomberman", Style::Close | Style::Titlebar | Style::Resize),
  _background("backgroundMenu.png")
 {
-    Menu* m=new Menu(&_window_size);
+    MenuIndex* m=new MenuIndex(&_window_size);
     ScreenManager::add(m,"Menu");
     ScreenManager::goToScreen("Menu");
 }
