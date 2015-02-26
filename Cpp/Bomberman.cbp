@@ -22,6 +22,8 @@
 					<Add directory="include" />
 					<Add directory="include/gui" />
 					<Add directory="include/Menu" />
+					<Add directory="include/Personnage" />
+					<Add directory="include/BonusMalus" />
 				</Compiler>
 				<Linker>
 					<Add option="-lGL" />
@@ -47,6 +49,8 @@
 					<Add directory="include" />
 					<Add directory="include/gui" />
 					<Add directory="include/Menu" />
+					<Add directory="include/Personnage" />
+					<Add directory="include/BonusMalus" />
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
@@ -76,6 +80,8 @@
 					<Add directory="include" />
 					<Add directory="include/gui" />
 					<Add directory="include/Menu" />
+					<Add directory="include/Personnage" />
+					<Add directory="include/BonusMalus" />
 				</Compiler>
 				<Linker>
 					<Add option="-lglu32" />
@@ -101,6 +107,8 @@
 					<Add directory="include" />
 					<Add directory="include/gui" />
 					<Add directory="include/Menu" />
+					<Add directory="include/Personnage" />
+					<Add directory="include/BonusMalus" />
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
@@ -119,6 +127,15 @@
 		</Compiler>
 		<Unit filename="include/Application.hpp" />
 		<Unit filename="include/Background.h" />
+		<Unit filename="include/BonusMalus/BonusDegatsBombes.hpp" />
+		<Unit filename="include/BonusMalus/BonusLauncher.hpp" />
+		<Unit filename="include/BonusMalus/BonusMalus.hpp" />
+		<Unit filename="include/BonusMalus/BonusNbBombes.hpp" />
+		<Unit filename="include/BonusMalus/BonusPusher.h" />
+		<Unit filename="include/BonusMalus/BonusVitesse.hpp" />
+		<Unit filename="include/BonusMalus/MalusDegatsBombes.hpp" />
+		<Unit filename="include/BonusMalus/MalusNbBombes.hpp" />
+		<Unit filename="include/BonusMalus/MalusVitesse.hpp" />
 		<Unit filename="include/General.hpp" />
 		<Unit filename="include/General/Console.hpp" />
 		<Unit filename="include/General/Ressource.hpp" />
@@ -128,6 +145,7 @@
 		<Unit filename="include/Menu/MenuIndex.hpp" />
 		<Unit filename="include/Observable.hpp" />
 		<Unit filename="include/Observateur.hpp" />
+		<Unit filename="include/Personnage/Personnage.hpp" />
 		<Unit filename="include/gui/Bouton.hpp" />
 		<Unit filename="include/gui/Checkbox.hpp" />
 		<Unit filename="include/gui/Slider.hpp" />
@@ -141,6 +159,15 @@
 		<Unit filename="main.cpp" />
 		<Unit filename="src/Application.cpp" />
 		<Unit filename="src/Background.cpp" />
+		<Unit filename="src/BonusMalus/BonusDegatsBombes.cpp" />
+		<Unit filename="src/BonusMalus/BonusLauncher.cpp" />
+		<Unit filename="src/BonusMalus/BonusMalus.cpp" />
+		<Unit filename="src/BonusMalus/BonusNbBombes.cpp" />
+		<Unit filename="src/BonusMalus/BonusPusher.cpp" />
+		<Unit filename="src/BonusMalus/BonusVitesse.cpp" />
+		<Unit filename="src/BonusMalus/MalusDegatsBombes.cpp" />
+		<Unit filename="src/BonusMalus/MalusNbBombes.cpp" />
+		<Unit filename="src/BonusMalus/MalusVitesse.cpp" />
 		<Unit filename="src/General/Console.cpp" />
 		<Unit filename="src/General/Ressource.cpp" />
 		<Unit filename="src/General/Screen.cpp" />
@@ -149,6 +176,7 @@
 		<Unit filename="src/Menu/MenuIndex.cpp" />
 		<Unit filename="src/Observable.cpp" />
 		<Unit filename="src/Observateur.cpp" />
+		<Unit filename="src/Personnage/Personnage.cpp" />
 		<Unit filename="src/gui/Bouton.cpp" />
 		<Unit filename="src/gui/Checkbox.cpp" />
 		<Unit filename="src/gui/Slider.cpp" />
