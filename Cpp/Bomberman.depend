@@ -764,10 +764,10 @@
 1424436504 source:/home/thibault/ownCloud/Documents/01-Programmation/C++/Bomberman/Cpp/src/General/ScreenManager.cpp
 	"General/ScreenManager.h"
 
-1424436174 source:/home/thibault/ownCloud/Documents/01-Programmation/C++/Bomberman/Cpp/src/gui/Bouton.cpp
+1424924630 source:/home/thibault/ownCloud/Documents/01-Programmation/C++/Bomberman/Cpp/src/gui/Bouton.cpp
 	"Bouton.hpp"
 
-1424193152 /home/thibault/ownCloud/Documents/01-Programmation/C++/Bomberman/Cpp/include/gui/Bouton.hpp
+1424924450 /home/thibault/ownCloud/Documents/01-Programmation/C++/Bomberman/Cpp/include/gui/Bouton.hpp
 	"Observateur.hpp"
 	"noClass.hpp"
 	"General.hpp"
@@ -910,12 +910,13 @@
 1424266041 source:/home/thibault/ownCloud/Documents/01-Programmation/C++/Bomberman/Cpp/src/Menu/Menu.cpp
 	"Menu.hpp"
 
-1424420834 source:/home/thibault/ownCloud/Documents/01-Programmation/C++/Bomberman/Cpp/src/Menu/MenuIndex.cpp
+1424924918 source:/home/thibault/ownCloud/Documents/01-Programmation/C++/Bomberman/Cpp/src/Menu/MenuIndex.cpp
 	"MenuIndex.hpp"
 
-1424277544 /home/thibault/ownCloud/Documents/01-Programmation/C++/Bomberman/Cpp/include/Menu/MenuIndex.hpp
+1424924908 /home/thibault/ownCloud/Documents/01-Programmation/C++/Bomberman/Cpp/include/Menu/MenuIndex.hpp
 	<Menu.hpp>
 	<Slider.hpp>
+	"Checkbox.hpp"
 
 1424435218 /home/thibault/ownCloud/Documents/01-Programmation/C++/Bomberman/Cpp/include/gui/Slider.hpp
 	<Observateur.hpp>
@@ -923,4 +924,11 @@
 
 1424436768 source:/home/thibault/ownCloud/Documents/01-Programmation/C++/Bomberman/Cpp/src/gui/Slider.cpp
 	"Slider.hpp"
+
+1424924993 source:/home/thibault/ownCloud/Documents/01-Programmation/C++/Bomberman/Cpp/src/gui/Checkbox.cpp
+	"Checkbox.hpp"
+
+1424920602 /home/thibault/ownCloud/Documents/01-Programmation/C++/Bomberman/Cpp/include/gui/Checkbox.hpp
+	"General.hpp"
+	<header.hpp>
 

@@ -3,6 +3,7 @@
 
 #include <Menu.hpp>
 #include <Slider.hpp>
+#include "Checkbox.hpp"
 
 class MenuIndex : public Menu
 {

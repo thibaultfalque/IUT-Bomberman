@@ -11,6 +11,7 @@ MenuIndex::MenuIndex(sf::Vector2i* s):Menu(s)
     addObs(new Bouton("Options",boutonSize,Vector2f(positionBouton.x,positionBouton.y+0.1*_window_size->y*2),"Options"));
     addObs(new Bouton("Options Touches",boutonSize,Vector2f(positionBouton.x,positionBouton.y+0.1*_window_size->y*3),"OptionsTouches"));
     addObs(new Slider(0,100,50,Vector2f(200,10),Vector2f(10,20)));
+    addObs(new Checkbox(sf::Vector2f(50,50),sf::Vector2f(45,45),sf::Vector2f(10,10),sf::Vector2f(20,20)));
 }
 
 MenuIndex::~MenuIndex()

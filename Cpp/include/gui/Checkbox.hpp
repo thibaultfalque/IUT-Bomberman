@@ -14,6 +14,7 @@ class Checkbox : public Observateur
         void onMouseHover(sf::Event& event);
         bool isClick();
     protected:
+        virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;
     private:
         bool _hover;
         bool _click;
