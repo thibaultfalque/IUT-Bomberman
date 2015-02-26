@@ -129,6 +129,7 @@
 		<Unit filename="include/Observable.hpp" />
 		<Unit filename="include/Observateur.hpp" />
 		<Unit filename="include/gui/Bouton.hpp" />
+		<Unit filename="include/gui/Checkbox.hpp" />
 		<Unit filename="include/gui/Slider.hpp" />
 		<Unit filename="include/header.hpp" />
 		<Unit filename="include/noClass.hpp" />
@@ -149,6 +150,7 @@
 		<Unit filename="src/Observable.cpp" />
 		<Unit filename="src/Observateur.cpp" />
 		<Unit filename="src/gui/Bouton.cpp" />
+		<Unit filename="src/gui/Checkbox.cpp" />
 		<Unit filename="src/gui/Slider.cpp" />
 		<Unit filename="src/noClass/Collision.cpp" />
 		<Unit filename="src/noClass/fileManager.cpp" />

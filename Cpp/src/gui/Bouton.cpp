@@ -21,15 +21,23 @@ Bouton::~Bouton()
 void Bouton::update(){
 
 }
-void Bouton::onEvent(sf::Event& event){
-    if( event.type==sf::Event::MouseMoved && pointInRect(_pos,_size,Vector2f(event.mouseMove.x,event.mouseMove.y)))
+void Bouton::onMouseClick(sf::Event& event){
+    if (pointInRect(_pos,_size,Vector2f(event.mouseButton.x,event.mouseButton.y)))
+            ScreenManager::goToScreen(_action);
+}
+void Bouton::onMouseHover(sf::Event& event){
+    if(pointInRect(_pos,_size,Vector2f(event.mouseMove.x,event.mouseMove.y)))
         _rec.setFillColor(sf::Color(0,0,0,128));
     else
         _rec.setFillColor(sf::Color(0,0,0,0));
+}
 
-    if(event.type==sf::Event::MouseButtonReleased)
-        if (event.mouseButton.button == sf::Mouse::Left && pointInRect(_pos,_size,Vector2f(event.mouseButton.x,event.mouseButton.y)))
-            ScreenManager::goToScreen(_action);
+void Bouton::onEvent(sf::Event& event){
+    if( event.type==sf::Event::MouseMoved)
+        onMouseHover(event);
+
+    if(event.type==sf::Event::MouseButtonReleased && event.mouseButton.button == sf::Mouse::Left)
+        onMouseClick(event);
 
 }
 void Bouton::setAction(string str){
