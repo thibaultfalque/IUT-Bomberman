@@ -38,7 +38,7 @@ void Checkbox::onMouseClick(sf::Event& event){
 }
 void Checkbox::onMouseHover(sf::Event& event){
     _hover=pointInRect(_posRecOut,_sizeRecOut,sf::Vector2f(event.mouseMove.x,event.mouseMove.y));
-    cout<<_hover<<endl;
+
 }
 void Checkbox::draw(sf::RenderTarget& target, sf::RenderStates states) const{
     target.draw(_recOut);

@@ -2,8 +2,9 @@
 #define MENUINDEX_HPP
 
 #include <Menu.hpp>
-#include <Slider.hpp>
+#include "Slider.hpp"
 #include "Checkbox.hpp"
+#include "InputText.hpp"
 
 class MenuIndex : public Menu
 {
