@@ -6,6 +6,7 @@
 #include "Menu.hpp"
 #include "Background.h"
 #include "MenuIndex.hpp"
+#include "Game.hpp"
 class Application
 {
     public:

@@ -24,6 +24,7 @@
 					<Add directory="include/Menu" />
 					<Add directory="include/Personnage" />
 					<Add directory="include/BonusMalus" />
+					<Add directory="include/Game" />
 				</Compiler>
 				<Linker>
 					<Add option="-lGL" />
@@ -51,6 +52,7 @@
 					<Add directory="include/Menu" />
 					<Add directory="include/Personnage" />
 					<Add directory="include/BonusMalus" />
+					<Add directory="include/Game" />
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
@@ -82,6 +84,7 @@
 					<Add directory="include/Menu" />
 					<Add directory="include/Personnage" />
 					<Add directory="include/BonusMalus" />
+					<Add directory="include/Game" />
 				</Compiler>
 				<Linker>
 					<Add option="-lglu32" />
@@ -109,6 +112,7 @@
 					<Add directory="include/Menu" />
 					<Add directory="include/Personnage" />
 					<Add directory="include/BonusMalus" />
+					<Add directory="include/Game" />
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
@@ -136,6 +140,11 @@
 		<Unit filename="include/BonusMalus/MalusDegatsBombes.hpp" />
 		<Unit filename="include/BonusMalus/MalusNbBombes.hpp" />
 		<Unit filename="include/BonusMalus/MalusVitesse.hpp" />
+		<Unit filename="include/Game/Block.hpp" />
+		<Unit filename="include/Game/Case.hpp" />
+		<Unit filename="include/Game/Map.hpp" />
+		<Unit filename="include/Game/Mur.hpp" />
+		<Unit filename="include/Game/Sol.hpp" />
 		<Unit filename="include/General.hpp" />
 		<Unit filename="include/General/Console.hpp" />
 		<Unit filename="include/General/Ressource.hpp" />
@@ -169,6 +178,11 @@
 		<Unit filename="src/BonusMalus/MalusDegatsBombes.cpp" />
 		<Unit filename="src/BonusMalus/MalusNbBombes.cpp" />
 		<Unit filename="src/BonusMalus/MalusVitesse.cpp" />
+		<Unit filename="src/Game/Block.cpp" />
+		<Unit filename="src/Game/Case.cpp" />
+		<Unit filename="src/Game/Map.cpp" />
+		<Unit filename="src/Game/Mur.cpp" />
+		<Unit filename="src/Game/Sol.cpp" />
 		<Unit filename="src/General/Console.cpp" />
 		<Unit filename="src/General/Ressource.cpp" />
 		<Unit filename="src/General/Screen.cpp" />

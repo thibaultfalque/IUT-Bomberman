@@ -729,13 +729,14 @@
 1424253961 source:/home/thibault/ownCloud/Documents/01-Programmation/C++/Bomberman/Cpp/src/General/Screen.cpp
 	"General/Screen.h"
 
-1424273622 /home/thibault/ownCloud/Documents/01-Programmation/C++/Bomberman/Cpp/include/Application.hpp
+1426026098 /home/thibault/ownCloud/Documents/01-Programmation/C++/Bomberman/Cpp/include/Application.hpp
 	<SFML/Graphics.hpp>
 	<General.hpp>
 	"header.hpp"
 	"Menu.hpp"
 	"Background.h"
 	"MenuIndex.hpp"
+	"Game.hpp"
 
 1424421589 /home/thibault/ownCloud/Documents/01-Programmation/C++/Bomberman/Cpp/include/header.hpp
 	<iostream>
@@ -758,7 +759,7 @@
 	<SFML/Window.hpp>
 	"noClass.hpp"
 
-1424273595 source:/home/thibault/ownCloud/Documents/01-Programmation/C++/Bomberman/Cpp/src/Application.cpp
+1426027602 source:/home/thibault/ownCloud/Documents/01-Programmation/C++/Bomberman/Cpp/src/Application.cpp
 	"Application.hpp"
 
 1424436504 source:/home/thibault/ownCloud/Documents/01-Programmation/C++/Bomberman/Cpp/src/General/ScreenManager.cpp
@@ -932,7 +933,6 @@
 1424920602 /home/thibault/ownCloud/Documents/01-Programmation/C++/Bomberman/Cpp/include/gui/Checkbox.hpp
 	"General.hpp"
 	<header.hpp>
-
 
 1424332478 source:/home/gregory/Dropbox/IUT/2e annee/Bomberman/Cpp/main.cpp
 	"Application.hpp"
@@ -1564,5 +1564,122 @@
 1424968548 /home/gregory/Dropbox/IUT/2e annee/Bomberman/Cpp/include/BonusMalus/BonusPusher.h
 	"BonusMalus.hpp"
 	"Personnage.hpp"
->>>>>>> 7a50cfcea6b28f0ab2e595530330f0fec6825860
+
+1424968548 0cfcea6b28f0ab2e595530330f0fec6825860
+
+1425148094 /home/thibault/ownCloud/Documents/01-Programmation/C++/Bomberman/Cpp/include/gui/InputText.hpp
+	"Observateur.hpp"
+	"General.hpp"
+
+1425304281 source:/home/thibault/ownCloud/Documents/01-Programmation/C++/Bomberman/Cpp/src/gui/InputText.cpp
+	"InputText.hpp"
+
+1426026116 /home/thibault/ownCloud/Documents/01-Programmation/C++/Bomberman/Cpp/include/Game/Game.hpp
+	"header.hpp"
+	"General.hpp"
+	"Map.hpp"
+
+1426026502 /home/thibault/ownCloud/Documents/01-Programmation/C++/Bomberman/Cpp/include/Game/Map.hpp
+	"header.hpp"
+	"General.hpp"
+	"Case.hpp"
+	"Sol.hpp"
+	"Mur.hpp"
+	"Block.hpp"
+
+1426026450 /home/thibault/ownCloud/Documents/01-Programmation/C++/Bomberman/Cpp/include/Game/Case.hpp
+	"header.hpp"
+	"General.hpp"
+
+1426026864 /home/thibault/ownCloud/Documents/01-Programmation/C++/Bomberman/Cpp/include/Game/Sol.hpp
+	"Case.hpp"
+	"BonusMalus.hpp"
+
+1426026218 /home/thibault/ownCloud/Documents/01-Programmation/C++/Bomberman/Cpp/include/Game/Mur.hpp
+	"Case.hpp"
+
+1426026342 /home/thibault/ownCloud/Documents/01-Programmation/C++/Bomberman/Cpp/include/Game/Block.hpp
+	"Case.hpp"
+
+1425305159 /home/thibault/ownCloud/Documents/01-Programmation/C++/Bomberman/Cpp/include/BonusMalus/BonusMalus.hpp
+	"Personnage.hpp"
+
+1425305159 /home/thibault/ownCloud/Documents/01-Programmation/C++/Bomberman/Cpp/include/Personnage/Personnage.hpp
+	"BonusMalus/BonusMalus.hpp"
+	"header.hpp"
+
+1425305159 source:/home/thibault/ownCloud/Documents/01-Programmation/C++/Bomberman/Cpp/src/BonusMalus/BonusDegatsBombes.cpp
+	"BonusDegatsBombes.hpp"
+
+1425305159 /home/thibault/ownCloud/Documents/01-Programmation/C++/Bomberman/Cpp/include/BonusMalus/BonusDegatsBombes.hpp
+	"BonusMalus.hpp"
+	"Personnage.hpp"
+
+1425305159 source:/home/thibault/ownCloud/Documents/01-Programmation/C++/Bomberman/Cpp/src/BonusMalus/BonusLauncher.cpp
+	"BonusLauncher.hpp"
+
+1425305159 /home/thibault/ownCloud/Documents/01-Programmation/C++/Bomberman/Cpp/include/BonusMalus/BonusLauncher.hpp
+	"BonusMalus.hpp"
+	"Personnage.hpp"
+
+1425305159 source:/home/thibault/ownCloud/Documents/01-Programmation/C++/Bomberman/Cpp/src/BonusMalus/BonusMalus.cpp
+	"BonusMalus.hpp"
+
+1425305159 source:/home/thibault/ownCloud/Documents/01-Programmation/C++/Bomberman/Cpp/src/BonusMalus/BonusNbBombes.cpp
+	"BonusNbBombes.hpp"
+
+1425305159 /home/thibault/ownCloud/Documents/01-Programmation/C++/Bomberman/Cpp/include/BonusMalus/BonusNbBombes.hpp
+	"BonusMalus.hpp"
+
+1425305159 source:/home/thibault/ownCloud/Documents/01-Programmation/C++/Bomberman/Cpp/src/BonusMalus/BonusPusher.cpp
+	"BonusPusher.h"
+
+1425305159 /home/thibault/ownCloud/Documents/01-Programmation/C++/Bomberman/Cpp/include/BonusMalus/BonusPusher.h
+	"BonusMalus.hpp"
+	"Personnage.hpp"
+
+1425305159 source:/home/thibault/ownCloud/Documents/01-Programmation/C++/Bomberman/Cpp/src/BonusMalus/BonusVitesse.cpp
+	"BonusVitesse.hpp"
+
+1425305159 /home/thibault/ownCloud/Documents/01-Programmation/C++/Bomberman/Cpp/include/BonusMalus/BonusVitesse.hpp
+	"BonusMalus.hpp"
+
+1425305159 source:/home/thibault/ownCloud/Documents/01-Programmation/C++/Bomberman/Cpp/src/BonusMalus/MalusDegatsBombes.cpp
+	"MalusDegatsBombes.hpp"
+
+1425305159 /home/thibault/ownCloud/Documents/01-Programmation/C++/Bomberman/Cpp/include/BonusMalus/MalusDegatsBombes.hpp
+	"BonusMalus.hpp"
+
+1425305159 source:/home/thibault/ownCloud/Documents/01-Programmation/C++/Bomberman/Cpp/src/BonusMalus/MalusNbBombes.cpp
+	"MalusNbBombes.hpp"
+
+1425305159 /home/thibault/ownCloud/Documents/01-Programmation/C++/Bomberman/Cpp/include/BonusMalus/MalusNbBombes.hpp
+	"BonusMalus.hpp"
+
+1425305159 source:/home/thibault/ownCloud/Documents/01-Programmation/C++/Bomberman/Cpp/src/BonusMalus/MalusVitesse.cpp
+	"MalusVitesse.hpp"
+
+1425305159 /home/thibault/ownCloud/Documents/01-Programmation/C++/Bomberman/Cpp/include/BonusMalus/MalusVitesse.hpp
+	"BonusMalus.hpp"
+
+1426026255 source:/home/thibault/ownCloud/Documents/01-Programmation/C++/Bomberman/Cpp/src/Game/Block.cpp
+	"Block.hpp"
+
+1426026362 source:/home/thibault/ownCloud/Documents/01-Programmation/C++/Bomberman/Cpp/src/Game/Case.cpp
+	"Case.hpp"
+
+1426026396 source:/home/thibault/ownCloud/Documents/01-Programmation/C++/Bomberman/Cpp/src/Game/Game.cpp
+	"Game.hpp"
+
+1426027935 source:/home/thibault/ownCloud/Documents/01-Programmation/C++/Bomberman/Cpp/src/Game/Map.cpp
+	"Map.hpp"
+
+1426026260 source:/home/thibault/ownCloud/Documents/01-Programmation/C++/Bomberman/Cpp/src/Game/Mur.cpp
+	"Mur.hpp"
+
+1426026262 source:/home/thibault/ownCloud/Documents/01-Programmation/C++/Bomberman/Cpp/src/Game/Sol.cpp
+	"Sol.hpp"
+
+1425305159 source:/home/thibault/ownCloud/Documents/01-Programmation/C++/Bomberman/Cpp/src/Personnage/Personnage.cpp
+	"Personnage.hpp"
 
