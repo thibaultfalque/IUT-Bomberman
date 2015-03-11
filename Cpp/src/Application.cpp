@@ -4,10 +4,10 @@ Application::Application():_window_size(WINDOW_WIDTH,WINDOW_HEIGHT),
  _window(VideoMode(WINDOW_WIDTH,WINDOW_HEIGHT), L"Bomberman", Style::Close | Style::Titlebar | Style::Resize),
  _background("backgroundMenu.png")
 {
-    /*MenuIndex* m=new MenuIndex(&_window_size);
+    MenuIndex* m=new MenuIndex(&_window_size);
     ScreenManager::add(m,"Menu");
-    ScreenManager::goToScreen("Menu");
-        */
+    //ScreenManager::goToScreen("Menu");
+
     Game* g=new Game(&_window_size);
     ScreenManager::add(g,"Game");
     ScreenManager::goToScreen("Game");
@@ -60,7 +60,8 @@ void Application::render()
 {
 
 	_window.clear();
-	_window.draw(_background);
+	///TODO Mettre le background autre part
+	//_window.draw(_background);
     _window.draw(*ScreenManager::screeCourant);
     Console::draw(_window,RenderStates::Default);
 	_window.display();

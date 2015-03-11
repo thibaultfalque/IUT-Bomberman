@@ -20,7 +20,7 @@ class Map:public sf::Drawable
     protected:
         virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;
     private:
-        string& readFileMap(string str);
+        string readFileMap(string str);
         vector<vector<Case*>> _matrix;
         sf::Vector2i _size;
 };
