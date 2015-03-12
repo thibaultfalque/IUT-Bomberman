@@ -23,6 +23,7 @@ class Map:public sf::Drawable
         string readFileMap(string str);
         vector<vector<Case*>> _matrix;
         sf::Vector2i _size;
+
 };
 
 #endif // MAP_HPP

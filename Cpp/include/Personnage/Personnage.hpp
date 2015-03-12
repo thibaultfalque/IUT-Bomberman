@@ -2,9 +2,11 @@
 #define PERSONNAGE_HPP
 #include "BonusMalus/BonusMalus.hpp"
 #include "header.hpp"
+#include "General/Ressource.hpp"
+#include "General/Console.hpp"
 
 class BonusMalus;
-class Personnage
+class Personnage : public sf::Drawable
 {
     public:
         Personnage(sf::Vector2f position);
@@ -21,11 +23,18 @@ class Personnage
         int getnbBombe();
         int getdegatsBombes();
         void addBonusMalus(BonusMalus b);
+        void update();
     protected:
+        virtual void draw(sf::RenderTarget & target, sf::RenderStates states) const;
         sf::Vector2f pos, vitesse;
         int nbBombeMax, nbBombe, degatsBombes;
         vector<BonusMalus> bonusMalus;
         bool launcher, pusher;
+        int etapePas;
+        int direction;
+        sf::Clock timerPas;
+        sf::Clock deltaUpdate;
+        sf::Sprite _sprites[4][9];
         //Bombe bombe;
     private:
 };

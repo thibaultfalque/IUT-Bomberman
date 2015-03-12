@@ -1,9 +1,9 @@
 #ifndef CASE_HPP
 #define CASE_HPP
 
-#define MUR 0
-#define BLOCK 1
-#define SOL 2
+#define MUR '0'
+#define BLOCK '1'
+#define SOL '2'
 
 #define LARGEUR 38
 #define HAUTEUR 38
