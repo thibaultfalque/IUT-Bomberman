@@ -68,14 +68,30 @@ void InputText::onKeyPressed(sf::Event& event){
     updateCursorPosition();
 }
 void InputText::onMouseUp(sf::Event& event){
-    if(_hover && event.mouseButton.button == sf::Mouse::Left)
+    if(_hover && event.mouseButton.button == sf::Mouse::Left){
         _active=true;
+         //sf::Vector2f pos;
+         //pos.x=event.mouseButton.x;
+         //pos.y=_cursor.getPosition().y;
+
+        //
+        //    pos.x=_pos.x+_textArea.getOutlineThickness();
+        float relative=event.mouseButton.x-(_pos.x+_textArea.getOutlineThickness());
+        if(_str.size()!=0)
+            _cursorPosition=relative/(_text.getGlobalBounds().width/_str.size());
+        if(_cursorPosition>_str.size())
+            _cursorPosition=_str.size();
+        cout<<_text.getGlobalBounds().width/_str.size()<<endl;
+        cout<<"relative "<<relative<<endl;
+        cout<<"cursor position "<<_cursorPosition<<endl;
+        //_cursor.setPosition(pos);
+    }
 
     else{
         _active=false;
         _showCursor=false;
     }
-
+    updateCursorPosition();
 
 
 }

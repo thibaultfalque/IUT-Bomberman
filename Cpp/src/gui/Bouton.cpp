@@ -1,6 +1,6 @@
 #include "Bouton.hpp"
 
-Bouton::Bouton(const string text,Vector2f const& taille,Vector2f const& position,string str):_size(taille),_pos(position)
+Bouton::Bouton(const string text,Vector2f const& taille,Vector2f const& position,string str):_size(taille),_pos(position),_action(str)
 {
     _rec.setSize(_size);
     _rec.setPosition(_pos);
@@ -11,7 +11,7 @@ Bouton::Bouton(const string text,Vector2f const& taille,Vector2f const& position
     _text.setFont(Ressource::getFont("defaut.ttf"));
     _text.setCharacterSize(15);
     _text.setPosition(Vector2f(_pos.x+_size.x/2-_text.getGlobalBounds().width/2,_pos.y+_size.y/2-_text.getGlobalBounds().height/2));
-
+    _
 }
 
 Bouton::~Bouton()
