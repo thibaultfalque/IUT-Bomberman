@@ -4,6 +4,7 @@
 #include "header.hpp"
 #include "General.hpp"
 #include "Map.hpp"
+#include "Personnage/Personnage.hpp"
 
 class Game:public Screen
 {

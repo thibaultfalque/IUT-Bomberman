@@ -180,6 +180,7 @@
 		<Unit filename="src/BonusMalus/MalusVitesse.cpp" />
 		<Unit filename="src/Game/Block.cpp" />
 		<Unit filename="src/Game/Case.cpp" />
+		<Unit filename="src/Game/Game.cpp" />
 		<Unit filename="src/Game/Map.cpp" />
 		<Unit filename="src/Game/Mur.cpp" />
 		<Unit filename="src/Game/Sol.cpp" />

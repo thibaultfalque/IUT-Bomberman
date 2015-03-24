@@ -1,5 +1,5 @@
 #include "BonusVitesse.hpp"
-
+#include "Personnage.hpp"
 BonusVitesse::BonusVitesse():BonusMalus()
 {
     //ctor

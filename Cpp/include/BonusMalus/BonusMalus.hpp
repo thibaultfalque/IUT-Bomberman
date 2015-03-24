@@ -1,6 +1,6 @@
 #ifndef BONUSMALUS_HPP
 #define BONUSMALUS_HPP
-#include "Personnage.hpp"
+
 class Personnage;
 class BonusMalus
 {

@@ -4,12 +4,13 @@
 #include "header.hpp"
 #include "General/Ressource.hpp"
 #include "General/Console.hpp"
-
+#include "Game/Map.hpp"
 class BonusMalus;
+class Map;
 class Personnage : public sf::Drawable
 {
     public:
-        Personnage(sf::Vector2f position);
+        Personnage(sf::Vector2f position, Map & __map);
         virtual ~Personnage();
         void setVitesse(sf::Vector2f vitesse);
         void setnbBombeMax(int nbBombeMax);
@@ -24,6 +25,8 @@ class Personnage : public sf::Drawable
         int getdegatsBombes();
         void addBonusMalus(BonusMalus b);
         void update();
+        void moveTo(sf::Vector2f newPos);
+        bool canMoveTo(sf::Vector2i newPos);
     protected:
         virtual void draw(sf::RenderTarget & target, sf::RenderStates states) const;
         sf::Vector2f pos, vitesse;
@@ -35,6 +38,7 @@ class Personnage : public sf::Drawable
         sf::Clock timerPas;
         sf::Clock deltaUpdate;
         sf::Sprite _sprites[4][9];
+        Map & _map;
         //Bombe bombe;
     private:
 };

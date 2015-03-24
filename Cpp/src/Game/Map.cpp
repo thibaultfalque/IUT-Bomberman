@@ -1,5 +1,5 @@
 #include "Map.hpp"
-Map::Map(string str):_matrix(5)
+Map::Map(string str):_matrix(5),pos(0,0)
 {
     string ligne;
 
@@ -61,4 +61,17 @@ Case* Map::getCase(int x,int y){
 }
 sf::Vector2i& Map::getSize(){
     return _size;
+}
+
+Vector2i Map::getMapPosition(Vector2i screenPosition){
+    screenPosition.x = screenPosition.x-pos.x;
+    screenPosition.y = screenPosition.y-pos.y;
+    screenPosition.x /= LARGEUR;
+    screenPosition.y /= HAUTEUR;
+    if(screenPosition.x<0 || screenPosition.x>=_size.x || screenPosition.y <0 || screenPosition.y >= _size.y){
+        screenPosition.x=-1;
+        screenPosition.y=-1;
+    }
+
+    return screenPosition;
 }

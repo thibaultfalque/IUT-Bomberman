@@ -1,4 +1,5 @@
 #include "MalusDegatsBombes.hpp"
+#include "Personnage.hpp"
 
 MalusDegatsBombes::MalusDegatsBombes():BonusMalus()
 {

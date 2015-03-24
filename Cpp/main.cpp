@@ -6,10 +6,7 @@ using namespace sf;
 int main()
 {
    // RenderWindow window(VideoMode(800,600), L"Bomberman", Style::Close | Style::Titlebar | Style::Resize);
-    Console::say("SALUT1");
-    Console::say("SALUT2");
-    Console::say("SALUT3");
-    Console::say("SALUT4");
+
     /*while(window.isOpen()){
         Event e;
         while(window.pollEvent(e)){
