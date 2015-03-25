@@ -66,12 +66,18 @@ sf::Vector2i& Map::getSize(){
 Vector2i Map::getMapPosition(Vector2i screenPosition){
     screenPosition.x = screenPosition.x-pos.x;
     screenPosition.y = screenPosition.y-pos.y;
-    screenPosition.x /= LARGEUR;
-    screenPosition.y /= HAUTEUR;
+    screenPosition.x = floor(screenPosition.x/(float)LARGEUR);
+    screenPosition.y = floor(screenPosition.y/(float)HAUTEUR);
     if(screenPosition.x<0 || screenPosition.x>=_size.x || screenPosition.y <0 || screenPosition.y >= _size.y){
         screenPosition.x=-1;
         screenPosition.y=-1;
     }
 
     return screenPosition;
+}
+
+bool Map::canWalk(int x, int y){
+    if(x<0||x>_matrix.size()||y<0||y>_matrix[x].size())
+        return false;
+    return _matrix[x][y]->canWalk();
 }

@@ -16,7 +16,7 @@ Personnage::Personnage(sf::Vector2f position, Map & __map):_map(__map)
     degatsBombes=2;
     for(int y=0;y<4;y++)
     for(int x=0;x<9;x++)
-        _sprites[y][x]=Ressource::getSprite("bombermansprites.png",IntRect(38*x,38*y,38,38));
+        _sprites[y][x]=Ressource::getSprite("bombermansprites.png",IntRect(38*x+9,38*y+5,20,30));
 }
 
 void Personnage::setVitesse(sf::Vector2f vit){
@@ -77,8 +77,6 @@ void Personnage::update(){
 
     moveTo(pos +vitesse*deltaUpdate.getElapsedTime().asSeconds());
 
-    cout << pos.x << endl;
-
 
     //GRAPHIC UPDATE
 
@@ -108,44 +106,20 @@ void Personnage::update(){
 }
 
 void Personnage::moveTo(sf::Vector2f newPos){
-cout << "ok" << endl;
-    Vector2i realPos =Vector2i((int)pos.x,(int)pos.y);
-    Vector2i realNewPos = Vector2i((int)newPos.x,(int)newPos.y);
-    cout << realPos.x << "|" << realPos.y << endl;
-    cout << realNewPos.x << "|" << realNewPos.y << endl;
-
-    Vector2i diff = realPos-realNewPos;
-    cout << diff.x << endl;
-    cout << diff.y << endl;
-    if(canMoveTo(realNewPos) || !canMoveTo(realPos))
-        pos=newPos;
-    else if(!(abs(diff.x)<=1 && abs(diff.y)<=1) ){
-        Vector2i middle = (realPos+realNewPos);
-        cout << middle.x << endl;
-        cout << middle.y << endl;
-        middle.x/=2;
-
-        middle.y/=2;
-        cout << middle.x << endl;
-        cout << middle.y << endl;
-        if(canMoveTo(middle)){  cout << "ici2" << endl;
-            pos = Vector2f(middle.x,middle.y);
-            moveTo(newPos);
-
-        }
-        else{
-        cout << "ici" << endl;
-            moveTo(Vector2f(middle.x,middle.y));
-
-        }
-    }
+    if(pos==newPos || canMoveTo(Vector2i((int)newPos.x,(int)newPos.y)) || !canMoveTo(Vector2i((int)pos.x,(int)pos.y)))
+        pos = newPos;
 }
 
 bool Personnage::canMoveTo(sf::Vector2i newPos){
 
-    if(newPos.x<0 || newPos.y<0) // conditionTemporaire
-    return false;
+    Vector2i hg = _map.getMapPosition(newPos+Vector2i(0,15));
+    Vector2i bd = _map.getMapPosition(newPos+Vector2i(20,30));
+    for(int x=hg.x;x<=bd.x;x++)
+        for(int y=hg.y;y<=bd.y;y++){
+            if(!_map.canWalk(x,y))
+                return false;
 
+        }
     return true;
 }
 

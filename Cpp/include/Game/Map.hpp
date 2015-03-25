@@ -18,6 +18,7 @@ class Map:public sf::Drawable
         Case* getCase(int x,int y);
         Vector2i & getSize();
         Vector2i getMapPosition(Vector2i screenPosition);
+        bool canWalk(int x, int y);
     protected:
         virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;
     private:
