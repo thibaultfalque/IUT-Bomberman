@@ -4,7 +4,7 @@
 #include "header.hpp"
 #include "General/Screen.h"
 #include "Bouton.hpp"
-
+#include "Background.h"
 
 #include <string>
 using namespace sf;
@@ -19,6 +19,7 @@ class Menu: public Screen
     protected:
         virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;
     private:
+        Background _background;
 };
 
 #endif // MENU_HPP
