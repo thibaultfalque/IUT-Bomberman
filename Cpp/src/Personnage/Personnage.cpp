@@ -1,6 +1,6 @@
 #include "Personnage.hpp"
 
-Personnage::Personnage(sf::Vector2f position)
+Personnage::Personnage(sf::Vector2f position,const string& str)
 {
     pos=position;
     // vitesse de déplacement mis au pif, doit surement etre modifié
@@ -11,6 +11,8 @@ Personnage::Personnage(sf::Vector2f position)
     pusher=false;
     //bombe=new BombeNormale();
     degatsBombes=2;
+    _sprite=Ressource::getSprite(str,sf::IntRect(0,0,38,38));
+    _sprite.setPosition(pos);
 }
 
 void Personnage::setVitesse(sf::Vector2f vit){
@@ -51,7 +53,9 @@ int Personnage::getdegatsBombes(){
 void Personnage::addBonusMalus(BonusMalus b){
 
 }
-
+void Personnage::draw(sf::RenderTarget& target, sf::RenderStates states) const {
+    target.draw(_sprite,states);
+}
 
 Personnage::~Personnage()
 {
