@@ -4,12 +4,9 @@ Map::Map(string str):_matrix(5)
 {
     string ligne;
     ligne=readFileMap(str);
-    cout<<"ligne "<<ligne.size()<<endl;
     _matrix.resize(_size.x);
     for(unsigned int i=0;i<_size.x;i++)
         for(unsigned int j=0;j<_size.y;j++){
-            cout<<"j "<<j<<endl;
-            cout<<"carac "<<ligne[(i*_size.x)+j]<<endl;
             switch(ligne[(i*_size.x)+j]){
                 case '0':
                     _matrix[i].push_back(new Mur("surfaces/mur.png",false,sf::Vector2f(LARGEUR*i,HAUTEUR*j)));
@@ -26,14 +23,18 @@ Map::Map(string str):_matrix(5)
 
 Map::~Map()
 {
-    //dtor
+    for(int i=0;i<_matrix.size();i++)
+        for(int j=0;j<_matrix[i].size();j++)
+            delete _matrix[i][j];
+
+
 }
 void Map::draw(sf::RenderTarget& target, sf::RenderStates states) const{
 
     for(unsigned int i=0;i<_size.x;i++){
-        cout<<"i "<<i<<endl;
+
         for(unsigned int j=0;j<_size.y;j++){
-            cout<<"j "<<j<<endl;
+
             target.draw(*_matrix[i][j],states);
         }
     }

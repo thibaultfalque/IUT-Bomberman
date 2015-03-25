@@ -19,3 +19,6 @@ void Case::setCanWalk(bool b){
 void Case::draw(sf::RenderTarget& target, sf::RenderStates states) const{
     target.draw(_sprite,states);
 }
+void Case::setPosition(const sf::Vector2f& position){
+    _pos=position;
+}

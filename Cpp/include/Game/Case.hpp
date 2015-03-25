@@ -17,6 +17,7 @@ class Case:public sf::Drawable
         Case(string str,bool b,sf::Vector2f pos);
         /** Default destructor */
         virtual ~Case();
+        void setPosition(const sf::Vector2f& pos);
         bool canWalk();
         void setCanWalk(bool b);
     protected:
