@@ -23,7 +23,7 @@ int string_to_int( const string & Str)
     return Dest;
 }
 
-
+/*
 string to_string( int Value )
 {
     std::ostringstream oss;
@@ -71,7 +71,7 @@ string to_string( bool Value )
 }
 
 
-
+*/
 
 int nombre_car_mot(string mot, char l)
 {
