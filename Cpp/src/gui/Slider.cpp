@@ -10,7 +10,8 @@ Slider::Slider(const float& valMin, const float& valMax,const float& val,const s
 
     _cursor.setFillColor(sf::Color::Black);
     _cursor.setSize(sf::Vector2f(15,_size.y+20));
-    _cursor.setPosition(Vector2f(((_pos.x+_size.x)*_currentValue)/_valMax,_pos.y-_size.y/2*2));
+    _cursor.setPosition(Vector2f(_pos.x+(_size.x*_currentValue)/_valMax,_pos.y-_size.y/2*2));
+
 }
 
 Slider::~Slider()

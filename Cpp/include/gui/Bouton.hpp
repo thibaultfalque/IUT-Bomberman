@@ -15,6 +15,8 @@ class Bouton:public Observateur
         void onMouseHover(sf::Event& event);
         void update();
         void setAction(string str);
+        sf::Vector2f getSize();
+        sf::Vector2f getPosition();
         virtual ~Bouton();
     protected:
         void draw(sf::RenderTarget& target, sf::RenderStates states) const;

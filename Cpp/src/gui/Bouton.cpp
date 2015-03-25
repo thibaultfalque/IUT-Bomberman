@@ -11,7 +11,7 @@ Bouton::Bouton(const string text,Vector2f const& taille,Vector2f const& position
     _text.setFont(Ressource::getFont("defaut.ttf"));
     _text.setCharacterSize(15);
     _text.setPosition(Vector2f(_pos.x+_size.x/2-_text.getGlobalBounds().width/2,_pos.y+_size.y/2-_text.getGlobalBounds().height/2));
-    _
+    _action=str;
 }
 
 Bouton::~Bouton()
@@ -46,4 +46,10 @@ void Bouton::setAction(string str){
 void Bouton::draw(sf::RenderTarget& target,sf::RenderStates states) const {
     target.draw(_rec);
     target.draw(_text);
+}
+sf::Vector2f Bouton::getPosition(){
+    return _pos;
+}
+sf::Vector2f Bouton::getSize(){
+    return _size;
 }
