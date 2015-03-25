@@ -1,6 +1,6 @@
 #include "IA.hpp"
 
-IA::IA(const sf::Vector2f& position,const string& str):Personnage(position,str)
+IA::IA(const sf::Vector2f& position,const string& str,Map & __map, EventManager & _em):Personnage(position,str,__map,_em)
 {
     //ctor
 }

@@ -39,3 +39,4 @@ int substr_count(string chaine, string pattern);
 map<string, int> iterration_mots(string texte);
 
 #endif // FN_STRING_HPP
+

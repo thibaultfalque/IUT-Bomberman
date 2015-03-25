@@ -1,4 +1,5 @@
 #include "MalusVitesse.hpp"
+#include "Personnage.hpp"
 
 MalusVitesse::MalusVitesse():BonusMalus()
 {

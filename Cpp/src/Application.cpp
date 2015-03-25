@@ -13,8 +13,10 @@ Application::Application():_window_size(WINDOW_WIDTH,WINDOW_HEIGHT),
     Game* g=new Game(&_window_size);
     ScreenManager::add(g,"Game");
 
+
     EditeurMap* e=new EditeurMap(&_window_size);
     ScreenManager::add(e,"Editeur");
+
 
 }
 
@@ -66,10 +68,8 @@ void Application::update()
 
 void Application::render()
 {
-
 	_window.clear();
-	///TODO Mettre le background autre part
-//	_window.draw(_background);
+
     _window.draw(*ScreenManager::screeCourant);
     if(_showConsole)
         Console::draw(_window,RenderStates::Default);

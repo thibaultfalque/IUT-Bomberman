@@ -1,6 +1,6 @@
 #include "Humain.hpp"
 
-Humain::Humain(const sf::Vector2f& position,const string& str):Personnage(position,str)
+Humain::Humain(const sf::Vector2f& position,const string& str,Map & __map, EventManager & _em):Personnage(position,str,__map,_em)
 {
     //ctor
 }

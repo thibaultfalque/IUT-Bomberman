@@ -6,7 +6,7 @@ class Humain:public Personnage
 {
     public:
         /** Default constructor */
-        Humain(const sf::Vector2f& position,const string& str);
+        Humain(const sf::Vector2f& position,const string& str,Map & __map, EventManager & _em);
         /** Default destructor */
         virtual ~Humain();
     protected:

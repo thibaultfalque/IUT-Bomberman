@@ -6,7 +6,7 @@ class IA:public Personnage
 {
     public:
         /** Default constructor */
-        IA(const sf::Vector2f& position,const string& str);
+        IA(const sf::Vector2f& position,const string& str,Map & __map, EventManager & _em);
         /** Default destructor */
         virtual ~IA();
     protected:

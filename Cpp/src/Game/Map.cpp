@@ -1,14 +1,19 @@
 #include "Map.hpp"
-
-Map::Map(string str):_matrix(5)
+#include "noClass/fn_string.hpp"
+Map::Map(string str):pos(0,0)
 {
     string ligne;
+
     ligne=readFileMap(str);
+
     _matrix.resize(_size.x);
+
     for(unsigned int i=0;i<_size.x;i++)
         for(unsigned int j=0;j<_size.y;j++){
-            switch(ligne[(i*_size.x)+j]){
+
+            switch(ligne[(i*_size.y)+j]){
                 case '0':
+
                     _matrix[i].push_back(new Mur("surfaces/mur.png",false,sf::Vector2f(LARGEUR*i,HAUTEUR*j)));
                 break;
                 case '1':
@@ -31,13 +36,13 @@ Map::~Map()
 }
 void Map::draw(sf::RenderTarget& target, sf::RenderStates states) const{
 
-    for(unsigned int i=0;i<_size.x;i++){
 
-        for(unsigned int j=0;j<_size.y;j++){
-
+    for(unsigned int i=0;i<_matrix.size();i++){
+        for(unsigned int j=0;j<_matrix[i].size();j++){
             target.draw(*_matrix[i][j],states);
         }
     }
+
 }
 string Map::readFileMap(string str){
     ifstream f(str);
@@ -50,7 +55,7 @@ string Map::readFileMap(string str){
     vector<string> tailles;
     tailles=explode(t,' ');
     if(tailles.size()!=2){
-        cerr<<"fichier map mal forme: erreur taille map"<<endl;
+        cerr<<"Fichier map mal forme: erreur taille map"<<endl;
         exit(1);
     }
     _size.x=string_to_int(tailles[0]);
@@ -66,4 +71,23 @@ Case* Map::getCase(int x,int y){
 }
 sf::Vector2i& Map::getSize(){
     return _size;
+}
+
+Vector2i Map::getMapPosition(Vector2i screenPosition){
+    screenPosition.x = screenPosition.x-pos.x;
+    screenPosition.y = screenPosition.y-pos.y;
+    screenPosition.x = floor(screenPosition.x/(float)LARGEUR);
+    screenPosition.y = floor(screenPosition.y/(float)HAUTEUR);
+    if(screenPosition.x<0 || screenPosition.x>=_size.x || screenPosition.y <0 || screenPosition.y >= _size.y){
+        screenPosition.x=-1;
+        screenPosition.y=-1;
+    }
+
+    return screenPosition;
+}
+
+bool Map::canWalk(int x, int y){
+    if(x<0||x>_matrix.size()||y<0||y>_matrix[x].size())
+        return false;
+    return _matrix[x][y]->canWalk();
 }

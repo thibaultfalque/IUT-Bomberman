@@ -2,12 +2,17 @@
 #define PERSONNAGE_HPP
 #include "BonusMalus/BonusMalus.hpp"
 #include "header.hpp"
-#include "General.hpp"
+#include "General/Ressource.hpp"
+#include "General/Console.hpp"
+#include "Game/Map.hpp"
+#include "General/EventManager.hpp"
 class BonusMalus;
-class Personnage:public sf::Drawable
+class Map;
+class Personnage : public sf::Drawable
 {
     public:
-        Personnage(sf::Vector2f position,const string& str);
+        Personnage(sf::Vector2f position,const string& str, Map & __map, EventManager & _em);
+
         virtual ~Personnage();
         void setVitesse(sf::Vector2f vitesse);
         void setnbBombeMax(int nbBombeMax);
@@ -21,13 +26,28 @@ class Personnage:public sf::Drawable
         int getnbBombe();
         int getdegatsBombes();
         void addBonusMalus(BonusMalus b);
+        void update();
+        void moveTo(sf::Vector2f newPos);
+        bool canMoveTo(sf::Vector2i newPos);
     protected:
+
         virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;
+
         sf::Vector2f pos, vitesse;
         int nbBombeMax, nbBombe, degatsBombes;
         vector<BonusMalus> bonusMalus;
         bool launcher, pusher;
+
         sf::Sprite _sprite;
+
+        int etapePas;
+        int direction;
+        sf::Clock timerPas;
+        sf::Clock deltaUpdate;
+        sf::Sprite _sprites[4][9];
+        Map & _map;
+        EventManager & _eventManager;
+
         //Bombe bombe;
     private:
 };

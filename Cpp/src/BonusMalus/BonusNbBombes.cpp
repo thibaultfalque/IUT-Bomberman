@@ -1,5 +1,5 @@
 #include "BonusNbBombes.hpp"
-
+#include "Personnage.hpp"
 BonusNbBombes::BonusNbBombes():BonusMalus()
 {
     //ctor

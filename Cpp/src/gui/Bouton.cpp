@@ -2,6 +2,7 @@
 
 Bouton::Bouton(const string text,Vector2f const& taille,Vector2f const& position,string str):_size(taille),_pos(position),_action(str)
 {
+
     _rec.setSize(_size);
     _rec.setPosition(_pos);
     _rec.setFillColor(sf::Color(0,0,0,0));
@@ -21,10 +22,12 @@ Bouton::~Bouton()
 void Bouton::update(){
 
 }
+
 void Bouton::onMouseClick(sf::Event& event){
     if (pointInRect(_pos,_size,Vector2f(event.mouseButton.x,event.mouseButton.y)))
             ScreenManager::goToScreen(_action);
 }
+
 void Bouton::onMouseHover(sf::Event& event){
     if(pointInRect(_pos,_size,Vector2f(event.mouseMove.x,event.mouseMove.y)))
         _rec.setFillColor(sf::Color(0,0,0,128));
