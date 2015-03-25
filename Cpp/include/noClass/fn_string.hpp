@@ -11,7 +11,7 @@ float string_to_float( const string & Str);
 
 int string_to_int( const string & Str);
 
-string to_string( int Value );
+/*string to_string( int Value );
 
 string to_string( int Value, unsigned int nb_car );
 
@@ -19,7 +19,7 @@ string to_string( long long Value );
 
 string to_string( double Value );
 
-string to_string( bool Value );
+string to_string( bool Value );*/
 
 int nombre_car_mot(string mot, char l);
 
