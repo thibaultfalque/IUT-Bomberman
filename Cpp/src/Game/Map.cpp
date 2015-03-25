@@ -1,13 +1,15 @@
 #include "Map.hpp"
-Map::Map(string str):_matrix(5),pos(0,0)
+Map::Map(string str):pos(0,0)
 {
     string ligne;
 
     ligne=readFileMap(str);
+
     _matrix.resize(_size.x);
+
     for(unsigned int i=0;i<_size.x;i++)
         for(unsigned int j=0;j<_size.y;j++){
-            switch(ligne[(i*_size.x)+j]){
+            switch(ligne[(i*_size.y)+j]){
                 case MUR:
                     _matrix[i].push_back(new Mur("surfaces/mur.png",false,sf::Vector2f(LARGEUR*i,HAUTEUR*j)));
                 break;
@@ -27,8 +29,8 @@ Map::~Map()
 }
 void Map::draw(sf::RenderTarget& target, sf::RenderStates states) const{
 
-    for(unsigned int i=0;i<_size.x;i++){
-        for(unsigned int j=0;j<_size.y;j++){
+    for(unsigned int i=0;i<_matrix.size();i++){
+        for(unsigned int j=0;j<_matrix[i].size();j++){
             target.draw(*_matrix[i][j],states);
         }
     }
