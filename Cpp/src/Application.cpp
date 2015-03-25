@@ -58,7 +58,6 @@ void Application::update()
 
 void Application::render()
 {
-
 	_window.clear();
 	///TODO Mettre le background autre part
 	_window.draw(_background);

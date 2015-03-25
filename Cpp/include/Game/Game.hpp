@@ -5,6 +5,7 @@
 #include "General.hpp"
 #include "Map.hpp"
 #include "Personnage/Personnage.hpp"
+#include "General/EventManager.hpp"
 
 class Game:public Screen
 {
@@ -19,6 +20,7 @@ class Game:public Screen
         virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;
     private:
         Map _map;
+        EventManager _eventManager;
         sf::Vector2i* _window_size;
         Personnage p_test;
 };

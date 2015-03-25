@@ -1,4 +1,5 @@
 #include "Map.hpp"
+#include "noClass/fn_string.hpp"
 Map::Map(string str):pos(0,0)
 {
     string ligne;

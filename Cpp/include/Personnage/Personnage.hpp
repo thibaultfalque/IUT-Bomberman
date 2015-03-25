@@ -5,12 +5,13 @@
 #include "General/Ressource.hpp"
 #include "General/Console.hpp"
 #include "Game/Map.hpp"
+#include "General/EventManager.hpp"
 class BonusMalus;
 class Map;
 class Personnage : public sf::Drawable
 {
     public:
-        Personnage(sf::Vector2f position, Map & __map);
+        Personnage(sf::Vector2f position, Map & __map, EventManager & _em);
         virtual ~Personnage();
         void setVitesse(sf::Vector2f vitesse);
         void setnbBombeMax(int nbBombeMax);
@@ -39,6 +40,7 @@ class Personnage : public sf::Drawable
         sf::Clock deltaUpdate;
         sf::Sprite _sprites[4][9];
         Map & _map;
+        EventManager & _eventManager;
         //Bombe bombe;
     private:
 };

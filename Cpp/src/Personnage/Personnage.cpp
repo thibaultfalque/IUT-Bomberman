@@ -1,7 +1,7 @@
 #include "Personnage.hpp"
 
 
-Personnage::Personnage(sf::Vector2f position, Map & __map):_map(__map)
+Personnage::Personnage(sf::Vector2f position, Map & __map,EventManager & em):_map(__map),_eventManager(em)
 {
     pos=position;
     etapePas = 0;
@@ -60,14 +60,14 @@ void Personnage::addBonusMalus(BonusMalus b){
 
 void Personnage::update(){
     vitesse = Vector2f(0,0);
-    float pixelParSecondes = 50;
-    if(sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
+    float pixelParSecondes = 70;
+    if(_eventManager.getEventState("Gauche"))
         vitesse.x -= pixelParSecondes;
-    if(sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
+    if(_eventManager.getEventState("Droite"))
         vitesse.x += pixelParSecondes;
-    if(sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
+    if(_eventManager.getEventState("Haut"))
         vitesse.y -= pixelParSecondes;
-    if(sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
+    if(_eventManager.getEventState("Bas"))
         vitesse.y += pixelParSecondes;
 
     if(vitesse.x*vitesse.y!=0){
@@ -84,7 +84,7 @@ void Personnage::update(){
     for(int x=0;x<9;x++)
         _sprites[y][x].setPosition(pos);
 
-    if(timerPas.getElapsedTime().asSeconds()>=0.1){
+    if(timerPas.getElapsedTime().asSeconds()>=0.06){
         timerPas.restart();
         etapePas = (++etapePas)%9;
     }

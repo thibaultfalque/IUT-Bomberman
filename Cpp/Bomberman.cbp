@@ -142,11 +142,13 @@
 		<Unit filename="include/BonusMalus/MalusVitesse.hpp" />
 		<Unit filename="include/Game/Block.hpp" />
 		<Unit filename="include/Game/Case.hpp" />
+		<Unit filename="include/Game/Game.hpp" />
 		<Unit filename="include/Game/Map.hpp" />
 		<Unit filename="include/Game/Mur.hpp" />
 		<Unit filename="include/Game/Sol.hpp" />
 		<Unit filename="include/General.hpp" />
 		<Unit filename="include/General/Console.hpp" />
+		<Unit filename="include/General/EventManager.hpp" />
 		<Unit filename="include/General/Ressource.hpp" />
 		<Unit filename="include/General/Screen.h" />
 		<Unit filename="include/General/ScreenManager.h" />
@@ -162,7 +164,7 @@
 		<Unit filename="include/header.hpp" />
 		<Unit filename="include/noClass.hpp" />
 		<Unit filename="include/noClass/Collision.hpp" />
-		<Unit filename="include/noClass/fileManager.hpp" />
+		<Unit filename="include/noClass/fn_file.hpp" />
 		<Unit filename="include/noClass/fn_random.hpp" />
 		<Unit filename="include/noClass/fn_string.hpp" />
 		<Unit filename="include/noClass/fn_time.hpp" />
@@ -185,6 +187,8 @@
 		<Unit filename="src/Game/Mur.cpp" />
 		<Unit filename="src/Game/Sol.cpp" />
 		<Unit filename="src/General/Console.cpp" />
+		<Unit filename="src/General/EventManager.cpp" />
+		<Unit filename="src/General/EventManager.hpp" />
 		<Unit filename="src/General/Ressource.cpp" />
 		<Unit filename="src/General/Screen.cpp" />
 		<Unit filename="src/General/ScreenManager.cpp" />
@@ -192,15 +196,17 @@
 		<Unit filename="src/Menu/MenuIndex.cpp" />
 		<Unit filename="src/Observable.cpp" />
 		<Unit filename="src/Observateur.cpp" />
+		<Unit filename="src/Personnage/EventManager.hpp" />
 		<Unit filename="src/Personnage/Personnage.cpp" />
 		<Unit filename="src/gui/Bouton.cpp" />
 		<Unit filename="src/gui/Checkbox.cpp" />
 		<Unit filename="src/gui/InputText.cpp" />
 		<Unit filename="src/gui/Slider.cpp" />
 		<Unit filename="src/noClass/Collision.cpp" />
-		<Unit filename="src/noClass/fileManager.cpp" />
+		<Unit filename="src/noClass/fn_file.cpp" />
 		<Unit filename="src/noClass/fn_random.cpp" />
 		<Unit filename="src/noClass/fn_string.cpp" />
+		<Unit filename="src/noClass/fn_string.hpp" />
 		<Unit filename="src/noClass/fn_time.cpp" />
 		<Extensions>
 			<code_completion />

@@ -1,7 +1,7 @@
 #include "Game.hpp"
 
 
-Game::Game(sf::Vector2i* s):_map("res/map/map1.lvl"),p_test(sf::Vector2f(10,10),_map)
+Game::Game(sf::Vector2i* s):_map("res/map/map1.lvl"),p_test(sf::Vector2f(10,10),_map,_eventManager)
 {
     _window_size=s;
 }
