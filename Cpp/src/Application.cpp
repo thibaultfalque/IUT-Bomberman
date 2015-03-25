@@ -1,16 +1,20 @@
 #include "Application.hpp"
 
 Application::Application():_window_size(WINDOW_WIDTH,WINDOW_HEIGHT),
- _window(VideoMode(WINDOW_WIDTH,WINDOW_HEIGHT), L"Bomberman", Style::Close | Style::Titlebar | Style::Resize),
- _background("backgroundMenu.png")
+ _window(VideoMode(WINDOW_WIDTH,WINDOW_HEIGHT), L"Bomberman", Style::Close | Style::Titlebar | Style::Resize)
+
 {
+    _showConsole=false;
+
     MenuIndex* m=new MenuIndex(&_window_size);
     ScreenManager::add(m,"Menu");
     ScreenManager::goToScreen("Menu");
 
     Game* g=new Game(&_window_size);
     ScreenManager::add(g,"Game");
-    //ScreenManager::goToScreen("Game");
+
+    EditeurMap* e=new EditeurMap(&_window_size);
+    ScreenManager::add(e,"Editeur");
 
 }
 
@@ -39,9 +43,13 @@ void Application::processEvents()
                 _window.close();
 
             break;
+            case sf::Event::KeyReleased:
+                if(event.key.code == sf::Keyboard::F1){
+                    _showConsole=!_showConsole;
+                }
+            break;
             default:
                 ScreenManager::screeCourant->onEvent(event);
-
             break;
 		} //SWITCH
 	}
@@ -61,8 +69,9 @@ void Application::render()
 
 	_window.clear();
 	///TODO Mettre le background autre part
-	_window.draw(_background);
+//	_window.draw(_background);
     _window.draw(*ScreenManager::screeCourant);
-    Console::draw(_window,RenderStates::Default);
+    if(_showConsole)
+        Console::draw(_window,RenderStates::Default);
 	_window.display();
 }

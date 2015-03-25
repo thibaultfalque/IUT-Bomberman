@@ -1,6 +1,7 @@
 #include "Menu.hpp"
 
-Menu::Menu(sf::Vector2i* s)
+Menu::Menu(sf::Vector2i* s):
+_background("backgroundMenu.png")
 {
     _window_size=s;
 }
@@ -18,7 +19,7 @@ void Menu::update(){
 }
 
 void Menu::draw(sf::RenderTarget& target, sf::RenderStates states) const {
-
+    target.draw(_background);
     for(unsigned int i=0;i<obs.size();i++)
        target.draw(*obs[i],states);
 }

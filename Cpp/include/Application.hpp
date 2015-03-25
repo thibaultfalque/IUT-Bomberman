@@ -7,6 +7,7 @@
 #include "Background.h"
 #include "MenuIndex.hpp"
 #include "Game.hpp"
+#include "Editeur/EditeurMap.hpp"
 class Application
 {
     public:
@@ -21,7 +22,8 @@ class Application
         sf::Vector2i _window_size;
         sf::RenderWindow _window;
         sf::ContextSettings _window_setting;
-        Background _background;
+
+        bool _showConsole;
 };
 
 #endif // APPLICATION_H

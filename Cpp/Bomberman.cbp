@@ -142,6 +142,7 @@
 		<Unit filename="include/BonusMalus/MalusVitesse.hpp" />
 		<Unit filename="include/Game/Block.hpp" />
 		<Unit filename="include/Game/Case.hpp" />
+		<Unit filename="include/Game/Game.hpp" />
 		<Unit filename="include/Game/Map.hpp" />
 		<Unit filename="include/Game/Mur.hpp" />
 		<Unit filename="include/Game/Sol.hpp" />
@@ -180,6 +181,7 @@
 		<Unit filename="src/BonusMalus/MalusVitesse.cpp" />
 		<Unit filename="src/Game/Block.cpp" />
 		<Unit filename="src/Game/Case.cpp" />
+		<Unit filename="src/Game/Game.cpp" />
 		<Unit filename="src/Game/Map.cpp" />
 		<Unit filename="src/Game/Mur.cpp" />
 		<Unit filename="src/Game/Sol.cpp" />
