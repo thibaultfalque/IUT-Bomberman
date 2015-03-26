@@ -4,6 +4,9 @@
 #define WINDOW_WIDTH 800
 #define WINDOW_HEIGHT 600
 
+#define LARGEUR 38
+#define HAUTEUR 38
+
 // Bibliothèques standard C++
 #include <iostream>
 #include <sstream>
