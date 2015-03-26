@@ -25,6 +25,7 @@
 					<Add directory="include/Personnage" />
 					<Add directory="include/BonusMalus" />
 					<Add directory="include/Game" />
+					<Add directory="include/Bomb" />
 				</Compiler>
 				<Linker>
 					<Add option="-lGL" />
@@ -53,6 +54,7 @@
 					<Add directory="include/Personnage" />
 					<Add directory="include/BonusMalus" />
 					<Add directory="include/Game" />
+					<Add directory="include/Bomb" />
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
@@ -85,6 +87,7 @@
 					<Add directory="include/Personnage" />
 					<Add directory="include/BonusMalus" />
 					<Add directory="include/Game" />
+					<Add directory="include/Bomb" />
 				</Compiler>
 				<Linker>
 					<Add option="-lglu32" />
@@ -113,6 +116,7 @@
 					<Add directory="include/Personnage" />
 					<Add directory="include/BonusMalus" />
 					<Add directory="include/Game" />
+					<Add directory="include/Bomb" />
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
@@ -294,6 +298,8 @@
 		<Unit filename="include/Application.hpp" />
 		<Unit filename="include/Background.h" />
 		<Unit filename="include/Bomb/Bomb.hpp" />
+		<Unit filename="include/Bomb/BombManager.hpp" />
+		<Unit filename="include/Bomb/StratBombSimple.hpp" />
 		<Unit filename="include/BonusMalus/BonusDegatsBombes.hpp" />
 		<Unit filename="include/BonusMalus/BonusLauncher.hpp" />
 		<Unit filename="include/BonusMalus/BonusMalus.hpp" />
@@ -338,6 +344,8 @@
 		<Unit filename="src/Application.cpp" />
 		<Unit filename="src/Background.cpp" />
 		<Unit filename="src/Bomb/Bomb.cpp" />
+		<Unit filename="src/Bomb/BombManager.cpp" />
+		<Unit filename="src/Bomb/StratBombSimple.cpp" />
 		<Unit filename="src/BonusMalus/BonusDegatsBombes.cpp" />
 		<Unit filename="src/BonusMalus/BonusLauncher.cpp" />
 		<Unit filename="src/BonusMalus/BonusMalus.cpp" />
