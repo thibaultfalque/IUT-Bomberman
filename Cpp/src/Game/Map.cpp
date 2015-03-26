@@ -1,6 +1,6 @@
 #include "Map.hpp"
 #include "noClass/fn_string.hpp"
-Map::Map(string str):pos(0,0)
+Map::Map(string str,const sf::Vector2i& window_size)
 {
     string ligne;
 
@@ -8,19 +8,20 @@ Map::Map(string str):pos(0,0)
 
     _matrix.resize(_size.x);
 
+    pos=sf::Vector2i(window_size.x/2-(_size.x*LARGEUR)/2,window_size.y/2-(_size.x*HAUTEUR)/2);
+
     for(unsigned int i=0;i<_size.x;i++)
         for(unsigned int j=0;j<_size.y;j++){
 
             switch(ligne[(i*_size.y)+j]){
                 case '0':
-
-                    _matrix[i].push_back(new Mur("surfaces/mur.png",false,sf::Vector2f(LARGEUR*i,HAUTEUR*j)));
+                    _matrix[i].push_back(new Mur("surfaces/mur.png",false,sf::Vector2f(pos.x+LARGEUR*i,pos.y+HAUTEUR*j)));
                 break;
                 case '1':
-                    _matrix[i].push_back(new Block("surfaces/block.png",false,sf::Vector2f(LARGEUR*i,HAUTEUR*j)));
+                    _matrix[i].push_back(new Block("surfaces/block.png",false,sf::Vector2f(pos.x+LARGEUR*i,pos.y+HAUTEUR*j)));
                 break;
                 case '2':
-                    _matrix[i].push_back(new Sol("surfaces/sol.png",true,sf::Vector2f(LARGEUR*i,HAUTEUR*j)));
+                    _matrix[i].push_back(new Sol("surfaces/sol.png",true,sf::Vector2f(pos.x+LARGEUR*i,pos.y+HAUTEUR*j)));
                 break;
             }
         }
@@ -43,6 +44,9 @@ void Map::draw(sf::RenderTarget& target, sf::RenderStates states) const{
         }
     }
 
+}
+sf::Vector2i& Map::getPosition(){
+    return pos;
 }
 string Map::readFileMap(string str){
     ifstream f(str);
@@ -90,4 +94,7 @@ bool Map::canWalk(int x, int y){
     if(x<0||x>_matrix.size()||y<0||y>_matrix[x].size())
         return false;
     return _matrix[x][y]->canWalk();
+}
+void Map::setCase(sf::Vector2i pos,Case* c){
+    _matrix[pos.x][pos.y]=c;
 }
