@@ -22,3 +22,6 @@ void Case::draw(sf::RenderTarget& target, sf::RenderStates states) const{
 void Case::setPosition(const sf::Vector2f& position){
     _pos=position;
 }
+sf::Vector2f& Case::getPosition(){
+    return _pos;
+}

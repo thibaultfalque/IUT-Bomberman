@@ -5,8 +5,9 @@
 #include "General.hpp"
 #include "Map.hpp"
 #include "Background.h"
-#include "Personnage/Personnage.hpp"
+#include "Personnage/Humain.hpp"
 #include "General/EventManager.hpp"
+#include "BombManager.hpp"
 
 class Game:public Screen
 {
@@ -22,14 +23,15 @@ class Game:public Screen
     private:
         Map _map;
 
-        vector<vector<int>> _mapbombe;
+
         vector<vector<int>> _mapDangerousZone;
         sf::Vector2i* _window_size;
         Background _background;
         sf::RectangleShape statRec;
 
         EventManager _eventManager;
-        Personnage p_test;
+        BombManager _bombManager;
+        Humain p_test;
 };
 
 #endif // GAME_HPP

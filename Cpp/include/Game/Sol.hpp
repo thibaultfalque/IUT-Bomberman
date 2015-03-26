@@ -3,6 +3,8 @@
 
 #include "Case.hpp"
 #include "BonusMalus.hpp"
+#include "Bomb/Bomb.hpp"
+class Bomb;
 class Sol:public Case
 {
     public:
@@ -12,10 +14,12 @@ class Sol:public Case
         virtual ~Sol();
         void setBonusMalus(BonusMalus* bm);
         BonusMalus* getBonusMalus();
+        void setBomb(Bomb* b);
     protected:
         virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;
     private:
         BonusMalus* _bonusMalus;
+        Bomb* _bomb;
 };
 
 #endif // SOL_HPP

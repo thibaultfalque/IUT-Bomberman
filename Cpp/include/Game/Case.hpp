@@ -5,8 +5,7 @@
 #define BLOCK '1'
 #define SOL '2'
 
-#define LARGEUR 38
-#define HAUTEUR 38
+
 
 #include "header.hpp"
 #include "General.hpp"
@@ -20,6 +19,7 @@ class Case:public sf::Drawable
         void setPosition(const sf::Vector2f& pos);
         bool canWalk();
         void setCanWalk(bool b);
+        sf::Vector2f& getPosition();
     protected:
         sf::Sprite _sprite;
         bool _canWalk;
