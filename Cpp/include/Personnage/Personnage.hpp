@@ -2,16 +2,15 @@
 #define PERSONNAGE_HPP
 #include "BonusMalus/BonusMalus.hpp"
 #include "header.hpp"
-#include "General/Ressource.hpp"
-#include "General/Console.hpp"
+#include "General.hpp"
 #include "Game/Map.hpp"
-#include "General/EventManager.hpp"
+#include "BombManager.hpp"
 class BonusMalus;
 class Map;
 class Personnage : public sf::Drawable
 {
     public:
-        Personnage(sf::Vector2f position,const string& str, Map & __map, EventManager & _em);
+        Personnage(sf::Vector2f position,const string& str, Map & __map,BombManager & bm);
 
         virtual ~Personnage();
         void setVitesse(sf::Vector2f vitesse);
@@ -36,6 +35,7 @@ class Personnage : public sf::Drawable
         sf::Vector2f pos, vitesse;
         int nbBombeMax, nbBombe, degatsBombes;
         vector<BonusMalus> bonusMalus;
+        vector<Bomb*> _bomb;
         bool launcher, pusher;
 
         sf::Sprite _sprite;
@@ -46,9 +46,9 @@ class Personnage : public sf::Drawable
         sf::Clock deltaUpdate;
         sf::Sprite _sprites[4][9];
         Map & _map;
-        EventManager & _eventManager;
 
-        //Bombe bombe;
+        BombManager& _bombeManager;
+
     private:
 };
 

@@ -1,6 +1,6 @@
 #include "Personnage.hpp"
 
-Personnage::Personnage(sf::Vector2f position,const string& str, Map & __map,EventManager & em):_map(__map),_eventManager(em)
+Personnage::Personnage(sf::Vector2f position,const string& str, Map & __map,BombManager & bm):_map(__map),_bombeManager(bm)
 {
     pos=position;
     etapePas = 0;
@@ -8,7 +8,7 @@ Personnage::Personnage(sf::Vector2f position,const string& str, Map & __map,Even
     // vitesse de déplacement mis au pif, doit surement etre modifié
     vitesse=sf::Vector2f(10,10);
     nbBombeMax=1;
-    nbBombe=1;
+    nbBombe=5;
     launcher=false;
     pusher=false;
     //bombe=new BombeNormale();
@@ -64,50 +64,6 @@ void Personnage::addBonusMalus(BonusMalus b){
 
 
 void Personnage::update(){
-    vitesse = Vector2f(0,0);
-    float pixelParSecondes = 70;
-    if(_eventManager.getEventState("Gauche"))
-        vitesse.x -= pixelParSecondes;
-    if(_eventManager.getEventState("Droite"))
-        vitesse.x += pixelParSecondes;
-    if(_eventManager.getEventState("Haut"))
-        vitesse.y -= pixelParSecondes;
-    if(_eventManager.getEventState("Bas"))
-        vitesse.y += pixelParSecondes;
-
-    if(vitesse.x*vitesse.y!=0){
-        vitesse = (vitesse/sqrt(vitesse.x*vitesse.x + vitesse.y*vitesse.y))*pixelParSecondes;
-    }
-
-
-    moveTo(pos +vitesse*deltaUpdate.getElapsedTime().asSeconds());
-
-
-    //GRAPHIC UPDATE
-
-    for(int y=0;y<4;y++)
-    for(int x=0;x<9;x++)
-        _sprites[y][x].setPosition(pos);
-
-    if(timerPas.getElapsedTime().asSeconds()>=0.06){
-        timerPas.restart();
-        etapePas = (++etapePas)%9;
-    }
-    if(vitesse.x==0 && vitesse.y == 0){
-        etapePas = 0;
-    }
-    else if(abs(vitesse.x)>abs(vitesse.y)){
-        if(vitesse.x<0)
-            direction = 3;
-        else
-            direction = 1;
-    }else{
-        if(vitesse.y<0)
-            direction = 2;
-        else
-            direction = 0;
-    }
-    deltaUpdate.restart();
 }
 
 void Personnage::moveTo(sf::Vector2f newPos){
