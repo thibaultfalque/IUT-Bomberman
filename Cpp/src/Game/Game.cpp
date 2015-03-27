@@ -26,6 +26,6 @@ void Game::update(){
 void Game::draw(sf::RenderTarget& target, sf::RenderStates states) const{
     target.draw(_background,states);
     target.draw(_map,states);
+    _bombManager.draw(target,states);
     target.draw(p_test,states);
-//    _bombManager.draw(target,states);
 }

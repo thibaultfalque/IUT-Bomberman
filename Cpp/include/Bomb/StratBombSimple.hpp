@@ -6,6 +6,8 @@
 #include "Case.hpp"
 #include "Block.hpp"
 #include "Sol.hpp"
+#include "Bomb.hpp"
+class Bomb;
 class Map;
 class StratBombSimple
 {
@@ -14,7 +16,7 @@ class StratBombSimple
         StratBombSimple();
         /** Default destructor */
         virtual ~StratBombSimple();
-        void explode(Map& m,sf::Vector2i& pos);
+        void explode(Map& m,Bomb& bomb);
     protected:
     private:
 };

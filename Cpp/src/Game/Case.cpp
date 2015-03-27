@@ -25,3 +25,6 @@ void Case::setPosition(const sf::Vector2f& position){
 sf::Vector2f& Case::getPosition(){
     return _pos;
 }
+/*bool Case::canExplode(){
+    return _canExplode;
+}*/
