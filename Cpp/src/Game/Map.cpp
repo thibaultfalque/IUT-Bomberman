@@ -91,8 +91,10 @@ Vector2i Map::getMapPosition(Vector2i screenPosition){
 }
 
 bool Map::canWalk(int x, int y){
+    cout << "FUCK" << endl;
     if(x<0||x>_matrix.size()||y<0||y>_matrix[x].size())
         return false;
+
     return _matrix[x][y]->canWalk();
 }
 void Map::setCase(sf::Vector2i pos,Case* c){
