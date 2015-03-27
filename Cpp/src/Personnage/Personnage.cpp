@@ -73,14 +73,16 @@ void Personnage::moveTo(sf::Vector2f newPos){
 
 bool Personnage::canMoveTo(sf::Vector2i newPos){
 
-    Vector2i hg = _map.getMapPosition(newPos+Vector2i(0,15));
-    Vector2i bd = _map.getMapPosition(newPos+Vector2i(20,30));
+    FloatRect hitBox = getHitBox(newPos);
+    Vector2i hg = _map.getMapPosition(Vector2i(hitBox.left,hitBox.top));
+    Vector2i bd = _map.getMapPosition(Vector2i(hitBox.left+hitBox.width,hitBox.top+hitBox.height));
+
     for(int x=hg.x;x<=bd.x;x++)
         for(int y=hg.y;y<=bd.y;y++){
             if(!_map.canWalk(x,y))
                 return false;
 
-        }
+            }
     return true;
 
 }
@@ -88,6 +90,22 @@ bool Personnage::canMoveTo(sf::Vector2i newPos){
 Personnage::~Personnage()
 {
     //dtor
+}
+
+sf::FloatRect Personnage::getHitBox(sf::Vector2i newPos)
+{
+    return getHitBox(Vector2f(newPos.x,newPos.y));
+}
+
+sf::FloatRect Personnage::getHitBox()
+{
+    return getHitBox(pos);
+}
+
+sf::FloatRect Personnage::getHitBox(sf::Vector2f newPos)
+{
+    return FloatRect(newPos+Vector2f(5,23),Vector2f(10,4));
+
 }
 
 void Personnage::draw(sf::RenderTarget& target, sf::RenderStates states) const{

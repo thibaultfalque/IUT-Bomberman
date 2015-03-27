@@ -28,6 +28,10 @@ class Personnage : public sf::Drawable
         void update();
         void moveTo(sf::Vector2f newPos);
         bool canMoveTo(sf::Vector2i newPos);
+
+        sf::FloatRect getHitBox(sf::Vector2f newPos);
+        sf::FloatRect getHitBox(sf::Vector2i newPos);
+        sf::FloatRect getHitBox();
     protected:
 
         virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;
