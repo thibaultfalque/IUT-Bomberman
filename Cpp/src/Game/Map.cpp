@@ -23,8 +23,16 @@ Map::Map(string str,const sf::Vector2i& window_size)
                 case '2':
                     _matrix[i].push_back(new Sol("surfaces/sol.png",true,sf::Vector2f(pos.x+LARGEUR*i,pos.y+HAUTEUR*j)));
                 break;
+                case '3':
+                    _matrix[i].push_back(new Sol("surfaces/sol.png",true,sf::Vector2f(pos.x+LARGEUR*i,pos.y+HAUTEUR*j)));
+                    _posDepartPerso.push_back(Vector2i(i,j));
+                break;
+
             }
         }
+}
+vector<Vector2i>& Map::getPosDepartPerso(){
+    return _posDepartPerso;
 }
 
 Map::~Map()
@@ -91,7 +99,6 @@ Vector2i Map::getMapPosition(Vector2i screenPosition){
 }
 
 bool Map::canWalk(int x, int y){
-    cout << "FUCK" << endl;
     if(x<0||x>_matrix.size()||y<0||y>_matrix[x].size())
         return false;
 

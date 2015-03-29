@@ -2,7 +2,6 @@
 
 EditeurMap::EditeurMap(sf::Vector2i* s):_map(sf::Vector2f(570,570)),_save("Sauvegarder",sf::Vector2f(50,20),sf::Vector2f(0,0),"Menu")
 {
-    sf::Vector2f sizeTexture(38,38);
     _window_size=s;
     _map.setPosition(sf::Vector2f((s->x/2)-(_map.getSize().x/2),(s->y/2)-(_map.getSize().y/2)));
 
@@ -10,33 +9,24 @@ EditeurMap::EditeurMap(sf::Vector2i* s):_map(sf::Vector2f(570,570)),_save("Sauve
     _gauche.setPosition(sf::Vector2f(s->x-_gauche.getSize().x,0));
     _gauche.setFillColor(sf::Color::Blue);
 
-/*    _mur=new Mur("surfaces/mur.png",false,sf::Vector2f(_gauche.getPosition().x+10,_gauche.getPosition().y+1*sizeTexture.y+20));
-    _block=new Block("surfaces/block.png",false,sf::Vector2f(_gauche.getPosition().x+10,_gauche.getPosition().y+(sizeTexture.y+20)*2));
-    _sol=new Sol("surfaces/sol.png",true,sf::Vector2f(_gauche.getPosition().x+10,_gauche.getPosition().y+(sizeTexture.y+20)*3));
-
-        for(int i=1;i<5;i++){
-            _ia.push_back(new IA(sf::Vector2f(_gauche.getPosition().x+10,_gauche.getPosition().y+(sizeTexture.y+20)*(i+3)),"bombermanspritesP"+to_string(i)+".png"));
-        }*/
-
     _mur=Ressource::getSprite("surfaces/mur.png");
-    _mur.setPosition(sf::Vector2f(_gauche.getPosition().x+10,_gauche.getPosition().y+1*sizeTexture.y+20));
+    _mur.setPosition(sf::Vector2f(_gauche.getPosition().x+10,_gauche.getPosition().y+1*HAUTEUR+20));
     _block=Ressource::getSprite("surfaces/block.png");
-    _block.setPosition(sf::Vector2f(_gauche.getPosition().x+10,_gauche.getPosition().y+(sizeTexture.y+20)*2));
+    _block.setPosition(sf::Vector2f(_gauche.getPosition().x+10,_gauche.getPosition().y+(HAUTEUR+20)*2));
 
     _sol=Ressource::getSprite("surfaces/sol.png");
-    _sol.setPosition(sf::Vector2f(_gauche.getPosition().x+10,_gauche.getPosition().y+(sizeTexture.y+20)*3));
-    _humain=Ressource::getSprite("bombermanspritesP0.png",sf::IntRect(0,0,38,38));
-    _humain.setPosition(sf::Vector2f(_gauche.getPosition().x+10,_gauche.getPosition().y+(sizeTexture.y+20)*4));
-        for(int i=1;i<5;i++){
-            _ia.push_back(Ressource::getSprite("bombermanspritesP"+to_string(i)+".png",sf::IntRect(0,0,38,38)));
-            _ia[i-1].setPosition(sf::Vector2f(_gauche.getPosition().x+10,_gauche.getPosition().y+(sizeTexture.y+20)*(i+4)));
-        }
-     tmp=nullptr;
-     _click=false;
-     for(int i=0;i<15;i++)
+    _sol.setPosition(sf::Vector2f(_gauche.getPosition().x+10,_gauche.getPosition().y+(HAUTEUR+20)*3));
+
+    for(int i=1;i<5;i++){
+        _perso.push_back(Ressource::getSprite("surfaces/sol_p"+to_string(i)+".png",sf::IntRect(0,0,LARGEUR,HAUTEUR)));
+        _perso[i-1].setPosition(sf::Vector2f(_gauche.getPosition().x+10,_gauche.getPosition().y+(HAUTEUR+20)*(i+4)));
+    }
+    tmp=nullptr;
+    _click=false;
+    for(int i=0;i<15;i++)
         for(int j=0;j<15;j++){
             _spriteTab[i][j]=Ressource::getSprite("surfaces/sol.png");
-            _spriteTab[i][j].setPosition(sf::Vector2f(_map.getPosition().x+i*38,_map.getPosition().y+j*38));
+            _spriteTab[i][j].setPosition(sf::Vector2f(_map.getPosition().x+i*LARGEUR,_map.getPosition().y+j*HAUTEUR));
             _mapTab[i][j]=SOL;
         }
 
@@ -62,6 +52,7 @@ void EditeurMap::save(){
 
 }
 void EditeurMap::onMouseClickLeft(sf::Event& event){
+
     if(pointInRect(_save.getPosition(),_save.getSize(),sf::Vector2f(event.mouseButton.x,event.mouseButton.y))){
         save();
         _save.onEvent(event);
@@ -71,11 +62,17 @@ void EditeurMap::onMouseClickLeft(sf::Event& event){
         sf::Vector2f relativePos(event.mouseButton.x-_map.getPosition().x,event.mouseButton.y-_map.getPosition().y);
         int x=(relativePos.x*15)/570;
         int y=(relativePos.y*15)/570;
+        if(_mapTab[x][y]==PERSONNAGE){
+            _perso.push_back(Sprite(*_spriteTab[x][y].getTexture(),sf::IntRect(0,0,LARGEUR,HAUTEUR)));
+            _perso.back().setPosition(sf::Vector2f(_gauche.getPosition().x+10,_gauche.getPosition().y+(HAUTEUR+20)*(_perso.size()+4)));
+        }
         _spriteTab[x][y]=Sprite(*tmp->getTexture());
         _spriteTab[x][y].setPosition(sf::Vector2f(_map.getPosition().x+x*_spriteTab[x][y].getGlobalBounds().width,_map.getPosition().y+y*_spriteTab[x][y].getGlobalBounds().height));
-        //tmp=nullptr;
-        _click=true;
         _mapTab[x][y]=id;
+        _click=true;
+        if(id==PERSONNAGE)
+            tmp=nullptr;
+
     }
 }
 
@@ -92,11 +89,13 @@ void EditeurMap::onMouseClickRight(sf::Event& event){
         tmp=new Sprite(*_sol.getTexture());
         id=SOL;
     }
-    if(pointInRect(_humain.getPosition(),sf::Vector2f(_humain.getGlobalBounds().width,_humain.getGlobalBounds().height),Vector2f(event.mouseButton.x,event.mouseButton.y)))
-        tmp=new Sprite(*_humain.getTexture(),sf::IntRect(0,0,38,38));
-    for(int i=0;i<_ia.size();i++){
-        if(pointInRect(_ia[i].getPosition(),sf::Vector2f(_ia[i].getGlobalBounds().width,_humain.getGlobalBounds().height),Vector2f(event.mouseButton.x,event.mouseButton.y)))
-            tmp=new Sprite(*_ia[i].getTexture(),sf::IntRect(0,0,38,38));
+
+    for(int i=0;i<_perso.size();i++){
+        if(pointInRect(_perso[i].getPosition(),sf::Vector2f(_perso[i].getGlobalBounds().width,_perso[i].getGlobalBounds().height),Vector2f(event.mouseButton.x,event.mouseButton.y))){
+            tmp=new Sprite(*_perso[i].getTexture(),sf::IntRect(0,0,38,38));
+            _perso.erase(_perso.begin()+i);
+            id=PERSONNAGE;
+        }
     }
     if(tmp!=nullptr)
         tmp->setPosition(Vector2f(event.mouseButton.x,event.mouseButton.y));
@@ -145,12 +144,11 @@ void EditeurMap::draw(sf::RenderTarget& target, sf::RenderStates states) const{
     target.draw(_block,states);
     target.draw(_sol,states);
 
-    target.draw(_humain,states);
     if(tmp!=nullptr){
         target.draw(*tmp,states);
    }
-    for(int i=0;i<_ia.size();i++){
-        target.draw(_ia[i],states);
+    for(int i=0;i<_perso.size();i++){
+        target.draw(_perso[i],states);
     }
     target.draw(_save,states);
 

@@ -10,6 +10,7 @@
 #include "Mur.hpp"
 #include "Humain.hpp"
 #include "IA.hpp"
+
 class EditeurMap:public Screen
 {
     public:
@@ -33,12 +34,13 @@ class EditeurMap:public Screen
        Sprite _block;
        Sprite _mur;
        Sprite _sol;
+
        Bouton _save;
-       Sprite _humain;
-       vector<Sprite> _ia;
+
+       vector<Sprite> _perso;
        Sprite* tmp;
        Sprite _spriteTab[15][15];
-       int _mapTab[15][15];
+       char _mapTab[15][15];
        bool _click;
        int id;
 
