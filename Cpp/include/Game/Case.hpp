@@ -4,7 +4,7 @@
 #define MUR '0'
 #define BLOCK '1'
 #define SOL '2'
-
+#define PERSONNAGE '3'
 
 
 #include "header.hpp"

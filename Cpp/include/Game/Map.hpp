@@ -21,7 +21,7 @@ class Map:public sf::Drawable
         Vector2i getMapPosition(Vector2i screenPosition);
         bool canWalk(int x, int y);
         sf::Vector2i& getPosition();
-
+        vector<Vector2i>& getPosDepartPerso();
     protected:
         virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;
     private:
@@ -29,6 +29,7 @@ class Map:public sf::Drawable
         vector<vector<Case*>> _matrix;
         sf::Vector2i _size;
         Vector2i pos;
+        vector<Vector2i> _posDepartPerso;
 
 };
 
