@@ -8,7 +8,7 @@ Personnage::Personnage(sf::Vector2f position,const string& str, Map & __map,Bomb
     // vitesse de déplacement mis au pif, doit surement etre modifié
     vitesse=sf::Vector2f(10,10);
     nbBombeMax=1;
-    nbBombe=5;
+    nbBombe=6;
     launcher=false;
     pusher=false;
     //bombe=new BombeNormale();
@@ -18,8 +18,10 @@ Personnage::Personnage(sf::Vector2f position,const string& str, Map & __map,Bomb
     _sprite.setPosition(pos);
 
     for(int y=0;y<4;y++)
-    for(int x=0;x<9;x++)
+    for(int x=0;x<9;x++){
         _sprites[y][x]=Ressource::getSprite(str,IntRect(38*x+9,38*y+5,20,30));
+        _sprites[y][x].setPosition(pos);
+    }
 
 }
 
@@ -110,9 +112,15 @@ sf::FloatRect Personnage::getHitBox(sf::Vector2f newPos)
 
 void Personnage::draw(sf::RenderTarget& target, sf::RenderStates states) const{
     //BAS DROITE HAUT GAUCHE
-
-
-
     target.draw(_sprites[direction][etapePas]);
 }
-
+void Personnage::putBomb(){
+    sf::Vector2i p=_map.getMapPosition(sf::Vector2i((int)pos.x,(int)pos.y));
+        if(nbBombe!=0 && !_bomb.empty()){
+            bool succedPut=_bombeManager.putBomb(*this,_bomb.back());
+            if(succedPut){
+                _bomb.pop_back();
+                nbBombe--;
+            }
+        }
+}

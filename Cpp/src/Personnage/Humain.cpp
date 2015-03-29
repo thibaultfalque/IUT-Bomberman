@@ -3,12 +3,12 @@
 Humain::Humain(const sf::Vector2f& position,const string& str,Map & __map, EventManager & _em,BombManager & bm):Personnage(position,str,__map,bm),_eventManager(_em)
 {
 
-    _bomb.push_back(new Bomb("bombeP1.png",sf::Vector2f(0,0),5));
-    _bomb.push_back(new Bomb("bombeP1.png",sf::Vector2f(0,0),5));
-    _bomb.push_back(new Bomb("bombeP1.png",sf::Vector2f(0,0),5));
-    _bomb.push_back(new Bomb("bombeP1.png",sf::Vector2f(0,0),5));
-    _bomb.push_back(new Bomb("bombeP1.png",sf::Vector2f(0,0),5));
-    _bomb.push_back(new Bomb("bombeP1.png",sf::Vector2f(0,0),5));
+    _bomb.push_back(new Bomb("bombeP1.png",sf::Vector2f(0,0),degatsBombes));
+    _bomb.push_back(new Bomb("bombeP1.png",sf::Vector2f(0,0),degatsBombes));
+    _bomb.push_back(new Bomb("bombeP1.png",sf::Vector2f(0,0),degatsBombes));
+    _bomb.push_back(new Bomb("bombeP1.png",sf::Vector2f(0,0),degatsBombes));
+    _bomb.push_back(new Bomb("bombeP1.png",sf::Vector2f(0,0),degatsBombes));
+    _bomb.push_back(new Bomb("bombeP1.png",sf::Vector2f(0,0),degatsBombes));
 
 }
 
@@ -21,13 +21,7 @@ void Humain::draw(sf::RenderTarget& target, sf::RenderStates states) const {
 }
 void Humain::onEvent(sf::Event& event ){
     if(event.key.code==_eventManager.getEventKey("Poser bombe")){
-        sf::Vector2i p=_map.getMapPosition(sf::Vector2i((int)pos.x,(int)pos.y));
-        if(nbBombe!=0 && !_bomb.empty()){
-            _bombeManager.putBomb(p,pos,_bomb.back());
-            _bomb.pop_back();
-            nbBombe--;
-            cout<<"nbBombe "<<nbBombe<<endl;
-        }
+        putBomb();
     }
 }
 void Humain::update(){
