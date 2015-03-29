@@ -24,8 +24,9 @@ void Bouton::update(){
 }
 
 void Bouton::onMouseClick(sf::Event& event){
-    if (pointInRect(_pos,_size,Vector2f(event.mouseButton.x,event.mouseButton.y)))
-            ScreenManager::goToScreen(_action);
+    if (pointInRect(_pos,_size,Vector2f(event.mouseButton.x,event.mouseButton.y))){
+        ScreenManager::goToScreen(_action);
+    }
 }
 
 void Bouton::onMouseHover(sf::Event& event){

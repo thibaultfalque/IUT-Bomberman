@@ -11,8 +11,7 @@ class Bouton:public Observateur
     public:
         Bouton(const string text,Vector2f const& taille,Vector2f const& position,string str);
         void onEvent(sf::Event & event);
-        void onMouseClick(sf::Event& event);
-        void onMouseHover(sf::Event& event);
+
         void update();
         void setAction(string str);
         sf::Vector2f getSize();
@@ -21,10 +20,13 @@ class Bouton:public Observateur
     protected:
         void draw(sf::RenderTarget& target, sf::RenderStates states) const;
     private:
+        void onMouseClick(sf::Event& event);
+        void onMouseHover(sf::Event& event);
         sf::Vector2f _size,_pos;
         sf::RectangleShape _rec;
         sf::Text _text;
         string _action;
+
 };
 
 #endif // BOUTON_HPP
