@@ -5,6 +5,7 @@
 #include "General.hpp"
 #include "Map.hpp"
 #include "Background.h"
+#include "Personnage/IA.hpp"
 #include "Personnage/Humain.hpp"
 #include "General/EventManager.hpp"
 #include "BombManager.hpp"
@@ -31,7 +32,9 @@ class Game:public Screen
 
         EventManager _eventManager;
         BombManager _bombManager;
-        Humain p_test;
+        Humain* p_test;
+        vector<IA*> _ia;
+
 };
 
 #endif // GAME_HPP
