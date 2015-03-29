@@ -767,10 +767,10 @@
 1424436504 source:/home/thibault/ownCloud/Documents/01-Programmation/C++/Bomberman/Cpp/src/General/ScreenManager.cpp
 	"General/ScreenManager.h"
 
-1427287057 source:/home/thibault/ownCloud/Documents/01-Programmation/C++/Bomberman/Cpp/src/gui/Bouton.cpp
+1427559788 source:/home/thibault/ownCloud/Documents/01-Programmation/C++/Bomberman/Cpp/src/gui/Bouton.cpp
 	"Bouton.hpp"
 
-1427272360 /home/thibault/ownCloud/Documents/01-Programmation/C++/Bomberman/Cpp/include/gui/Bouton.hpp
+1427559750 /home/thibault/ownCloud/Documents/01-Programmation/C++/Bomberman/Cpp/include/gui/Bouton.hpp
 	"Observateur.hpp"
 	"noClass.hpp"
 	"General.hpp"
@@ -1577,16 +1577,17 @@
 1426598312 source:/home/thibault/ownCloud/Documents/01-Programmation/C++/Bomberman/Cpp/src/gui/InputText.cpp
 	"InputText.hpp"
 
-1427377851 /home/thibault/ownCloud/Documents/01-Programmation/C++/Bomberman/Cpp/include/Game/Game.hpp
+1427560999 /home/thibault/ownCloud/Documents/01-Programmation/C++/Bomberman/Cpp/include/Game/Game.hpp
 	"header.hpp"
 	"General.hpp"
 	"Map.hpp"
 	"Background.h"
+	"Personnage/IA.hpp"
 	"Personnage/Humain.hpp"
 	"General/EventManager.hpp"
 	"BombManager.hpp"
 
-1427391707 /home/thibault/ownCloud/Documents/01-Programmation/C++/Bomberman/Cpp/include/Game/Map.hpp
+1427546731 /home/thibault/ownCloud/Documents/01-Programmation/C++/Bomberman/Cpp/include/Game/Map.hpp
 	"header.hpp"
 	"General.hpp"
 	"Case.hpp"
@@ -1594,7 +1595,7 @@
 	"Mur.hpp"
 	"Block.hpp"
 
-1427467984 /home/thibault/ownCloud/Documents/01-Programmation/C++/Bomberman/Cpp/include/Game/Case.hpp
+1427542870 /home/thibault/ownCloud/Documents/01-Programmation/C++/Bomberman/Cpp/include/Game/Case.hpp
 	"header.hpp"
 	"General.hpp"
 
@@ -1611,7 +1612,7 @@
 
 1427287057 /home/thibault/ownCloud/Documents/01-Programmation/C++/Bomberman/Cpp/include/BonusMalus/BonusMalus.hpp
 
-1427379252 /home/thibault/ownCloud/Documents/01-Programmation/C++/Bomberman/Cpp/include/Personnage/Personnage.hpp
+1427542007 /home/thibault/ownCloud/Documents/01-Programmation/C++/Bomberman/Cpp/include/Personnage/Personnage.hpp
 	"BonusMalus/BonusMalus.hpp"
 	"header.hpp"
 	"General.hpp"
@@ -1683,10 +1684,10 @@
 1427471428 source:/home/thibault/ownCloud/Documents/01-Programmation/C++/Bomberman/Cpp/src/Game/Case.cpp
 	"Case.hpp"
 
-1427473620 source:/home/thibault/ownCloud/Documents/01-Programmation/C++/Bomberman/Cpp/src/Game/Game.cpp
+1427589512 source:/home/thibault/ownCloud/Documents/01-Programmation/C++/Bomberman/Cpp/src/Game/Game.cpp
 	"Game.hpp"
 
-1427392069 source:/home/thibault/ownCloud/Documents/01-Programmation/C++/Bomberman/Cpp/src/Game/Map.cpp
+1427546711 source:/home/thibault/ownCloud/Documents/01-Programmation/C++/Bomberman/Cpp/src/Game/Map.cpp
 	"Map.hpp"
 	"noClass/fn_string.hpp"
 
@@ -1696,13 +1697,13 @@
 1427461394 source:/home/thibault/ownCloud/Documents/01-Programmation/C++/Bomberman/Cpp/src/Game/Sol.cpp
 	"Sol.hpp"
 
-1427384388 source:/home/thibault/ownCloud/Documents/01-Programmation/C++/Bomberman/Cpp/src/Personnage/Personnage.cpp
+1427562047 source:/home/thibault/ownCloud/Documents/01-Programmation/C++/Bomberman/Cpp/src/Personnage/Personnage.cpp
 	"Personnage.hpp"
 
-1427478783 source:/home/thibault/ownCloud/Documents/01-Programmation/C++/Bomberman/Cpp/src/Bomb/Bomb.cpp
+1427577463 source:/home/thibault/ownCloud/Documents/01-Programmation/C++/Bomberman/Cpp/src/Bomb/Bomb.cpp
 	"Bomb/Bomb.hpp"
 
-1427392445 /home/thibault/ownCloud/Documents/01-Programmation/C++/Bomberman/Cpp/include/Bomb/Bomb.hpp
+1427577449 /home/thibault/ownCloud/Documents/01-Programmation/C++/Bomberman/Cpp/include/Bomb/Bomb.hpp
 	"header.hpp"
 	"Background.h"
 	"StratBombSimple.hpp"
@@ -1711,7 +1712,7 @@
 1424924630 source:/home/thibault/ownCloud/Documents/01-Programmation/C++/Bomberman/Cpp/src/gui/Bouton_conflict-20150312-134657.cpp
 	"Bouton.hpp"
 
-1427283831 /home/thibault/ownCloud/Documents/01-Programmation/C++/Bomberman/Cpp/include/Editeur/EditeurMap.hpp
+1427560369 /home/thibault/ownCloud/Documents/01-Programmation/C++/Bomberman/Cpp/include/Editeur/EditeurMap.hpp
 	"General.hpp"
 	"header.hpp"
 	"Bouton.hpp"
@@ -1727,16 +1728,17 @@
 
 1427233062 D
 
-1427377858 /home/thibault/ownCloud/Documents/01-Programmation/C++/Bomberman/Cpp/include/Personnage/IA.hpp
+1427585911 /home/thibault/ownCloud/Documents/01-Programmation/C++/Bomberman/Cpp/include/Personnage/IA.hpp
 	"Personnage.hpp"
+	"Graph.hpp"
 
-1427281677 source:/home/thibault/ownCloud/Documents/01-Programmation/C++/Bomberman/Cpp/src/Editeur/EditeurMap.cpp
+1427559653 source:/home/thibault/ownCloud/Documents/01-Programmation/C++/Bomberman/Cpp/src/Editeur/EditeurMap.cpp
 	"Editeur/EditeurMap.hpp"
 
-1427395017 source:/home/thibault/ownCloud/Documents/01-Programmation/C++/Bomberman/Cpp/src/Personnage/Humain.cpp
+1427542086 source:/home/thibault/ownCloud/Documents/01-Programmation/C++/Bomberman/Cpp/src/Personnage/Humain.cpp
 	"Humain.hpp"
 
-1427377890 source:/home/thibault/ownCloud/Documents/01-Programmation/C++/Bomberman/Cpp/src/Personnage/IA.cpp
+1427628374 source:/home/thibault/ownCloud/Documents/01-Programmation/C++/Bomberman/Cpp/src/Personnage/IA.cpp
 	"IA.hpp"
 
 1425304281 source:/home/thibault/ownCloud/Documents/01-Programmation/C++/Bomberman/Cpp/src/gui/InputText_conflict-20150312-153703.cpp
@@ -2493,15 +2495,16 @@
 	<sys/dir.h>
 	<sys/stat.h>
 
-1427473104 source:/home/thibault/ownCloud/Documents/01-Programmation/C++/Bomberman/Cpp/src/Bomb/BombManager.cpp
+1427586490 source:/home/thibault/ownCloud/Documents/01-Programmation/C++/Bomberman/Cpp/src/Bomb/BombManager.cpp
 	"BombManager.hpp"
 
-1427389701 /home/thibault/ownCloud/Documents/01-Programmation/C++/Bomberman/Cpp/include/Bomb/BombManager.hpp
+1427577514 /home/thibault/ownCloud/Documents/01-Programmation/C++/Bomberman/Cpp/include/Bomb/BombManager.hpp
 	"header.hpp"
 	"Bomb.hpp"
 	"Map.hpp"
+	"Personnage.hpp"
 
-1427474694 /home/thibault/ownCloud/Documents/01-Programmation/C++/Bomberman/Cpp/include/Bomb/StratBombSimple.hpp
+1427577290 /home/thibault/ownCloud/Documents/01-Programmation/C++/Bomberman/Cpp/include/Bomb/StratBombSimple.hpp
 	"header.hpp"
 	"General.hpp"
 	"Map.hpp"
@@ -2510,7 +2513,7 @@
 	"Sol.hpp"
 	"Bomb.hpp"
 
-1427478302 source:/home/thibault/ownCloud/Documents/01-Programmation/C++/Bomberman/Cpp/src/Bomb/StratBombSimple.cpp
+1427577260 source:/home/thibault/ownCloud/Documents/01-Programmation/C++/Bomberman/Cpp/src/Bomb/StratBombSimple.cpp
 	"StratBombSimple.hpp"
 
 1427481587 /home/babanar/IUT/C++/Bomberman/Bomberman/Cpp/include/Bomb/Bomb.hpp
@@ -2566,4 +2569,13 @@
 
 1427481587 source:/home/babanar/IUT/C++/Bomberman/Bomberman/Cpp/src/Personnage/IA.cpp
 	"IA.hpp"
+
+1427628685 source:/home/thibault/ownCloud/Documents/01-Programmation/C++/Bomberman/Cpp/src/Graph/Graph.cpp
+	"Graph.hpp"
+
+1427585014 /home/thibault/ownCloud/Documents/01-Programmation/C++/Bomberman/Cpp/include/Graph/Graph.hpp
+	"Map.hpp"
+	"header.hpp"
+	<list>
+	<queue>
 

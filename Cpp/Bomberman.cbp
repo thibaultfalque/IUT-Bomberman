@@ -26,6 +26,7 @@
 					<Add directory="include/BonusMalus" />
 					<Add directory="include/Game" />
 					<Add directory="include/Bomb" />
+					<Add directory="include/Graph" />
 				</Compiler>
 				<Linker>
 					<Add option="-lGL" />
@@ -55,6 +56,7 @@
 					<Add directory="include/BonusMalus" />
 					<Add directory="include/Game" />
 					<Add directory="include/Bomb" />
+					<Add directory="include/Graph" />
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
@@ -88,6 +90,7 @@
 					<Add directory="include/BonusMalus" />
 					<Add directory="include/Game" />
 					<Add directory="include/Bomb" />
+					<Add directory="include/Graph" />
 				</Compiler>
 				<Linker>
 					<Add option="-lglu32" />
@@ -117,6 +120,7 @@
 					<Add directory="include/BonusMalus" />
 					<Add directory="include/Game" />
 					<Add directory="include/Bomb" />
+					<Add directory="include/Graph" />
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
@@ -322,6 +326,7 @@
 		<Unit filename="include/General/Ressource.hpp" />
 		<Unit filename="include/General/Screen.h" />
 		<Unit filename="include/General/ScreenManager.h" />
+		<Unit filename="include/Graph/Graph.hpp" />
 		<Unit filename="include/Menu/Menu.hpp" />
 		<Unit filename="include/Menu/MenuIndex.hpp" />
 		<Unit filename="include/Observable.hpp" />
@@ -368,6 +373,7 @@
 		<Unit filename="src/General/Ressource.cpp" />
 		<Unit filename="src/General/Screen.cpp" />
 		<Unit filename="src/General/ScreenManager.cpp" />
+		<Unit filename="src/Graph/Graph.cpp" />
 		<Unit filename="src/Menu/Menu.cpp" />
 		<Unit filename="src/Menu/MenuIndex.cpp" />
 		<Unit filename="src/Observable.cpp" />
