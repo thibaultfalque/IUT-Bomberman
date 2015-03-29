@@ -1,0 +1,29 @@
+#ifndef BOMBMANAGER_HPP
+#define BOMBMANAGER_HPP
+
+#include "header.hpp"
+#include "Bomb.hpp"
+#include "Map.hpp"
+#include "Personnage.hpp"
+class BombManager
+{
+    public:
+        BombManager(Map& m);
+        virtual ~BombManager();
+        bool hasBomb(const unsigned int x,const unsigned int y);
+        bool putBomb(Personnage& p,Bomb* b);
+        //void explode();
+        void draw(sf::RenderTarget& target,sf::RenderStates states) const;
+        void update();
+        void getTabDangerouseCase(vector<vector<bool>>& dangerous);
+
+    protected:
+    private:
+
+        vector<Bomb*> _listbombe;
+        Map & _map;
+        sf::Time tps;
+        Clock clock;
+};
+
+#endif // BOMBMANAGER_HPP
