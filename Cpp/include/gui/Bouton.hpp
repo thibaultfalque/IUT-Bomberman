@@ -11,7 +11,6 @@ class Bouton:public Observateur
     public:
         Bouton(const string text,Vector2f const& taille,Vector2f const& position,string str);
         void onEvent(sf::Event & event);
-
         void update();
         void setAction(string str);
         sf::Vector2f getSize();

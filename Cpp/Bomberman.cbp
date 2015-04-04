@@ -369,7 +369,6 @@
 		<Unit filename="src/Game/Sol.cpp" />
 		<Unit filename="src/General/Console.cpp" />
 		<Unit filename="src/General/EventManager.cpp" />
-		<Unit filename="src/General/EventManager.hpp" />
 		<Unit filename="src/General/Ressource.cpp" />
 		<Unit filename="src/General/Screen.cpp" />
 		<Unit filename="src/General/ScreenManager.cpp" />
@@ -378,7 +377,6 @@
 		<Unit filename="src/Menu/MenuIndex.cpp" />
 		<Unit filename="src/Observable.cpp" />
 		<Unit filename="src/Observateur.cpp" />
-		<Unit filename="src/Personnage/EventManager.hpp" />
 		<Unit filename="src/Personnage/Humain.cpp" />
 		<Unit filename="src/Personnage/IA.cpp" />
 		<Unit filename="src/Personnage/Personnage.cpp" />
@@ -390,7 +388,6 @@
 		<Unit filename="src/noClass/fn_file.cpp" />
 		<Unit filename="src/noClass/fn_random.cpp" />
 		<Unit filename="src/noClass/fn_string.cpp" />
-		<Unit filename="src/noClass/fn_string.hpp" />
 		<Unit filename="src/noClass/fn_time.cpp" />
 		<Extensions>
 			<code_completion />
