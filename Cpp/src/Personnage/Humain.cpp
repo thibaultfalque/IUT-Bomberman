@@ -3,12 +3,8 @@
 Humain::Humain(const sf::Vector2f& position,const string& str,Map & __map, EventManager & _em,BombManager & bm):Personnage(position,str,__map,bm),_eventManager(_em)
 {
 
-    _bomb.push_back(new Bomb("bombeP1.png",sf::Vector2f(0,0),degatsBombes));
-    _bomb.push_back(new Bomb("bombeP1.png",sf::Vector2f(0,0),degatsBombes));
-    _bomb.push_back(new Bomb("bombeP1.png",sf::Vector2f(0,0),degatsBombes));
-    _bomb.push_back(new Bomb("bombeP1.png",sf::Vector2f(0,0),degatsBombes));
-    _bomb.push_back(new Bomb("bombeP1.png",sf::Vector2f(0,0),degatsBombes));
-    _bomb.push_back(new Bomb("bombeP1.png",sf::Vector2f(0,0),degatsBombes));
+
+
 
 }
 
@@ -67,4 +63,14 @@ void Humain::update(){
             direction = 0;
     }
     deltaUpdate.restart();
+}
+
+void Humain::putBomb(){
+    sf::Vector2i p=_map.getMapPosition(sf::Vector2i((int)pos.x,(int)pos.y));
+        if(nbBombe!=0){
+            bool succedPut=_bombeManager.putBomb(*this,new Bomb("bombeP1.png",pos,degatsBombes));
+            if(succedPut){
+                removeBombe();
+            }
+        }
 }

@@ -8,7 +8,7 @@ Personnage::Personnage(sf::Vector2f position,const string& str, Map & __map,Bomb
     // vitesse de déplacement mis au pif, doit surement etre modifié
     vitesse=sf::Vector2f(10,10);
     nbBombeMax=1;
-    nbBombe=6;
+    nbBombe=12;
     launcher=false;
     pusher=false;
     //bombe=new BombeNormale();
@@ -31,8 +31,11 @@ void Personnage::setVitesse(sf::Vector2f vit){
 void Personnage::setnbBombeMax(int nb){
     nbBombeMax=nb;
 }
-void Personnage::setnbBombe(int nb){
-    nbBombe=nb;
+void Personnage::addBombe(){
+    nbBombe++;
+}
+void Personnage::removeBombe(){
+    nbBombe--;
 }
 void Personnage::setdegatsBombes(int d){
     degatsBombes=d;
@@ -43,7 +46,9 @@ void Personnage::setLauncher(bool l){
 void Personnage::setPusher(bool p){
     pusher=p;
 }
-
+void Personnage::setnbBombe(int nb){
+    nbBombe=nb;
+}
 sf::Vector2f Personnage::getPos(){
     return pos;
 }
@@ -115,12 +120,5 @@ void Personnage::draw(sf::RenderTarget& target, sf::RenderStates states) const{
     target.draw(_sprites[direction][etapePas]);
 }
 void Personnage::putBomb(){
-    sf::Vector2i p=_map.getMapPosition(sf::Vector2i((int)pos.x,(int)pos.y));
-        if(nbBombe!=0 && !_bomb.empty()){
-            bool succedPut=_bombeManager.putBomb(*this,_bomb.back());
-            if(succedPut){
-                _bomb.pop_back();
-                nbBombe--;
-            }
-        }
+
 }

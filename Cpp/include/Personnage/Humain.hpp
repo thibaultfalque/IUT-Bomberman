@@ -11,6 +11,7 @@ class Humain:public Personnage
         virtual ~Humain();
         void update();
         void onEvent(sf::Event & event);
+        virtual void putBomb();
     protected:
         virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;
     private:

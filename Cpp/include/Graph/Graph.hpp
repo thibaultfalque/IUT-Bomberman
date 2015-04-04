@@ -17,7 +17,8 @@ class Graph
         /** Default destructor */
         virtual ~Graph();
         void add_edge(sf::Vector2i& indice,sf::Vector2i& neightboor);
-        sf::Vector2i& breadFirstSearch(const sf::Vector2i& src,vector<vector<bool>>& dangerous);
+        sf::Vector2i& breadFirstSearch(const sf::Vector2i& src,vector<vector<bool>>& dangerous,Map& m);
+        void getPath(sf::Vector2i& src,sf::Vector2i& dest,stack<sf::Vector2i>& chemin);
     protected:
     private:
         void fillGraph(Map& m,sf::Vector2i& posDepart,sf::Vector2i posEnd);
