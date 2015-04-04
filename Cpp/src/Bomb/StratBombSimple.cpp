@@ -100,6 +100,7 @@ void StratBombSimple::topCaseTouch(vector<vector<bool>>& tab,Map& m,Bomb& b){
 
 void StratBombSimple::getCaseTouch(Map& m,vector<vector<bool>>& tab,Bomb& b){
 
+    tab[b.getMapPosition().x][b.getMapPosition().y]=true;
     rightCaseTouch(tab,m,b);
     leftCaseTouch(tab,m,b);
     downCaseTouch(tab,m,b);

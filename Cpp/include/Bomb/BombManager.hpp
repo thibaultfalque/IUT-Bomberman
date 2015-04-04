@@ -15,12 +15,14 @@ class BombManager
         //void explode();
         void draw(sf::RenderTarget& target,sf::RenderStates states) const;
         void update();
-        void getTabDangerouseCase(vector<vector<bool>>& dangerous);
+        void updateDangerous();
+        vector<vector<bool>>* getTabDangerouseCase();
 
     protected:
     private:
-
+        vector<vector<bool>> _dangerous;
         vector<Bomb*> _listbombe;
+        vector<int> _eraseIndex;
         Map & _map;
         sf::Time tps;
         Clock clock;

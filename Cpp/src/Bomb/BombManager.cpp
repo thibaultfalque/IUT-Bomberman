@@ -2,14 +2,18 @@
 
 BombManager::BombManager(Map& m):_map(m)
 {
-
+    _dangerous.resize(_map.getSize().x);
+    for(int i=0;i<_dangerous.size();i++){
+        for(int j=0;j<_map.getSize().y;j++)
+            _dangerous[i].push_back(false);
+    }
 
 }
 
 BombManager::~BombManager()
 {
-
-
+    for(int i=0;i<_listbombe.size();i++)
+        delete _listbombe[i];
 }
 
 bool BombManager::hasBomb(const unsigned int x,const unsigned int y){
@@ -19,27 +23,29 @@ bool BombManager::hasBomb(const unsigned int x,const unsigned int y){
     }
     return false;
 }
-
-void BombManager::getTabDangerouseCase(vector<vector<bool>>& dangerous){
-    dangerous.resize(_map.getSize().x);
-    for(int i=0;i<dangerous.size();i++){
-        for(int j=0;j<_map.getSize().y;j++)
-            dangerous[i].push_back(false);
+void BombManager::updateDangerous(){
+    for(int i=0;i<_dangerous.size();i++){
+        for(int j=0;j<_dangerous[i].size();j++)
+            _dangerous[i][j]=false ;
     }
     for(int i=0;i<_listbombe.size();i++)
-        _listbombe[i]->getListCaseTouch(_map,dangerous);
-
+        _listbombe[i]->getListCaseTouch(_map,_dangerous);
+}
+vector<vector<bool>>* BombManager::getTabDangerouseCase(){
+    return &_dangerous;
 }
 
 bool BombManager::putBomb(Personnage& p,Bomb* b){
     sf::FloatRect rect=p.getHitBox();
     sf::Vector2i mapPosition=_map.getMapPosition(sf::Vector2i(rect.left+rect.width/2,rect.top+rect.height/2));
     Case* c=_map.getCase(mapPosition.x,mapPosition.y);
-    if(dynamic_cast<Mur*>(_map.getCase(mapPosition.x,mapPosition.y))!=nullptr)
+    if(dynamic_cast<Mur*>(_map.getCase(mapPosition.x,mapPosition.y))!=nullptr || hasBomb(mapPosition.x,mapPosition.y))
         return false ;
     b->setMapPosition(mapPosition);
+    b->setPosition(c->getPosition());
     _listbombe.push_back(b);
-    _listbombe.back()->setPosition(c->getPosition());
+    updateDangerous();
+    p.addBombe();
     return true;
 }
 
@@ -49,10 +55,15 @@ void BombManager::update(){
         _listbombe[i]->update(tps);
         if(_listbombe[i]->mustExplode()){
             _listbombe[i]->explode(_map);
-            _listbombe.erase(_listbombe.begin()+i);
+            _eraseIndex.push_back(i);
+            updateDangerous();
         }
-
     }
+    for(int i=0;i<_eraseIndex.size() && !_eraseIndex.empty();i++){
+        _listbombe.erase(_listbombe.begin()+_eraseIndex[i]);
+    }
+    _eraseIndex.clear();
+
 
 }
 void BombManager::draw(sf::RenderTarget& target,sf::RenderStates states) const {

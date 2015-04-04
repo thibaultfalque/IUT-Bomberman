@@ -10,7 +10,8 @@ _mapDangerousZone(_map.getSize().x)
     p_test=new Humain(sf::Vector2f(_map.getPosition().x,_map.getPosition().y),"bombermanspritesP0.png",_map,_eventManager,_bombManager);
     vector<sf::Vector2i> pos=_map.getPosDepartPerso();
     for(int i=0;i<pos.size();i++){
-        _ia.push_back(new IA(_map.getCase(pos[i].x,pos[i].y)->getPosition(),"bombermanspritesP"+to_string(i+1)+".png",_map,_bombManager));
+        sf::Vector2f position=_map.getCase(pos[i].x,pos[i].y)->getPosition();
+        _ia.push_back(new IA(sf::Vector2f(position.x+LARGEUR/4,position.y+HAUTEUR/4),"bombermanspritesP"+to_string(i+1)+".png",_map,_bombManager));
     }
 
 }
