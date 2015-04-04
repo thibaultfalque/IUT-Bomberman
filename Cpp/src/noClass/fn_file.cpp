@@ -1,6 +1,6 @@
 #include "noClass/fn_file.hpp"
 #include <vector>
-#include <sys/dir.h>
+#include <dirent.h>
 #include <sys/stat.h>
 using namespace std;
 

@@ -79,6 +79,8 @@ string Map::readFileMap(string str){
     return t;
 }
 Case* Map::getCase(int x,int y){
+    if(x<0||x>=_matrix.size()||y<0||y>=_matrix[x].size())
+        return nullptr;
     return _matrix[x][y];
 }
 sf::Vector2i& Map::getSize(){
@@ -99,9 +101,8 @@ Vector2i Map::getMapPosition(Vector2i screenPosition){
 }
 
 bool Map::canWalk(int x, int y){
-    if(x<0||x>_matrix.size()||y<0||y>_matrix[x].size())
+    if(x<0||x>=_matrix.size()||y<0||y>=_matrix[x].size())
         return false;
-
     return _matrix[x][y]->canWalk();
 }
 void Map::setCase(sf::Vector2i pos,Case* c){

@@ -18,7 +18,7 @@ Graph::~Graph()
     //dtor
 }
 void Graph::fillGraph(Map& m,sf::Vector2i& posDepart,sf::Vector2i posEnd){
-    if(!m.canWalk(posEnd.x,posEnd.y) || !_graph[posEnd.x][posEnd.y].empty() || posDepart.x<0 || posDepart.x>=15 || posDepart.y<0 || posDepart.y>=15 || posEnd.y<0 || posEnd.y>=15 || posEnd.x<0 || posEnd.x>=15)
+    if(!m.canWalk(posEnd.x,posEnd.y) || !_graph[posEnd.x][posEnd.y].empty())
         return;
     add_edge(posDepart,posEnd);
     cout<<"depart "<<posDepart.x<<" "<<posDepart.y<<" end "<<posEnd.x<<" "<<posEnd.y<<endl;
