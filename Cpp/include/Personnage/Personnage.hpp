@@ -16,7 +16,9 @@ class Personnage : public sf::Drawable
         virtual ~Personnage();
         void setVitesse(sf::Vector2f vitesse);
         void setnbBombeMax(int nbBombeMax);
-        void setnbBombe(int nbBombe);
+        void setnbBombe(int nb);
+        void addBombe();
+        void removeBombe();
         void setdegatsBombes(int degatsBombes);
         void setLauncher(bool launcher);
         void setPusher(bool pusher);
@@ -29,7 +31,7 @@ class Personnage : public sf::Drawable
         void update();
         void moveTo(sf::Vector2f newPos);
         bool canMoveTo(sf::Vector2i newPos);
-        void putBomb();
+        virtual void putBomb();
         sf::FloatRect getHitBox(sf::Vector2f newPos);
         sf::FloatRect getHitBox(sf::Vector2i newPos);
         sf::FloatRect getHitBox();
@@ -40,7 +42,7 @@ class Personnage : public sf::Drawable
         sf::Vector2f pos, vitesse;
         int nbBombeMax, nbBombe, degatsBombes;
         vector<BonusMalus> bonusMalus;
-        vector<Bomb*> _bomb;
+        //vector<Bomb*> _bomb;
         bool launcher, pusher;
 
         sf::Sprite _sprite;
