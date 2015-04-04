@@ -37,6 +37,11 @@ void Slider::onMouseClick(Event& event){
             _cursor.setPosition(_pos.x,_cursor.getPosition().y);
         else if(_cursor.getPosition().x>_pos.x+_size.x-_cursor.getSize().x)
             _cursor.setPosition(_pos.x+_size.x-_cursor.getSize().x,_cursor.getPosition().y);
+        float tmp = 0;
+        tmp = (_cursor.getPosition().x - _bar.getPosition().x);
+        tmp = (tmp)/_bar.getSize().x;
+        _obs->notifyChangeSlider(tmp*100);
+        //tmp =
     }
 
 }

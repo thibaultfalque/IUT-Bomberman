@@ -18,8 +18,6 @@ void IA::update(){
 
     sf::FloatRect rect=getHitBox();
     sf::Vector2i mapPosition=_map.getMapPosition(sf::Vector2i(rect.left+rect.width/2,rect.top+rect.height/2));
-    cout<<"MAP POSITION "<<mapPosition.x<<" "<<mapPosition.y<<endl;
-    cout<<"goal "<<goal.x<<" "<<goal.y<<endl;
     if(goal==mapPosition){
         if(!chemin.empty()){
             goal=chemin.top();

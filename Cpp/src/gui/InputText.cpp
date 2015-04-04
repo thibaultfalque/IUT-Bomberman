@@ -81,9 +81,6 @@ void InputText::onMouseUp(sf::Event& event){
             _cursorPosition=relative/(_text.getGlobalBounds().width/_str.size());
         if(_cursorPosition>_str.size())
             _cursorPosition=_str.size();
-        cout<<_text.getGlobalBounds().width/_str.size()<<endl;
-        cout<<"relative "<<relative<<endl;
-        cout<<"cursor position "<<_cursorPosition<<endl;
         //_cursor.setPosition(pos);
     }
 
