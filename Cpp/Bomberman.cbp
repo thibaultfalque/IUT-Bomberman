@@ -27,6 +27,7 @@
 					<Add directory="include/Game" />
 					<Add directory="include/Bomb" />
 					<Add directory="include/Graph" />
+					<Add directory="include/Music" />
 				</Compiler>
 				<Linker>
 					<Add option="-lGL" />
@@ -57,6 +58,7 @@
 					<Add directory="include/Game" />
 					<Add directory="include/Bomb" />
 					<Add directory="include/Graph" />
+					<Add directory="include/Music" />
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
@@ -91,6 +93,7 @@
 					<Add directory="include/Game" />
 					<Add directory="include/Bomb" />
 					<Add directory="include/Graph" />
+					<Add directory="include/Music" />
 				</Compiler>
 				<Linker>
 					<Add option="-lglu32" />
@@ -121,6 +124,7 @@
 					<Add directory="include/Game" />
 					<Add directory="include/Bomb" />
 					<Add directory="include/Graph" />
+					<Add directory="include/Music" />
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
@@ -329,6 +333,9 @@
 		<Unit filename="include/Graph/Graph.hpp" />
 		<Unit filename="include/Menu/Menu.hpp" />
 		<Unit filename="include/Menu/MenuIndex.hpp" />
+		<Unit filename="include/Menu/MenuOption.hpp" />
+		<Unit filename="include/Music/MusicManager.hpp" />
+		<Unit filename="include/Music/SoundManager.hpp" />
 		<Unit filename="include/Observable.hpp" />
 		<Unit filename="include/Observateur.hpp" />
 		<Unit filename="include/Personnage/Humain.hpp" />
@@ -376,6 +383,9 @@
 		<Unit filename="src/Graph/Graph.cpp" />
 		<Unit filename="src/Menu/Menu.cpp" />
 		<Unit filename="src/Menu/MenuIndex.cpp" />
+		<Unit filename="src/Menu/MenuOption.cpp" />
+		<Unit filename="src/Music/MusicManager.cpp" />
+		<Unit filename="src/Music/SoundManager.cpp" />
 		<Unit filename="src/Observable.cpp" />
 		<Unit filename="src/Observateur.cpp" />
 		<Unit filename="src/Personnage/EventManager.hpp" />

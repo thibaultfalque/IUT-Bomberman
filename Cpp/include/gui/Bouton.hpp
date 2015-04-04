@@ -26,6 +26,7 @@ class Bouton:public Observateur
         sf::RectangleShape _rec;
         sf::Text _text;
         string _action;
+        Observable obs;
 
 };
 

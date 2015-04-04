@@ -17,6 +17,12 @@ Application::Application():_window_size(WINDOW_WIDTH,WINDOW_HEIGHT),
     EditeurMap* e=new EditeurMap(&_window_size);
     ScreenManager::add(e,"Editeur");
 
+    MusicManager* musique=new MusicManager("02-opening.ogg");
+    SoundManager* son=new SoundManager();
+    MenuOption* mo=new MenuOption(musique,son, &_window_size);
+    ScreenManager::add(mo,"Options");
+
+
 
 }
 
