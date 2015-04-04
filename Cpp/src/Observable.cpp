@@ -17,3 +17,9 @@ void Observable::removeObs(Observateur* ob){
 void Observable::updateObs(){
 
 }
+void Observable::notifyChangeSlider(float volume){
+
+}
+void Observable::notifyChangeCheckbox(bool checkbox){
+
+}

@@ -1,6 +1,6 @@
 #include "Checkbox.hpp"
 
-Checkbox::Checkbox(sf::Vector2f posIn,sf::Vector2f posOut, sf::Vector2f sizeIn, sf::Vector2f sizeOut):_posRecIn(posIn),_posRecOut(posOut),_sizeRecIn(sizeIn),_sizeRecOut(sizeOut)
+Checkbox::Checkbox(Observable* obs,sf::Vector2f posIn,sf::Vector2f posOut, sf::Vector2f sizeIn, sf::Vector2f sizeOut):_posRecIn(posIn),_posRecOut(posOut),_sizeRecIn(sizeIn),_sizeRecOut(sizeOut)
 {
     _recOut.setPosition(_posRecOut);
     _recOut.setSize(_sizeRecOut);
@@ -15,7 +15,7 @@ Checkbox::Checkbox(sf::Vector2f posIn,sf::Vector2f posOut, sf::Vector2f sizeIn, 
     _click=false;
     _hover=false;
 
-
+    _obs=obs;
 }
 
 Checkbox::~Checkbox()
@@ -32,9 +32,10 @@ void Checkbox::onEvent(sf::Event& event){
         onMouseClick(event);
 }
 void Checkbox::onMouseClick(sf::Event& event){
-  if(_hover)
+  if(_hover){
     _click=!_click;
-
+    _obs->notifyChangeCheckbox(_click);
+  }
 }
 void Checkbox::onMouseHover(sf::Event& event){
     _hover=pointInRect(_posRecOut,_sizeRecOut,sf::Vector2f(event.mouseMove.x,event.mouseMove.y));

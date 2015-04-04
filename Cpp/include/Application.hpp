@@ -6,8 +6,11 @@
 #include "Menu.hpp"
 #include "Background.h"
 #include "MenuIndex.hpp"
+#include "MenuOption.hpp"
 #include "Game.hpp"
 #include "Editeur/EditeurMap.hpp"
+#include "MusicManager.hpp"
+#include "SoundManager.hpp"
 class Application
 {
     public:

@@ -3,11 +3,11 @@
 
 #include "General.hpp"
 #include <header.hpp>
-
+#include <Observable.hpp>
 class Checkbox : public Observateur
 {
     public:
-        Checkbox(sf::Vector2f posIn,sf::Vector2f posOut, sf::Vector2f sizeIn, sf::Vector2f sizeOut);
+        Checkbox(Observable* obs,sf::Vector2f posIn,sf::Vector2f posOut, sf::Vector2f sizeIn, sf::Vector2f sizeOut);
         virtual ~Checkbox();
         void onEvent(sf::Event& event);
         void onMouseClick(sf::Event& event);
@@ -24,6 +24,7 @@ class Checkbox : public Observateur
         sf::Vector2f _posRecOut;
         sf::Vector2f _sizeRecIn;
         sf::Vector2f _sizeRecOut;
+        Observable* _obs;
 };
 
 #endif // CHECKBOX_HPP

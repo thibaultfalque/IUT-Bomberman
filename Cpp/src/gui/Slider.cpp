@@ -1,6 +1,6 @@
 #include "Slider.hpp"
 
-Slider::Slider(const float& valMin, const float& valMax,const float& val,const sf::Vector2f& taille, const sf::Vector2f& pos):_valMin(valMin),_valMax(valMax),_currentValue(val),_size(taille),_pos(pos)
+Slider::Slider(Observable* obs,const float& valMin, const float& valMax,const float& val,const sf::Vector2f& taille, const sf::Vector2f& pos):_valMin(valMin),_valMax(valMax),_currentValue(val),_size(taille),_pos(pos)
 {
     _bar.setSize(_size);
     _bar.setPosition(_pos);
@@ -12,6 +12,7 @@ Slider::Slider(const float& valMin, const float& valMax,const float& val,const s
     _cursor.setSize(sf::Vector2f(15,_size.y+20));
     _cursor.setPosition(Vector2f(_pos.x+(_size.x*_currentValue)/_valMax,_pos.y-_size.y/2*2));
 
+    _obs=obs;
 }
 
 Slider::~Slider()
