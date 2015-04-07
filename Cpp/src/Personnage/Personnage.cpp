@@ -1,7 +1,8 @@
 #include "Personnage.hpp"
 
-Personnage::Personnage(sf::Vector2f position,const string& str, Map & __map,BombManager & bm):_map(__map),_bombeManager(bm)
+Personnage::Personnage(sf::Vector2f position,int numPersonnage, Map & __map,BombManager & bm):_map(__map),_bombeManager(bm)
 {
+    numType = numPersonnage;
     pos=position;
     etapePas = 0;
     direction = 0;
@@ -14,12 +15,9 @@ Personnage::Personnage(sf::Vector2f position,const string& str, Map & __map,Bomb
     //bombe=new BombeNormale();
     degatsBombes=2;
 
-    _sprite=Ressource::getSprite(str,sf::IntRect(0,0,38,38));
-    _sprite.setPosition(pos);
-
     for(int y=0;y<4;y++)
     for(int x=0;x<9;x++){
-        _sprites[y][x]=Ressource::getSprite(str,IntRect(38*x+9,38*y+5,20,30));
+        _sprites[y][x]=Ressource::getSprite("bombermanspritesP"+to_string(numType)+".png",IntRect(38*x+9,38*y+5,20,30));
         _sprites[y][x].setPosition(pos);
     }
 
@@ -61,6 +59,12 @@ int Personnage::getnbBombeMax(){
 int Personnage::getnbBombe(){
     return nbBombe;
 }
+
+int Personnage::getType(){
+    return numType;
+}
+
+
 int Personnage::getdegatsBombes(){
     return degatsBombes;
 }
@@ -121,4 +125,7 @@ void Personnage::draw(sf::RenderTarget& target, sf::RenderStates states) const{
 void Personnage::putBomb(){
 
 }
+
+
+
 void Personnage::onEvent(sf::Event & event){}

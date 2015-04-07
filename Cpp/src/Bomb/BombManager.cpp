@@ -66,7 +66,9 @@ void BombManager::update(){
         if(_listbombe[i]->mustExplode()){
             _listbombe[i]->explode(_map);
             _listExplosions.push_back(Explosion(_listbombe[i]->getMapPosition()
-                                                ,_listbombe[i]->getPower(),0,_map));
+                                                ,_listbombe[i]->getPower()
+                                                ,_listbombe[i]->getPersonnage()->getType()
+                                                ,_map));
 
             _eraseIndex.push_back(i);
             updateDangerous();

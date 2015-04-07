@@ -1,6 +1,6 @@
 #include "IA.hpp"
 
-IA::IA(const sf::Vector2f& position,const string& str,Map & __map,BombManager & bm):Personnage(position,str,__map,bm)
+IA::IA(const sf::Vector2f& position,int numPersonnage,Map & __map,BombManager & bm):Personnage(position,numPersonnage,__map,bm)
 {
     sf::FloatRect rect=getHitBox();
     goal=_map.getMapPosition(sf::Vector2i(rect.left+rect.width/2,rect.top+rect.height/2));
@@ -129,7 +129,7 @@ void IA::draw(sf::RenderTarget& target, sf::RenderStates states) const {
 void IA::putBomb(){
     sf::Vector2i p=_map.getMapPosition(sf::Vector2i((int)pos.x,(int)pos.y));
         if(nbBombe!=0 ){
-            bool succedPut=_bombeManager.putBomb(*this,new Bomb("bombeP2.png",pos,degatsBombes));
+            bool succedPut=_bombeManager.putBomb(*this,new Bomb(*this,degatsBombes));
             if(succedPut){
                 removeBombe();
                 choiceNewGoal();

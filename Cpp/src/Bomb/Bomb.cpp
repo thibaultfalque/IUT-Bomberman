@@ -1,6 +1,9 @@
 #include "Bomb/Bomb.hpp"
-Bomb::Bomb(string tex,Vector2f const& position, int puissance):textureName(tex)
+#include "Personnage.hpp"
+Bomb::Bomb(Personnage & p, int puissance):owner(&p)
 {
+    position=owner->getPos();
+    textureName="bombeP"+to_string(owner->getType())+".png";
     sprite=Ressource::getSprite(textureName,IntRect(0,0,LARGEUR,HAUTEUR));
     sprite.setPosition(position);
     power=puissance;
@@ -63,6 +66,10 @@ void Bomb::setPosition(const sf::Vector2f& pos){
 int Bomb::getPower(){
     return power;
 }
+Personnage * Bomb::getPersonnage(){
+    return owner;
+}
+
 Bomb::~Bomb()
 {
     //dtor

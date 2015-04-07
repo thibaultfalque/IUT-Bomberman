@@ -11,7 +11,7 @@ class BombManager;
 class Personnage : public sf::Drawable
 {
     public:
-        Personnage(sf::Vector2f position,const string& str, Map & __map,BombManager & bm);
+        Personnage(sf::Vector2f position,int numPersonnage, Map & __map,BombManager & bm);
 
         virtual ~Personnage();
         void setVitesse(sf::Vector2f vitesse);
@@ -36,6 +36,8 @@ class Personnage : public sf::Drawable
         sf::FloatRect getHitBox(sf::Vector2f newPos);
         sf::FloatRect getHitBox(sf::Vector2i newPos);
         sf::FloatRect getHitBox();
+        int getType();
+
     protected:
 
         virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;
@@ -46,8 +48,6 @@ class Personnage : public sf::Drawable
         //vector<Bomb*> _bomb;
         bool launcher, pusher;
 
-        sf::Sprite _sprite;
-
         int etapePas;
         int direction;
         sf::Clock timerPas;
@@ -57,7 +57,10 @@ class Personnage : public sf::Drawable
 
         BombManager& _bombeManager;
 
+        int numType;
+
     private:
+
 };
 
 #endif // PERSONNAGE_H

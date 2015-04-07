@@ -9,7 +9,7 @@ class StratBombSimple;
 class Bomb:public sf::Drawable
 {
     public:
-        Bomb(string tex,Vector2f const& position, int puissance);
+        Bomb(Personnage & p, int puissance);
         Bomb(sf::Vector2i& mapPosition);
         virtual ~Bomb();
         void explode(Map& m);
@@ -20,6 +20,7 @@ class Bomb:public sf::Drawable
         bool mustExplode();
         int getPower();
         void getListCaseTouch(Map& _map,vector<vector<bool>>& tab);
+        Personnage * getPersonnage();
     protected:
         virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;
     private:
@@ -31,6 +32,8 @@ class Bomb:public sf::Drawable
         string textureName;
         StratBombSimple* stratBomb;
         bool _explosion;
+
+        Personnage * owner;
 
 };
 
