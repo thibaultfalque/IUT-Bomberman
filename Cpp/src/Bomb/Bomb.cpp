@@ -6,6 +6,7 @@ Bomb::Bomb(string tex,Vector2f const& position, int puissance):textureName(tex)
     power=puissance;
     stratBomb=new StratBombSimple();
     _explosion=false;
+    tempTotal = 0;
 
 }
 
@@ -13,12 +14,12 @@ void Bomb::update(sf::Time tps){
     tempTotal+=tps.asMilliseconds();
     if(_explosion)
         return;
-    if(tempTotal>2250 && !_explosion){
+    else if(tempTotal>2250 && !_explosion){
         _explosion=true;
         tempTotal=0;
     }
 
-    if(tempTotal>2000 && !_explosion){
+    else if(tempTotal>2000 && !_explosion){
         sprite=Ressource::getSprite(textureName,IntRect(LARGEUR*2,0,LARGEUR,HAUTEUR));
         sprite.setPosition(position);
 

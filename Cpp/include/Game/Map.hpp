@@ -19,6 +19,7 @@ class Map:public sf::Drawable
         Case* getCase(int x,int y);
         Vector2i & getSize();
         Vector2i getMapPosition(Vector2i screenPosition);
+        Vector2i getScreenPosition(Vector2i mapPosition);
         bool canWalk(int x, int y);
         sf::Vector2i& getPosition();
         vector<Vector2i>& getPosDepartPerso();
