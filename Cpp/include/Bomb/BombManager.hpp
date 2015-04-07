@@ -12,13 +12,14 @@ class BombManager
     public:
         BombManager(Map& m);
         virtual ~BombManager();
-        bool hasBomb(const unsigned int x,const unsigned int y);
+        Bomb* hasBomb(const unsigned int x,const unsigned int y);
         bool putBomb(Personnage& p,Bomb* b);
         void testPutBomb(vector<vector<bool>>& dangerous,sf::Vector2i& mapPosition);
         //void explode();
         void draw(sf::RenderTarget& target,sf::RenderStates states) const;
         void update();
         void updateDangerous();
+
         vector<vector<bool>>* getTabDangerouseCase();
 
     protected:

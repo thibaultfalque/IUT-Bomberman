@@ -21,6 +21,7 @@ class Bomb:public sf::Drawable
         int getPower();
         void getListCaseTouch(Map& _map,vector<vector<bool>>& tab);
         Personnage * getPersonnage();
+        bool getPersonnageOut();
     protected:
         virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;
     private:
@@ -32,7 +33,7 @@ class Bomb:public sf::Drawable
         string textureName;
         StratBombSimple* stratBomb;
         bool _explosion;
-
+        bool _personnageOut;
         Personnage * owner;
 
 };

@@ -89,7 +89,7 @@ bool Personnage::canMoveTo(sf::Vector2i newPos){
 
     for(int x=hg.x;x<=bd.x;x++)
         for(int y=hg.y;y<=bd.y;y++){
-            if(!_map.canWalk(x,y))
+            if(!_map.canWalk(x,y,numType))
                 return false;
 
             }

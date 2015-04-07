@@ -16,12 +16,12 @@ BombManager::~BombManager()
         delete _listbombe[i];
 }
 
-bool BombManager::hasBomb(const unsigned int x,const unsigned int y){
+Bomb* BombManager::hasBomb(const unsigned int x,const unsigned int y){
     for(int i=0;i<_listbombe.size();i++){
         if(_listbombe[i]->getMapPosition()==sf::Vector2i(x,y))
-            return true;
+            return _listbombe[i];
     }
-    return false;
+    return nullptr;
 }
 void BombManager::updateDangerous(){
     for(int i=0;i<_dangerous.size();i++){

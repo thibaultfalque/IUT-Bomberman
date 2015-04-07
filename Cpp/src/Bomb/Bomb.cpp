@@ -2,6 +2,7 @@
 #include "Personnage.hpp"
 Bomb::Bomb(Personnage & p, int puissance):owner(&p)
 {
+    _personnageOut = false;
     position=owner->getPos();
     textureName="bombeP"+to_string(owner->getType())+".png";
     sprite=Ressource::getSprite(textureName,IntRect(0,0,LARGEUR,HAUTEUR));
@@ -23,6 +24,7 @@ void Bomb::update(sf::Time tps){
     tempTotal+=tps.asMilliseconds();
     if(_explosion)
         return;
+
     else if(tempTotal>2250 && !_explosion){
         _explosion=true;
         tempTotal=0;
@@ -38,6 +40,9 @@ void Bomb::update(sf::Time tps){
         sprite.setPosition(position);
     }
 
+    if(!_personnageOut){
+        _personnageOut=!owner->getHitBox().intersects(sprite.getGlobalBounds());
+    }
 
 }
 bool Bomb::mustExplode(){
@@ -68,6 +73,10 @@ int Bomb::getPower(){
 }
 Personnage * Bomb::getPersonnage(){
     return owner;
+}
+
+bool Bomb::getPersonnageOut(){
+    return _personnageOut;
 }
 
 Bomb::~Bomb()

@@ -1,6 +1,8 @@
 #include "Map.hpp"
 #include "noClass/fn_string.hpp"
-Map::Map(string str,const sf::Vector2i& window_size)
+#include "BombManager.hpp"
+
+Map::Map(string str,const sf::Vector2i& window_size,BombManager & bm):_bombManager(bm)
 {
     string ligne;
 
@@ -100,9 +102,14 @@ Vector2i Map::getMapPosition(Vector2i screenPosition){
     return screenPosition;
 }
 
-bool Map::canWalk(int x, int y){
+bool Map::canWalk(int x, int y,int type){
     if(x<0||x>=_matrix.size()||y<0||y>=_matrix[x].size())
         return false;
+    Bomb * tmp=_bombManager.hasBomb(x,y);
+    if(tmp){
+        if(tmp->getPersonnage()->getType()!=type || tmp->getPersonnageOut())
+            return false;
+    }
     return _matrix[x][y]->canWalk();
 }
 void Map::setCase(sf::Vector2i pos,Case* c){

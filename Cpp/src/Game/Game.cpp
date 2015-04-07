@@ -1,7 +1,7 @@
 #include "Game.hpp"
 
 
-Game::Game(sf::Vector2i* s):_map("res/map/map2.lvl",*s),
+Game::Game(sf::Vector2i* s):_map("res/map/map2.lvl",*s,_bombManager),
 _bombManager(_map),_background("backgroundGame.png"),
 _mapDangerousZone(_map.getSize().x)
 
