@@ -9,7 +9,7 @@ Personnage::Personnage(sf::Vector2f position,int numPersonnage, Map & __map,Bomb
     // vitesse de déplacement mis au pif, doit surement etre modifié
     vitesse=sf::Vector2f(10,10);
     nbBombeMax=1;
-    nbBombe=12;
+    nbBombe=2;
     launcher=false;
     pusher=false;
     //bombe=new BombeNormale();

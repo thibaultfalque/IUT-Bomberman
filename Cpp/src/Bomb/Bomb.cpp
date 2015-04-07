@@ -48,6 +48,7 @@ void Bomb::getListCaseTouch(Map& m,vector<vector<bool>>& tab){
 }
 void Bomb::explode(Map& m){
     stratBomb->explode(m,*this);
+    owner->addBombe();
     _explosion=false;
 }
 void Bomb::setMapPosition(const sf::Vector2i& mapPosition){

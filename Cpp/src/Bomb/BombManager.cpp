@@ -55,7 +55,6 @@ bool BombManager::putBomb(Personnage& p,Bomb* b){
     b->setPosition(c->getPosition());
     _listbombe.push_back(b);
     updateDangerous();
-    p.addBombe();
     return true;
 }
 
