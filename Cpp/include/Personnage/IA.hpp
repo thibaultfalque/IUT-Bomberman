@@ -7,7 +7,7 @@ class IA:public Personnage
 {
     public:
         /** Default constructor */
-        IA(const sf::Vector2f& position,const string& str,Map & __map,BombManager & bm);
+        IA(const sf::Vector2f& position,int numPersonnage,Map & __map,BombManager & bm);
         /** Default destructor */
         virtual ~IA();
         void choiceNewGoal();

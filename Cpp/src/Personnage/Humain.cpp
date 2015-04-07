@@ -1,6 +1,7 @@
 #include "Humain.hpp"
 
-Humain::Humain(const sf::Vector2f& position,const string& str,Map & __map, EventManager & _em,BombManager & bm):Personnage(position,str,__map,bm),_eventManager(_em)
+Humain::Humain(const sf::Vector2f& position,int numPersonnage,Map & __map, EventManager & _em,BombManager & bm)
+    :Personnage(position,numPersonnage,__map,bm),_eventManager(_em)
 {
 
 }
@@ -67,7 +68,7 @@ void Humain::update(){
 void Humain::putBomb(){
     sf::Vector2i p=_map.getMapPosition(sf::Vector2i((int)pos.x,(int)pos.y));
         if(nbBombe!=0){
-            bool succedPut=_bombeManager.putBomb(*this,new Bomb("bombeP1.png",pos,degatsBombes));
+            bool succedPut=_bombeManager.putBomb(*this,new Bomb(*this,degatsBombes));
             if(succedPut){
                 removeBombe();
             }
