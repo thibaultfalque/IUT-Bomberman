@@ -3,9 +3,6 @@
 Humain::Humain(const sf::Vector2f& position,const string& str,Map & __map, EventManager & _em,BombManager & bm):Personnage(position,str,__map,bm),_eventManager(_em)
 {
 
-
-
-
 }
 
 Humain::~Humain()
@@ -16,7 +13,9 @@ void Humain::draw(sf::RenderTarget& target, sf::RenderStates states) const {
     Personnage::draw(target,states);
 }
 void Humain::onEvent(sf::Event& event ){
+
     if(event.key.code==_eventManager.getEventKey("Poser bombe")){
+        cout<<"EVENT HUMAIN"<<endl;
         putBomb();
     }
 }

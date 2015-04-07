@@ -13,15 +13,17 @@ class IA:public Personnage
         void choiceNewGoal();
         void offenseAction(Graph& g);
         void defenseAction(Graph& g);
-        void update();
+        virtual void update();
         virtual void putBomb();
+        bool tryPutBomb(Graph& g);
+        virtual void onEvent(sf::Event & event);
     protected:
         virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;
     private:
         sf::Vector2i goal;
         vector<vector<bool>>* _dangerous;
         stack<sf::Vector2i> chemin;
-        int _indiceGoal;
+        vector<Personnage*> listPersonnage;
 };
 
 #endif // IA_HPP

@@ -9,8 +9,8 @@ class Humain:public Personnage
         Humain(const sf::Vector2f& position,const string& str,Map & __map, EventManager & _em,BombManager & bm);
         /** Default destructor */
         virtual ~Humain();
-        void update();
-        void onEvent(sf::Event & event);
+        virtual void update();
+        virtual void onEvent(sf::Event & event);
         virtual void putBomb();
     protected:
         virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;

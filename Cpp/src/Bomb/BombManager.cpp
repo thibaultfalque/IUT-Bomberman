@@ -31,6 +31,16 @@ void BombManager::updateDangerous(){
     for(int i=0;i<_listbombe.size();i++)
         _listbombe[i]->getListCaseTouch(_map,_dangerous);
 }
+
+void BombManager::testPutBomb(vector<vector<bool>>& dangerous,sf::Vector2i& mapPosition){
+    dangerous.resize(15);
+    for(int i=0;i<_dangerous.size();i++){
+        for(int j=0;j<_dangerous.size();j++)
+            dangerous[i].push_back(_dangerous[i][j]) ;
+    }
+    Bomb b(mapPosition);
+    b.getListCaseTouch(_map,dangerous);
+}
 vector<vector<bool>>* BombManager::getTabDangerouseCase(){
     return &_dangerous;
 }

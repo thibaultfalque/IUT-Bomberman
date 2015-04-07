@@ -12,6 +12,7 @@ class BombManager
         virtual ~BombManager();
         bool hasBomb(const unsigned int x,const unsigned int y);
         bool putBomb(Personnage& p,Bomb* b);
+        void testPutBomb(vector<vector<bool>>& dangerous,sf::Vector2i& mapPosition);
         //void explode();
         void draw(sf::RenderTarget& target,sf::RenderStates states) const;
         void update();

@@ -28,7 +28,8 @@ class Personnage : public sf::Drawable
         int getnbBombe();
         int getdegatsBombes();
         void addBonusMalus(BonusMalus b);
-        void update();
+        virtual void update();
+        virtual void onEvent(sf::Event & event);
         void moveTo(sf::Vector2f newPos);
         bool canMoveTo(sf::Vector2i newPos);
         virtual void putBomb();

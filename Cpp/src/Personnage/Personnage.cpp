@@ -69,7 +69,6 @@ void Personnage::addBonusMalus(BonusMalus b){
 
 }
 
-
 void Personnage::update(){
 }
 
@@ -122,3 +121,4 @@ void Personnage::draw(sf::RenderTarget& target, sf::RenderStates states) const{
 void Personnage::putBomb(){
 
 }
+void Personnage::onEvent(sf::Event & event){}
