@@ -6,6 +6,8 @@
 using namespace std;
 using namespace sf;
 
+typedef  std::map<std::string,sf::Keyboard::Key> EventConf;
+
 
 class EventManager
 {
@@ -14,7 +16,6 @@ protected:
 
     static const std::string KeyName[];
 
-    typedef  std::map<std::string,sf::Keyboard::Key> EventConf;
 
     EventConf _eventconf;
     bool loadFromFile(std::string file);
@@ -29,6 +30,7 @@ public:
 
     bool getEventState(std::string str);
 
+    EventConf& getListKey();
 
     sf::Keyboard::Key getEventKey(std::string str);
 

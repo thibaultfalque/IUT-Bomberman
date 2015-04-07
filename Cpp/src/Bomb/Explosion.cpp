@@ -25,15 +25,15 @@ Explosion::Explosion(sf::Vector2i center, int power, int numPerso,Map & _map)
     needDestroy=false;
     etape=3;
     for(int i=0;i<4;i++){
-        Sprite tmp=Ressource::getSprite("ExplosionP"+to_string(numPerso)+".png"
+        Sprite tmp=Ressource::getSprite("explosionP"+to_string(numPerso)+".png"
                                         ,IntRect(LARGEUR,HAUTEUR*(1+i*4),LARGEUR,HAUTEUR));
         Vector2i pos=_map.getScreenPosition(center);
         tmp.setPosition(pos.x,pos.y);
         sprites[i].push_back(tmp);
-        tmp=Ressource::getSprite("ExplosionP"+to_string(numPerso)+".png"
+        tmp=Ressource::getSprite("explosionP"+to_string(numPerso)+".png"
                                 ,IntRect(LARGEUR*2,HAUTEUR*(1+i*4),LARGEUR,HAUTEUR));
 
-        Sprite tmp2=Ressource::getSprite("ExplosionP"+to_string(numPerso)+".png"
+        Sprite tmp2=Ressource::getSprite("explosionP"+to_string(numPerso)+".png"
                                 ,IntRect(LARGEUR*3,HAUTEUR*(1+i*4),LARGEUR,HAUTEUR));
 
         for(int j=0;j<power;j++){

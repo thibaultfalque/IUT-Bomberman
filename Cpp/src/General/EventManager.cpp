@@ -41,6 +41,7 @@ void EventManager::initDefault(){
     addEventConf("Bas",Keyboard::S);
     addEventConf("Poser bombe",Keyboard::E);
     addEventConf("Menu",Keyboard::Escape);
+    addEventConf("Aff/Cach Console",Keyboard::F1);
 }
 
 bool EventManager::loadFromFile(string file){
@@ -113,6 +114,9 @@ string EventManager::keyToString(Keyboard::Key key){
         return "Touche inconnue";
 
     return KeyName[key];
+}
+EventConf& EventManager::getListKey(){
+    return _eventconf;
 }
 
 

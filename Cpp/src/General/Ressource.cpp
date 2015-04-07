@@ -28,8 +28,10 @@ Font & Ressource::getFont(string src){
         fonts[src]=Font();
         if(!fonts[src].loadFromFile(src)){
             cerr << "Police non trouvée ! " << endl;
-            cerr << "La police par defaut sera utilisée." << endl;
-            fonts[src]=getFont("defaut.ttf");
+            if(src!="res/fonts/defaut.ttf"){
+                cerr << "La police par defaut sera utilisée." << endl;
+                fonts[src]=getFont("defaut.ttf");
+            }
         }
     }
 

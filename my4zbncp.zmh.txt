@@ -1,0 +1,44 @@
+﻿Merge remote-tracking branch 'origin/master'
+
+Conflicts:
+	Cpp/src/Game/Game.cpp
+#
+# It looks like you may be committing a merge.
+# If this is not correct, please remove the file
+#	.git/MERGE_HEAD
+# and try again.
+
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+# On branch master
+# Your branch and 'origin/master' have diverged,
+# and have 1 and 9 different commits each, respectively.
+#   (use "git pull" to merge the remote branch into yours)
+#
+# All conflicts fixed but you are still merging.
+#
+# Changes to be committed:
+#	modified:   Cpp/Bomberman.cbp
+#	modified:   Cpp/include/Application.hpp
+#	modified:   Cpp/include/Game/Game.hpp
+#	modified:   Cpp/include/General/EventManager.hpp
+#	new file:   Cpp/include/Menu/MenuOptionTouch.hpp
+#	new file:   Cpp/include/gui/InputKey.hpp
+#	modified:   Cpp/res/config/keyboard.cfg
+#	modified:   Cpp/res/img/bombeP0.png
+#	modified:   Cpp/res/img/explosionP0.png
+#	modified:   Cpp/src/Application.cpp
+#	modified:   Cpp/src/Bomb/Explosion.cpp
+#	modified:   Cpp/src/Game/Game.cpp
+#	modified:   Cpp/src/General/EventManager.cpp
+#	modified:   Cpp/src/General/Ressource.cpp
+#	modified:   Cpp/src/Menu/Menu.cpp
+#	new file:   Cpp/src/Menu/MenuOptionTouch.cpp
+#	new file:   Cpp/src/gui/InputKey.cpp
+#	deleted:    Cpp/src/noClass/fileManager.cpp
+#
+# Changes not staged for commit:
+#	modified:   Cpp/Bomberman.depend
+#
+

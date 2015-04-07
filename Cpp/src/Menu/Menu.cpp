@@ -8,7 +8,7 @@ _background("backgroundMenu.png")
 
 Menu::~Menu()
 {
-    //dtor
+   delete _window_size;
 }
 void Menu::onEvent(sf::Event& event){
     for(unsigned int i=0;i<obs.size();i++)

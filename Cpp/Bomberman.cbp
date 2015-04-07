@@ -32,11 +32,11 @@
 				<Linker>
 					<Add option="-lGL" />
 					<Add option="-lGLU" />
-					<Add library="SFML-2.1-linux64/lib/libsfml-audio.so" />
-					<Add library="SFML-2.1-linux64/lib/libsfml-graphics.so" />
-					<Add library="SFML-2.1-linux64/lib/libsfml-window.so" />
-					<Add library="SFML-2.1-linux64/lib/libsfml-system.so" />
-					<Add library="SFML-2.1-linux64/lib/libsfml-network.so" />
+					<Add library="SFML-2.1-linux64\lib\libsfml-audio.so" />
+					<Add library="SFML-2.1-linux64\lib\libsfml-graphics.so" />
+					<Add library="SFML-2.1-linux64\lib\libsfml-window.so" />
+					<Add library="SFML-2.1-linux64\lib\libsfml-system.so" />
+					<Add library="SFML-2.1-linux64\lib\libsfml-network.so" />
 					<Add directory="SFML-2.1-linux64/lib" />
 				</Linker>
 			</Target>
@@ -64,11 +64,11 @@
 					<Add option="-s" />
 					<Add option="-lGL" />
 					<Add option="-lGLU" />
-					<Add library="SFML-2.1-linux64/lib/libsfml-audio.so" />
-					<Add library="SFML-2.1-linux64/lib/libsfml-graphics.so" />
-					<Add library="SFML-2.1-linux64/lib/libsfml-window.so" />
-					<Add library="SFML-2.1-linux64/lib/libsfml-system.so" />
-					<Add library="SFML-2.1-linux64/lib/libsfml-network.so" />
+					<Add library="SFML-2.1-linux64\lib\libsfml-audio.so" />
+					<Add library="SFML-2.1-linux64\lib\libsfml-graphics.so" />
+					<Add library="SFML-2.1-linux64\lib\libsfml-window.so" />
+					<Add library="SFML-2.1-linux64\lib\libsfml-system.so" />
+					<Add library="SFML-2.1-linux64\lib\libsfml-network.so" />
 					<Add directory="SFML-2.1-linux64/lib" />
 				</Linker>
 			</Target>
@@ -307,6 +307,7 @@
 		<Unit filename="include/Background.h" />
 		<Unit filename="include/Bomb/Bomb.hpp" />
 		<Unit filename="include/Bomb/BombManager.hpp" />
+		<Unit filename="include/Bomb/Explosion.hpp" />
 		<Unit filename="include/Bomb/StratBombSimple.hpp" />
 		<Unit filename="include/BonusMalus/BonusDegatsBombes.hpp" />
 		<Unit filename="include/BonusMalus/BonusLauncher.hpp" />
@@ -357,6 +358,7 @@
 		<Unit filename="src/Background.cpp" />
 		<Unit filename="src/Bomb/Bomb.cpp" />
 		<Unit filename="src/Bomb/BombManager.cpp" />
+		<Unit filename="src/Bomb/Explosion.cpp" />
 		<Unit filename="src/Bomb/StratBombSimple.cpp" />
 		<Unit filename="src/BonusMalus/BonusDegatsBombes.cpp" />
 		<Unit filename="src/BonusMalus/BonusLauncher.cpp" />
@@ -383,6 +385,7 @@
 		<Unit filename="src/Menu/Menu.cpp" />
 		<Unit filename="src/Menu/MenuIndex.cpp" />
 		<Unit filename="src/Menu/MenuOption.cpp" />
+		<Unit filename="src/Menu/MenuOptionTouch.cpp" />
 		<Unit filename="src/Music/MusicManager.cpp" />
 		<Unit filename="src/Music/SoundManager.cpp" />
 		<Unit filename="src/Observable.cpp" />
@@ -392,6 +395,7 @@
 		<Unit filename="src/Personnage/Personnage.cpp" />
 		<Unit filename="src/gui/Bouton.cpp" />
 		<Unit filename="src/gui/Checkbox.cpp" />
+		<Unit filename="src/gui/InputKey.cpp" />
 		<Unit filename="src/gui/InputText.cpp" />
 		<Unit filename="src/gui/Slider.cpp" />
 		<Unit filename="src/noClass/Collision.cpp" />

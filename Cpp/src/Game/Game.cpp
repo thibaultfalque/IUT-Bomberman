@@ -1,11 +1,12 @@
 #include "Game.hpp"
 
 
-Game::Game(sf::Vector2i* s):_map("res/map/map2.lvl",*s,_bombManager),
+Game::Game(sf::Vector2i* s,EventManager& event):_map("res/map/map2.lvl",*s,_bombManager),_eventManager(event),
 _bombManager(_map),_background("backgroundGame.png"),
 _mapDangerousZone(_map.getSize().x)
 
 {
+    _eventManager=event;
     _window_size=s;
     vector<sf::Vector2i> pos=_map.getPosDepartPerso();
     _perso.push_back(new Humain(sf::Vector2f(_map.getPosition().x,_map.getPosition().y),0,_map,_eventManager,_bombManager));

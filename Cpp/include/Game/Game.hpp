@@ -14,7 +14,7 @@ class Game:public Screen
 {
     public:
         /** Default constructor */
-        Game(sf::Vector2i* s);
+        Game(sf::Vector2i* s,EventManager& event);
         /** Default destructor */
         virtual ~Game();
         void update();
@@ -29,7 +29,7 @@ class Game:public Screen
         Background _background;
         sf::RectangleShape statRec;
 
-        EventManager _eventManager;
+        EventManager& _eventManager;
         BombManager _bombManager;
         //Humain* p_test;
         vector<Personnage*> _perso;
