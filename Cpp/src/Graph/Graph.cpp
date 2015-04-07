@@ -25,7 +25,6 @@ void Graph::add_edge(sf::Vector2i& indice,sf::Vector2i& neightboor){
 
     if(indice.x<0 || indice.x>=15 || indice.y<0 || indice.y>=15)
         return;
-    //cout<<"add"<<endl;
     _graph[indice.x][indice.y].push_front(neightboor);
 }
 sf::Vector2i& Graph::breadFirstSearch(const sf::Vector2i& src,vector<vector<bool>>& dangerous,Map& m){
