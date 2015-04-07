@@ -7,6 +7,7 @@
 #include "Background.h"
 #include "MenuIndex.hpp"
 #include "MenuOption.hpp"
+#include "MenuOptionTouch.hpp"
 #include "Game.hpp"
 #include "Editeur/EditeurMap.hpp"
 #include "MusicManager.hpp"
@@ -25,7 +26,7 @@ class Application
         sf::Vector2i _window_size;
         sf::RenderWindow _window;
         sf::ContextSettings _window_setting;
-
+        EventManager _eventManager;
         bool _showConsole;
 };
 

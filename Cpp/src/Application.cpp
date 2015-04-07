@@ -10,7 +10,7 @@ Application::Application():_window_size(WINDOW_WIDTH,WINDOW_HEIGHT),
     ScreenManager::add(m,"Menu");
     ScreenManager::goToScreen("Menu");
 
-    Game* g=new Game(&_window_size);
+    Game* g=new Game(&_window_size,_eventManager);
     ScreenManager::add(g,"Game");
 
 
@@ -19,9 +19,12 @@ Application::Application():_window_size(WINDOW_WIDTH,WINDOW_HEIGHT),
 
     MusicManager* musique=new MusicManager("02-opening.ogg");
     SoundManager* son=new SoundManager();
+
     MenuOption* mo=new MenuOption(musique,son, &_window_size);
     ScreenManager::add(mo,"Options");
 
+    MenuOptionTouch* mot=new MenuOptionTouch(&_window_size,_eventManager);
+    ScreenManager::add(mot,"OptionsTouches");
 
 
 }
@@ -52,9 +55,10 @@ void Application::processEvents()
 
             break;
             case sf::Event::KeyReleased:
-                if(event.key.code == sf::Keyboard::F1){
+                if(event.key.code == _eventManager.getEventKey("Aff/Cach Console")){
                     _showConsole=!_showConsole;
                 }
+                ScreenManager::screeCourant->onEvent(event);
             break;
             default:
                 ScreenManager::screeCourant->onEvent(event);
