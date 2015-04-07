@@ -6,7 +6,12 @@ Bomb::Bomb(string tex,Vector2f const& position, int puissance):textureName(tex)
     power=puissance;
     stratBomb=new StratBombSimple();
     _explosion=false;
+    tempTotal=0;
 
+}
+Bomb::Bomb(sf::Vector2i& mapPosition){
+    stratBomb=new StratBombSimple();
+    mapPosition=mapPosition;
 }
 
 void Bomb::update(sf::Time tps){

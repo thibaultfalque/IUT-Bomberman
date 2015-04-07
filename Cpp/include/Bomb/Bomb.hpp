@@ -10,6 +10,7 @@ class Bomb:public sf::Drawable
 {
     public:
         Bomb(string tex,Vector2f const& position, int puissance);
+        Bomb(sf::Vector2i& mapPosition);
         virtual ~Bomb();
         void explode(Map& m);
         void setPosition(const sf::Vector2f& pos);
