@@ -5,6 +5,8 @@
 #include "Bomb.hpp"
 #include "Map.hpp"
 #include "Personnage.hpp"
+#include "Explosion.hpp"
+
 class BombManager
 {
     public:
@@ -23,6 +25,7 @@ class BombManager
     private:
         vector<vector<bool>> _dangerous;
         vector<Bomb*> _listbombe;
+        list<Explosion> _listExplosions;
         vector<int> _eraseIndex;
         Map & _map;
         sf::Time tps;

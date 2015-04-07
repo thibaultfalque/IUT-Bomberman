@@ -65,18 +65,30 @@ void BombManager::update(){
         _listbombe[i]->update(tps);
         if(_listbombe[i]->mustExplode()){
             _listbombe[i]->explode(_map);
+            _listExplosions.push_back(Explosion(_listbombe[i]->getMapPosition()
+                                                ,_listbombe[i]->getPower(),0,_map));
+
             _eraseIndex.push_back(i);
             updateDangerous();
         }
     }
+    for(Explosion & e:_listExplosions)
+        e.update();
     for(int i=0;i<_eraseIndex.size() && !_eraseIndex.empty();i++){
         _listbombe.erase(_listbombe.begin()+_eraseIndex[i]);
     }
     _eraseIndex.clear();
 
+    list<Explosion>::iterator it=_listExplosions.begin();
+    while(it!=_listExplosions.end() && it->getNeedDestroy()){
+        _listExplosions.pop_front();
+        it=_listExplosions.begin();
+    }
 
 }
 void BombManager::draw(sf::RenderTarget& target,sf::RenderStates states) const {
     for(unsigned int i=0;i<_listbombe.size();i++)
         target.draw(*_listbombe[i],states);
+    for(Explosion  e:_listExplosions)
+        target.draw(e,states);
 }

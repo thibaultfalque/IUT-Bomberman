@@ -108,3 +108,8 @@ bool Map::canWalk(int x, int y){
 void Map::setCase(sf::Vector2i pos,Case* c){
     _matrix[pos.x][pos.y]=c;
 }
+Vector2i Map::getScreenPosition(Vector2i mapPosition)
+{
+    return pos + Vector2i(mapPosition.x*LARGEUR,mapPosition.y*HAUTEUR);
+}
+

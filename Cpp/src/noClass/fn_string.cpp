@@ -153,7 +153,6 @@ string implode(vector<string> & tabstr, string ch)
 		if (i!=0)
 			out.append(ch);
 		out.append(tabstr[i]);
-		//cout << tabstr[i] << endl;
 	}
 	return out;
 }
