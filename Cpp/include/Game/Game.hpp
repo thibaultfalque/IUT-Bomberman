@@ -24,7 +24,6 @@ class Game:public Screen
     private:
         Map _map;
 
-
         vector<vector<int>> _mapDangerousZone;
         sf::Vector2i* _window_size;
         Background _background;
@@ -32,8 +31,8 @@ class Game:public Screen
 
         EventManager _eventManager;
         BombManager _bombManager;
-        Humain* p_test;
-        vector<IA*> _ia;
+        //Humain* p_test;
+        vector<Personnage*> _perso;
 
 };
 
