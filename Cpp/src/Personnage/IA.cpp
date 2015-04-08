@@ -12,7 +12,9 @@ IA::~IA()
 {
     //dtor
 }
-void IA::update(){
+void IA::update(sf::Time& tps){
+    tempsTotalPas+=tps.asSeconds();
+    tempsTotalDelta+=tps.asSeconds();
     //Position logique personnage
     sf::Vector2i mapPosition=_map.getMapPosition(Vector2i(pos.x,pos.y));
 
@@ -36,7 +38,7 @@ void IA::update(){
 
 
     Vector2f memPos = pos;
-    moveTo(pos +vitesse*deltaUpdate.getElapsedTime().asSeconds());
+    moveTo(pos +vitesse*tempsTotalDelta);
 
     if(pos==memPos)
         choiceNewGoal();
@@ -53,31 +55,7 @@ void IA::update(){
             vitesse=Vector2f(0,0);
       }
 
-        //GRAPHIC UPDATE
-
-        for(int y=0;y<4;y++)
-        for(int x=0;x<9;x++)
-            _sprites[y][x].setPosition(pos);
-
-        if(timerPas.getElapsedTime().asSeconds()>=0.06){
-            timerPas.restart();
-            etapePas = (++etapePas)%9;
-        }
-        if(vitesse.x==0 && vitesse.y == 0){
-            etapePas = 0;
-        }
-        else if(abs(vitesse.x)>abs(vitesse.y)){
-            if(vitesse.x<0)
-                direction = 3;
-            else
-                direction = 1;
-        }else{
-            if(vitesse.y<0)
-                direction = 2;
-            else
-                direction = 0;
-        }
-        deltaUpdate.restart();
+    graphicUpdate(tps);
 
 }
 void IA::choiceNewGoal(){

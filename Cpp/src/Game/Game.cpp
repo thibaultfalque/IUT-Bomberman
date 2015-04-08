@@ -23,6 +23,10 @@ Game::~Game()
 }
 
 void Game::onEvent(sf::Event & event){
+    if(event.key.code==_eventManager.getEventKey("Menu")){
+        ScreenManager::goToScreen("Menu");
+    }
+
     for(int i=0;i<_perso.size();i++){
         _perso[i]->onEvent(event);
     }
@@ -31,7 +35,7 @@ void Game::onEvent(sf::Event & event){
 void Game::update(sf::Time& tps){
     _bombManager.update(tps);
     for(int i=0;i<_perso.size();i++){
-        _perso[i]->update();
+        _perso[i]->update(tps);
     }
 
 

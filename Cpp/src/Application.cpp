@@ -70,9 +70,10 @@ void Application::processEvents()
 
 void Application::update()
 {
-
+    tps=_clock.getElapsedTime();
     //_background.update();
-    ScreenManager::screeCourant->update();
+    ScreenManager::screeCourant->update(tps);
+    _clock.restart();
     //_audio.update();
 }
 

@@ -21,6 +21,9 @@ Personnage::Personnage(sf::Vector2f position,int numPersonnage, Map & __map,Bomb
         _sprites[y][x].setOrigin(10,25);
     }
 
+    tempsTotalPas=0;
+    tempsTotalDelta=0;
+
 }
 
 void Personnage::setVitesse(sf::Vector2f vit){
@@ -73,8 +76,37 @@ void Personnage::addBonusMalus(BonusMalus b){
 
 }
 
-void Personnage::update(){
+void Personnage::update(sf::Time& tps){
 }
+
+void Personnage::graphicUpdate(sf::Time& tps){
+    //TODO METTRE DEUX FLOAT TEMPS TOTALS !!
+    for(int y=0;y<4;y++)
+    for(int x=0;x<9;x++)
+        _sprites[y][x].setPosition(pos);
+
+    if(tempsTotalPas>=0.06){
+        tempsTotalPas=0;
+        etapePas = (++etapePas)%9;
+    }
+    if(vitesse.x==0 && vitesse.y == 0){
+        etapePas = 0;
+    }
+    else if(abs(vitesse.x)>abs(vitesse.y)){
+        if(vitesse.x<0)
+            direction = 3;
+        else
+            direction = 1;
+    }else{
+        if(vitesse.y<0)
+            direction = 2;
+        else
+            direction = 0;
+    }
+    tempsTotalDelta=0;
+}
+
+
 
 void Personnage::moveTo(sf::Vector2f newPos){
     if(pos==newPos || canMoveTo(Vector2i((int)newPos.x,(int)newPos.y)) || !canMoveTo(Vector2i((int)pos.x,(int)pos.y)))

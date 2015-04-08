@@ -9,7 +9,7 @@ class Humain:public Personnage
         Humain(const sf::Vector2f& position,int numPersonnage,Map & __map, EventManager & _em,BombManager & bm);
         /** Default destructor */
         virtual ~Humain();
-        virtual void update();
+        virtual void update(sf::Time& tps);
         virtual void onEvent(sf::Event & event);
         virtual void putBomb();
     protected:
