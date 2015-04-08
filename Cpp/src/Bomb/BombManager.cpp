@@ -7,6 +7,7 @@ BombManager::BombManager(Map& m):_map(m)
         for(int j=0;j<_map.getSize().y;j++)
             _dangerous[i].push_back(false);
     }
+    _pause=false;
 
 }
 
@@ -14,6 +15,9 @@ BombManager::~BombManager()
 {
     for(int i=0;i<_listbombe.size();i++)
         delete _listbombe[i];
+}
+void BombManager::setPause(bool p ){
+    _pause=p;
 }
 
 Bomb* BombManager::hasBomb(const unsigned int x,const unsigned int y){
@@ -58,35 +62,36 @@ bool BombManager::putBomb(Personnage& p,Bomb* b){
     return true;
 }
 
-void BombManager::update(){
-   tps=clock.restart();
-    for(unsigned int i=0;i<_listbombe.size();i++){
-        _listbombe[i]->update(tps);
-        if(_listbombe[i]->mustExplode()){
-            _listbombe[i]->explode(_map);
-            _listExplosions.push_back(Explosion(_listbombe[i]->getMapPosition()
-                                                ,_listbombe[i]->getPower()
-                                                ,_listbombe[i]->getPersonnage()->getType()
-                                                ,_map));
+void BombManager::update(sf::Time& tps){
 
-            _eraseIndex.push_back(i);
+        for(unsigned int i=0;i<_listbombe.size();i++){
+            _listbombe[i]->update(tps);
+            if(_listbombe[i]->mustExplode()){
+                _listbombe[i]->explode(_map);
+                _listExplosions.push_back(Explosion(_listbombe[i]->getMapPosition()
+                                                    ,_listbombe[i]->getPower()
+                                                    ,_listbombe[i]->getPersonnage()->getType()
+                                                    ,_map));
 
+                _eraseIndex.push_back(i);
+
+            }
         }
-    }
-    for(Explosion & e:_listExplosions)
-        e.update();
-    for(int i=0;i<_eraseIndex.size() && !_eraseIndex.empty();i++){
-        _listbombe.erase(_listbombe.begin()+_eraseIndex[i]);
-    }
-    if(_eraseIndex.size()>0)
-        updateDangerous();
-    _eraseIndex.clear();
+        for(Explosion & e:_listExplosions)
+            e.update(tps);
+        for(int i=0;i<_eraseIndex.size() && !_eraseIndex.empty();i++){
+            _listbombe.erase(_listbombe.begin()+_eraseIndex[i]);
+        }
+        if(_eraseIndex.size()>0)
+            updateDangerous();
+        _eraseIndex.clear();
 
-    list<Explosion>::iterator it=_listExplosions.begin();
-    while(it!=_listExplosions.end() && it->getNeedDestroy()){
-        _listExplosions.pop_front();
-        it=_listExplosions.begin();
-    }
+        list<Explosion>::iterator it=_listExplosions.begin();
+        while(it!=_listExplosions.end() && it->getNeedDestroy()){
+            _listExplosions.pop_front();
+            it=_listExplosions.begin();
+        }
+
 
 }
 void BombManager::draw(sf::RenderTarget& target,sf::RenderStates states) const {

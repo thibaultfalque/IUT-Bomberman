@@ -17,7 +17,7 @@ class Game:public Screen
         Game(sf::Vector2i* s,EventManager& event);
         /** Default destructor */
         virtual ~Game();
-        void update();
+        void update(sf::Time& tps);
         void onEvent(sf::Event & event);
     protected:
         virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;

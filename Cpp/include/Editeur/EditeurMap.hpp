@@ -24,7 +24,7 @@ class EditeurMap:public Screen
         void onMouseClickLeft(sf::Event& event);
         void onMouseHover(sf::Event& event);
         void onMouseMove(sf::Event& event);
-
+        void clickButtonSave(sf::Event& event);
     protected:
         virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;
     private:
@@ -42,6 +42,7 @@ class EditeurMap:public Screen
        Sprite _spriteTab[15][15];
        char _mapTab[15][15];
        bool _click;
+       bool _hover;
        int id;
 
 

@@ -1,6 +1,6 @@
 #include "Editeur/EditeurMap.hpp"
 
-EditeurMap::EditeurMap(sf::Vector2i* s):_map(sf::Vector2f(570,570)),_save("Sauvegarder",sf::Vector2f(50,20),sf::Vector2f(0,0),"Menu")
+EditeurMap::EditeurMap(sf::Vector2i* s):_map(sf::Vector2f(570,570)),_save("Sauvegarder",sf::Vector2f(100,25),sf::Vector2f(10,10),"Menu")
 {
     _window_size=s;
     _map.setPosition(sf::Vector2f((s->x/2)-(_map.getSize().x/2),(s->y/2)-(_map.getSize().y/2)));
@@ -53,11 +53,6 @@ void EditeurMap::save(){
 }
 void EditeurMap::onMouseClickLeft(sf::Event& event){
 
-    if(pointInRect(_save.getPosition(),_save.getSize(),sf::Vector2f(event.mouseButton.x,event.mouseButton.y))){
-        save();
-        _save.onEvent(event);
-    }
-
     if(tmp!=nullptr && pointInRect(_map.getPosition(),sf::Vector2f(_map.getGlobalBounds().width,_map.getGlobalBounds().height),Vector2f(event.mouseButton.x,event.mouseButton.y))){
         sf::Vector2f relativePos(event.mouseButton.x-_map.getPosition().x,event.mouseButton.y-_map.getPosition().y);
         int x=(relativePos.x*15)/570;
@@ -102,6 +97,7 @@ void EditeurMap::onMouseClickRight(sf::Event& event){
 
 }
 void EditeurMap::onMouseHover(sf::Event& event){
+    _hover=pointInRect(_save.getPosition(),_save.getSize(),sf::Vector2f(event.mouseMove.x,event.mouseMove.y));
 
    if(tmp!=nullptr){
         tmp->setPosition(sf::Vector2f(event.mouseMove.x-tmp->getGlobalBounds().width/2,event.mouseMove.y-tmp->getGlobalBounds().height/2));
@@ -114,7 +110,6 @@ void EditeurMap::onMouseMove(sf::Event& event){
         int y=(relativePos.y*15)/570;
         _spriteTab[x][y]=Sprite(*tmp->getTexture());
         _spriteTab[x][y].setPosition(sf::Vector2f(_map.getPosition().x+x*_spriteTab[x][y].getGlobalBounds().width,_map.getPosition().y+y*_spriteTab[x][y].getGlobalBounds().height));
-        //tmp=nullptr;
         _mapTab[x][y]=id;
     }
 }
@@ -126,13 +121,20 @@ void EditeurMap::onEvent(sf::Event& event){
     }
    if(event.type==sf::Event::MouseButtonReleased && event.mouseButton.button == sf::Mouse::Right)
         onMouseClickRight(event);
-   if(event.type==sf::Event::MouseButtonPressed && event.mouseButton.button == sf::Mouse::Left)
+   if(event.type==sf::Event::MouseButtonPressed && event.mouseButton.button == sf::Mouse::Left && !_hover)
         onMouseClickLeft(event);
-    if(event.type==sf::Event::MouseButtonReleased && event.mouseButton.button == sf::Mouse::Left)
+   else if(event.type==sf::Event::MouseButtonReleased && event.mouseButton.button == sf::Mouse::Left && _hover)
+        clickButtonSave(event);
+   if(event.type==sf::Event::MouseButtonReleased && event.mouseButton.button == sf::Mouse::Left && !_hover)
         _click=false;
 
-}
 
+}
+void EditeurMap::clickButtonSave(sf::Event& event){
+    save();
+    _save.onEvent(event);
+    cout<<"save"<<endl;
+}
 
 void EditeurMap::draw(sf::RenderTarget& target, sf::RenderStates states) const{
     target.draw(_map,states);

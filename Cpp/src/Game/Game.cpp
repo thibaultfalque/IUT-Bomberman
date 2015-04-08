@@ -28,8 +28,8 @@ void Game::onEvent(sf::Event & event){
     }
 }
 
-void Game::update(){
-    _bombManager.update();
+void Game::update(sf::Time& tps){
+    _bombManager.update(tps);
     for(int i=0;i<_perso.size();i++){
         _perso[i]->update();
     }

@@ -28,6 +28,8 @@ class Application
         sf::ContextSettings _window_setting;
         EventManager _eventManager;
         bool _showConsole;
+        sf::Clock _clock;
+        sf::Time tps;
 };
 
 #endif // APPLICATION_H

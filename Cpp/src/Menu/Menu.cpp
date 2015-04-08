@@ -14,8 +14,8 @@ void Menu::onEvent(sf::Event& event){
     for(unsigned int i=0;i<obs.size();i++)
         obs[i]->onEvent(event);
 }
-void Menu::update(){
-    updateObs();
+void Menu::update(sf::Time& tps){
+    updateObs(tps);
 }
 
 void Menu::draw(sf::RenderTarget& target, sf::RenderStates states) const {
@@ -25,7 +25,7 @@ void Menu::draw(sf::RenderTarget& target, sf::RenderStates states) const {
 }
 
 
-void Menu::updateObs(){
+void Menu::updateObs(sf::Time& tps){
     for(unsigned int i=0;i<obs.size();i++)
         obs[i]->update();
 }

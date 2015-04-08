@@ -13,12 +13,12 @@ class Menu: public Screen
     public:
         Menu(sf::Vector2i* s);
         virtual void onEvent(sf::Event & event);
-        virtual void update();
-        virtual void updateObs();
+        virtual void update(sf::Time& tps);
         virtual ~Menu();
     protected:
         virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;
     private:
+        virtual void updateObs(sf::Time& tps);
         Background _background;
 };
 

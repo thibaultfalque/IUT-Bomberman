@@ -17,10 +17,12 @@ class BombManager
         void testPutBomb(vector<vector<bool>>& dangerous,sf::Vector2i& mapPosition);
         //void explode();
         void draw(sf::RenderTarget& target,sf::RenderStates states) const;
-        void update();
+        void update(sf::Time& tps);
         void updateDangerous();
 
         vector<vector<bool>>* getTabDangerouseCase();
+
+        void setPause(bool p);
 
     protected:
     private:
@@ -29,8 +31,7 @@ class BombManager
         list<Explosion> _listExplosions;
         vector<int> _eraseIndex;
         Map & _map;
-        sf::Time tps;
-        Clock clock;
+        bool _pause;
 };
 
 #endif // BOMBMANAGER_HPP
