@@ -10,6 +10,7 @@
 #include "Mur.hpp"
 #include "Humain.hpp"
 #include "IA.hpp"
+#include "InputText.hpp"
 
 class EditeurMap:public Screen
 {
@@ -44,6 +45,11 @@ class EditeurMap:public Screen
        bool _click;
        bool _hover;
        int id;
+
+       string file;
+       bool _choiceNameFile;
+       InputText input;
+
 
 
 

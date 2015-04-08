@@ -1,6 +1,9 @@
 #include "Editeur/EditeurMap.hpp"
 
-EditeurMap::EditeurMap(sf::Vector2i* s):_map(sf::Vector2f(570,570)),_save("Sauvegarder",sf::Vector2f(100,25),sf::Vector2f(10,10),"Menu")
+EditeurMap::EditeurMap(sf::Vector2i* s):_map(sf::Vector2f(570,570))
+,_save("Sauvegarder"
+,sf::Vector2f(100,25),sf::Vector2f(10,10),"Menu")
+,input(sf::Vector2f(s->x/2-50,s->y/2-10),sf::Vector2f(100,20),"")
 {
     _window_size=s;
     _map.setPosition(sf::Vector2f((s->x/2)-(_map.getSize().x/2),(s->y/2)-(_map.getSize().y/2)));
@@ -30,6 +33,12 @@ EditeurMap::EditeurMap(sf::Vector2i* s):_map(sf::Vector2f(570,570)),_save("Sauve
             _mapTab[i][j]=SOL;
         }
 
+
+
+   file="";
+   _choiceNameFile=false;
+
+
 }
 
 
@@ -38,7 +47,7 @@ EditeurMap::~EditeurMap()
     //dtor
 }
 void EditeurMap::save(){
-    ofstream f("res/map/map2.lvl",ios::out | ios::trunc);
+    ofstream f("res/map/"+file,ios::out | ios::trunc);
     if(!f.good()){
         perror("echec de l'ouverture");
         exit(1);
@@ -114,44 +123,67 @@ void EditeurMap::onMouseMove(sf::Event& event){
     }
 }
 void EditeurMap::onEvent(sf::Event& event){
-   if( event.type==sf::Event::MouseMoved){
-        onMouseHover(event);
-        if(_click)
-            onMouseMove(event);
+   //SOURIS
+    if(_choiceNameFile){
+       if( event.type==sf::Event::MouseMoved){
+            onMouseHover(event);
+            if(_click)
+                onMouseMove(event);
+        }
+
+       if(event.type==sf::Event::MouseButtonReleased && event.mouseButton.button == sf::Mouse::Right)
+            onMouseClickRight(event);
+       if(event.type==sf::Event::MouseButtonPressed && event.mouseButton.button == sf::Mouse::Left && !_hover)
+            onMouseClickLeft(event);
+       else if(event.type==sf::Event::MouseButtonReleased && event.mouseButton.button == sf::Mouse::Left && _hover)
+            clickButtonSave(event);
+       if(event.type==sf::Event::MouseButtonReleased && event.mouseButton.button == sf::Mouse::Left && !_hover)
+            _click=false;
     }
-   if(event.type==sf::Event::MouseButtonReleased && event.mouseButton.button == sf::Mouse::Right)
-        onMouseClickRight(event);
-   if(event.type==sf::Event::MouseButtonPressed && event.mouseButton.button == sf::Mouse::Left && !_hover)
-        onMouseClickLeft(event);
-   else if(event.type==sf::Event::MouseButtonReleased && event.mouseButton.button == sf::Mouse::Left && _hover)
-        clickButtonSave(event);
-   if(event.type==sf::Event::MouseButtonReleased && event.mouseButton.button == sf::Mouse::Left && !_hover)
-        _click=false;
 
+    //CLAVIER
+    else{
+        input.onEvent(event);
+        if(event.type==sf::Event::KeyReleased && event.key.code==sf::Keyboard::Return){
+            cout<<"toto"<<endl;
+            cout<<input.getString()<<endl;
+            ofstream f("res/map/"+input.getString(),ios::out | ios::trunc);
+            if(!f.good())
+                Console::say("Impossible de créer le fichier "+input.getString(),1);
+            else{
+                f.close();
+                file=input.getString();
+                _choiceNameFile=true;
+            }
+        }
 
+    }
 }
 void EditeurMap::clickButtonSave(sf::Event& event){
     save();
     _save.onEvent(event);
-    cout<<"save"<<endl;
 }
 
 void EditeurMap::draw(sf::RenderTarget& target, sf::RenderStates states) const{
-    target.draw(_map,states);
-    target.draw(_gauche,states);
-    for(int i=0;i<15;i++)
-        for(int j=0;j<15;j++)
-            target.draw(_spriteTab[i][j]);
-    target.draw(_mur,states);
-    target.draw(_block,states);
-    target.draw(_sol,states);
+    if(_choiceNameFile){
+        target.draw(_map,states);
+        target.draw(_gauche,states);
+        for(int i=0;i<15;i++)
+            for(int j=0;j<15;j++)
+                target.draw(_spriteTab[i][j]);
+        target.draw(_mur,states);
+        target.draw(_block,states);
+        target.draw(_sol,states);
 
-    if(tmp!=nullptr){
-        target.draw(*tmp,states);
-   }
-    for(int i=0;i<_perso.size();i++){
-        target.draw(_perso[i],states);
+        if(tmp!=nullptr){
+            target.draw(*tmp,states);
+       }
+        for(int i=0;i<_perso.size();i++){
+            target.draw(_perso[i],states);
+        }
+        target.draw(_save,states);
     }
-    target.draw(_save,states);
-
+    else{
+        target.draw(input,states);
+    }
 }
