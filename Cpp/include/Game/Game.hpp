@@ -33,6 +33,10 @@ class Game:public Screen
         BombManager _bombManager;
         //Humain* p_test;
         vector<Personnage*> _perso;
+        sf::Text chrono;
+        float chronoDepart;
+        float tempsTotal;
+        bool lauch;
 
 };
 
