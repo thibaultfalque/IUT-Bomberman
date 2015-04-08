@@ -83,13 +83,15 @@ void IA::update(){
 void IA::choiceNewGoal(){
     sf::FloatRect rect=getHitBox();
     sf::Vector2i mapPosition=_map.getMapPosition(sf::Vector2i(rect.left+rect.width/2,rect.top+rect.height/2));
-
+    vitesse=Vector2f(0,0);
     Graph g(_map,mapPosition);
     if((*_dangerous)[mapPosition.x][mapPosition.y]){
+            cout << "DEFENSE" << endl;
         defenseAction(g);
 
     }
     else{
+        cout << "OFFENSE" << endl;
         offenseAction(g);
     }
 }
@@ -104,12 +106,12 @@ void IA::offenseAction(Graph& g){
        || (*_dangerous)[newMapPosition.x][newMapPosition.y])
       return;
 
-
+    goal=newMapPosition;
     int put=rand_int(0,7);
     if(put==0){
         tryPutBomb(g);
     }
-    goal=newMapPosition;
+
 }
 void IA::defenseAction(Graph& g){
     sf::Vector2i mapPosition=_map.getMapPosition(sf::Vector2i(pos.x,pos.y));
@@ -128,7 +130,6 @@ void IA::draw(sf::RenderTarget& target, sf::RenderStates states) const {
 }
 
 void IA::putBomb(){
-    sf::Vector2i p=_map.getMapPosition(sf::Vector2i((int)pos.x,(int)pos.y));
         if(nbBombe!=0 ){
             bool succedPut=_bombeManager.putBomb(*this,new Bomb(*this,degatsBombes));
             if(succedPut){
@@ -145,6 +146,7 @@ bool IA::tryPutBomb(Graph& g){
     sf::Vector2i tmp=g.breadFirstSearch(p,dangerous,_map);
     stack<Vector2i> chm;
     g.getPath(p,tmp,chm);
+    cout << "NEXT :" << chm.top().x << " - " << chm.top().y << endl;
     if(chm.size()>5 || chm.empty())
         return false ;
     else{

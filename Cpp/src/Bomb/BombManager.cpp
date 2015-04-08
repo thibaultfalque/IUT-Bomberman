@@ -47,8 +47,7 @@ vector<vector<bool>>* BombManager::getTabDangerouseCase(){
 }
 
 bool BombManager::putBomb(Personnage& p,Bomb* b){
-    sf::FloatRect rect=p.getHitBox();
-    sf::Vector2i mapPosition=_map.getMapPosition(sf::Vector2i(rect.left+rect.width/2,rect.top+rect.height/2));
+    sf::Vector2i mapPosition=_map.getMapPosition(Vector2i(p.getPos().x,p.getPos().y));
     Case* c=_map.getCase(mapPosition.x,mapPosition.y);
     if(dynamic_cast<Mur*>(_map.getCase(mapPosition.x,mapPosition.y))!=nullptr || hasBomb(mapPosition.x,mapPosition.y))
         return false ;
