@@ -2,26 +2,42 @@
 
 Graph::Graph(Map& m,sf::Vector2i posDepart)
 {
-    fillGraph(m,posDepart,sf::Vector2i(posDepart.x-1,posDepart.y));
-    fillGraph(m,posDepart,sf::Vector2i(posDepart.x+1,posDepart.y));
-    fillGraph(m,posDepart,sf::Vector2i(posDepart.x,posDepart.y-1));
-    fillGraph(m,posDepart,sf::Vector2i(posDepart.x,posDepart.y+1));
+    bool visited[15][15];
+    for(int i=0;i<15;i++)
+        for(bool & b:visited[i])
+            b=false;
+    fillGraph(m,posDepart,visited);
+
 }
 
 Graph::~Graph()
 {
     //dtor
 }
-void Graph::fillGraph(Map& m,sf::Vector2i& posDepart,sf::Vector2i posEnd){
-    if(!m.canWalk(posEnd.x,posEnd.y) || !_graph[posEnd.x][posEnd.y].empty())
+void Graph::fillGraph(Map& m,sf::Vector2i posDepart,bool visited[15][15]){
+
+    if(visited[posDepart.x][posDepart.y])
         return;
-    add_edge(posDepart,posEnd);
-    fillGraph(m,posEnd,sf::Vector2i(posEnd.x-1,posEnd.y));
-    fillGraph(m,posEnd,sf::Vector2i(posEnd.x+1,posEnd.y));
-    fillGraph(m,posEnd,sf::Vector2i(posEnd.x,posEnd.y-1));
-    fillGraph(m,posEnd,sf::Vector2i(posEnd.x,posEnd.y+1));
+    visited[posDepart.x][posDepart.y]=true;
+
+    if(m.canWalk(posDepart.x+1,posDepart.y)){
+        add_edge(posDepart,Vector2i(posDepart.x+1,posDepart.y));
+        fillGraph(m,Vector2i(posDepart.x+1,posDepart.y),visited);
+    }
+    if(m.canWalk(posDepart.x,posDepart.y+1)){
+        add_edge(posDepart,Vector2i(posDepart.x,posDepart.y+1));
+        fillGraph(m,Vector2i(posDepart.x,posDepart.y+1),visited);
+    }
+    if(m.canWalk(posDepart.x-1,posDepart.y)){
+        add_edge(posDepart,Vector2i(posDepart.x-1,posDepart.y));
+        fillGraph(m,Vector2i(posDepart.x-1,posDepart.y),visited);
+    }
+    if(m.canWalk(posDepart.x,posDepart.y-1)){
+        add_edge(posDepart,Vector2i(posDepart.x,posDepart.y-1));
+        fillGraph(m,Vector2i(posDepart.x,posDepart.y-1),visited);
+    }
 }
-void Graph::add_edge(sf::Vector2i& indice,sf::Vector2i& neightboor){
+void Graph::add_edge(sf::Vector2i indice,sf::Vector2i neightboor){
 
     if(indice.x<0 || indice.x>=15 || indice.y<0 || indice.y>=15)
         return;
@@ -44,14 +60,18 @@ sf::Vector2i& Graph::breadFirstSearch(const sf::Vector2i& src,vector<vector<bool
     parent[src.x][src.y]=NUL;
     queue<sf::Vector2i> q;
     q.push(src);
+    bool havefind=false;
     while(!q.empty()){
         sf::Vector2i u=q.front();
         q.pop();
         for(list<sf::Vector2i>::iterator it=_graph[u.x][u.y].begin();it!=_graph[u.x][u.y].end();++it){
             sf::Vector2i v=*it;
-            if(!dangerous[v.x][v.y] && m.canWalk(v.x,v.y))
-                coordCaseSecure=sf::Vector2i(v.x,v.y);
             if(color[v.x][v.y]==WHITE){
+
+                if(!havefind && !dangerous[v.x][v.y] && m.canWalk(v.x,v.y)){
+                    coordCaseSecure=sf::Vector2i(v.x,v.y);
+                    havefind=true;
+                }
                 dist[v.x][v.y]=dist[u.x][u.y]+1;
                 color[v.x][v.y]=GREY;
                 parent[v.x][v.y]=u;
@@ -63,10 +83,18 @@ sf::Vector2i& Graph::breadFirstSearch(const sf::Vector2i& src,vector<vector<bool
     return coordCaseSecure;
 }
 void Graph::getPath(sf::Vector2i& src,sf::Vector2i& dest,stack<sf::Vector2i>& chemin){
-
-    while(src!=dest && parent[dest.x][dest.y]!=NUL){
+    Vector2i tmp;
+    while(!chemin.empty()){
+        tmp=chemin.top();
+        chemin.pop();
+    }
+    while(src!=dest && parent[dest.x][dest.y]!=NUL){;
         chemin.push(dest);
         dest=parent[dest.x][dest.y];
+    }
+    if(src!=dest){
+        while(!chemin.empty())
+            chemin.pop();
     }
     chemin.push(src);
 

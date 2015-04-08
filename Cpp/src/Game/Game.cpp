@@ -12,7 +12,7 @@ _mapDangerousZone(_map.getSize().x)
     _perso.push_back(new Humain(sf::Vector2f(_map.getPosition().x,_map.getPosition().y),0,_map,_eventManager,_bombManager));
     for(int i=0;i<pos.size();i++){
         sf::Vector2f position=_map.getCase(pos[i].x,pos[i].y)->getPosition();
-        _perso.push_back(new IA(sf::Vector2f(position.x+LARGEUR/4,position.y+HAUTEUR/4),i+1,_map,_bombManager));
+        _perso.push_back(new IA(sf::Vector2f(position.x+LARGEUR/2,position.y+HAUTEUR/2),i+1,_map,_bombManager));
     }
 
 }

@@ -30,6 +30,7 @@ void BombManager::updateDangerous(){
     }
     for(int i=0;i<_listbombe.size();i++)
         _listbombe[i]->getListCaseTouch(_map,_dangerous);
+
 }
 
 void BombManager::testPutBomb(vector<vector<bool>>& dangerous,sf::Vector2i& mapPosition){
@@ -70,7 +71,7 @@ void BombManager::update(){
                                                 ,_map));
 
             _eraseIndex.push_back(i);
-            updateDangerous();
+
         }
     }
     for(Explosion & e:_listExplosions)
@@ -78,6 +79,8 @@ void BombManager::update(){
     for(int i=0;i<_eraseIndex.size() && !_eraseIndex.empty();i++){
         _listbombe.erase(_listbombe.begin()+_eraseIndex[i]);
     }
+    if(_eraseIndex.size()>0)
+        updateDangerous();
     _eraseIndex.clear();
 
     list<Explosion>::iterator it=_listExplosions.begin();

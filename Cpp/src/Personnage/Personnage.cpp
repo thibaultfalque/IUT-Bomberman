@@ -6,19 +6,19 @@ Personnage::Personnage(sf::Vector2f position,int numPersonnage, Map & __map,Bomb
     pos=position;
     etapePas = 0;
     direction = 0;
-    // vitesse de déplacement mis au pif, doit surement etre modifié
-    vitesse=sf::Vector2f(10,10);
+
+    vitesse=sf::Vector2f(0,0);
     nbBombeMax=1;
     nbBombe=2;
     launcher=false;
     pusher=false;
-    //bombe=new BombeNormale();
     degatsBombes=2;
 
     for(int y=0;y<4;y++)
     for(int x=0;x<9;x++){
         _sprites[y][x]=Ressource::getSprite("bombermanspritesP"+to_string(numType)+".png",IntRect(38*x+9,38*y+5,20,30));
         _sprites[y][x].setPosition(pos);
+        _sprites[y][x].setOrigin(10,25);
     }
 
 }
@@ -114,7 +114,7 @@ sf::FloatRect Personnage::getHitBox()
 
 sf::FloatRect Personnage::getHitBox(sf::Vector2f newPos)
 {
-    return FloatRect(newPos+Vector2f(5,23),Vector2f(10,4));
+    return FloatRect(newPos+Vector2f(-5,-2),Vector2f(10,4));
 
 }
 

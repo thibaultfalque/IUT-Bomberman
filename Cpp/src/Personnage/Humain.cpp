@@ -16,7 +16,6 @@ void Humain::draw(sf::RenderTarget& target, sf::RenderStates states) const {
 void Humain::onEvent(sf::Event& event ){
 
     if(event.key.code==_eventManager.getEventKey("Poser bombe")){
-        cout<<"EVENT HUMAIN"<<endl;
         putBomb();
     }
 }

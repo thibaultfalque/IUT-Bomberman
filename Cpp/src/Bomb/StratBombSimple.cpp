@@ -24,10 +24,9 @@ void StratBombSimple::rightCaseTouch(vector<vector<bool>>& tab,Map& m,Bomb& b){
     bool _continue=true;
     while(power!=0 && _continue){
         if(m.canWalk(x,mapPosition.y)){
+            tab[x][mapPosition.y]=true;
             x++;
             power--;
-            if(x>=0&&x<tab.size())
-                tab[x][mapPosition.y]=true;
             continue;
         }
         Block* block=dynamic_cast<Block*>(m.getCase(x,mapPosition.y));
@@ -45,10 +44,9 @@ void StratBombSimple::leftCaseTouch(vector<vector<bool>>& tab,Map& m,Bomb& b){
     bool _continue=true;
     while(power!=0 && _continue){
         if(m.canWalk(x,mapPosition.y)){
-            x++;
+            tab[x][mapPosition.y]=true;
+            x--;
             power--;
-            if(x>=0&&x<tab.size())
-                tab[x][mapPosition.y]=true;
             continue;
         }
         Block* block=dynamic_cast<Block*>(m.getCase(x,mapPosition.y));
@@ -66,10 +64,10 @@ void StratBombSimple::downCaseTouch(vector<vector<bool>>& tab,Map& m,Bomb& b){
     bool _continue=true;
     while(power!=0 && _continue){
         if(m.canWalk(mapPosition.x,y)){
+            tab[mapPosition.x][y]=true;
             y++;
             power--;
-            if(y>=0&&y<tab[mapPosition.x].size())
-            tab[mapPosition.x][y]=true;
+
             continue;
         }
         Block* block=dynamic_cast<Block*>(m.getCase(mapPosition.x,y));
@@ -87,10 +85,10 @@ void StratBombSimple::topCaseTouch(vector<vector<bool>>& tab,Map& m,Bomb& b){
     bool _continue=true;
     while(power!=0 && _continue){
         if(m.canWalk(mapPosition.x,y)){
-            y++;
-            power--;
-            if(y>=0&&y<tab[mapPosition.x].size())
             tab[mapPosition.x][y]=true;
+            y--;
+            power--;
+
             continue;
         }
         Block* block=dynamic_cast<Block*>(m.getCase(mapPosition.x,y));

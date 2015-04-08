@@ -5,7 +5,8 @@ using namespace sf;
 
 int main()
 {
-    srand(time(NULL));
+    /*
+    srand(time(NULL));//*/
     Application app;
     app.run();
 

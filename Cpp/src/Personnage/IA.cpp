@@ -13,44 +13,45 @@ IA::~IA()
     //dtor
 }
 void IA::update(){
+    //Position logique personnage
+    sf::Vector2i mapPosition=_map.getMapPosition(Vector2i(pos.x,pos.y));
 
-    sf::FloatRect rect=getHitBox();
-    sf::Vector2i mapPosition=_map.getMapPosition(sf::Vector2i(rect.left+rect.width/2,rect.top+rect.height/2));
+    //Position graphique goal
+    sf::Vector2i centerPositionGoal=_map.getScreenPosition(goal);
+    centerPositionGoal.x += LARGEUR/2;
+    centerPositionGoal.y += HAUTEUR/2;
 
-    sf::Vector2f centerPositionGoal=sf::Vector2f(_map.getCase(goal.x,goal.y)->getPosition().x+LARGEUR/4,
-    _map.getCase(goal.x,goal.y)->getPosition().y+HAUTEUR/4);
-
-    sf::Vector2f pos2=sf::Vector2f(rect.left+rect.width/2,rect.top+rect.height/2);
-
-    if(mapPosition==goal){
-        pos=centerPositionGoal;
-        if(!chemin.empty()){
-            goal=chemin.top();
-            chemin.pop();
-        }
-        else{
-            choiceNewGoal();
+    float pixelParSecondes = 70;
+    if(vitesse == Vector2f(0,0)){
+        vitesse =  Vector2f(centerPositionGoal.x,centerPositionGoal.y) - pos;
+        if(vitesse.x*vitesse.y!=0){
+            vitesse = (vitesse/sqrt(vitesse.x*vitesse.x + vitesse.y*vitesse.y))*pixelParSecondes;
+        }else{
+            if(vitesse.x!=0)
+                vitesse.x = (vitesse.x<0?-pixelParSecondes:pixelParSecondes);
+            else if(vitesse.y!=0)
+                vitesse.y = (vitesse.y<0?-pixelParSecondes:pixelParSecondes);
         }
     }
-    vitesse = Vector2f(0,0);
-    float pixelParSecondes = 38;
 
 
-    if(centerPositionGoal.x<pos2.x && mapPosition.y==goal.y)
-            vitesse.x -= pixelParSecondes;
-    else if(centerPositionGoal.x>pos2.x && mapPosition.y==goal.y)
-            vitesse.x += pixelParSecondes;
-    else if(centerPositionGoal.y<pos2.y && mapPosition.x==goal.x)
-            vitesse.y -= pixelParSecondes;
-    else if(centerPositionGoal.y>pos2.y && mapPosition.x==goal.x)
-            vitesse.y += pixelParSecondes;
-    else
-        choiceNewGoal();
-    if(vitesse.x*vitesse.y!=0){
-        vitesse = (vitesse/sqrt(vitesse.x*vitesse.x + vitesse.y*vitesse.y))*pixelParSecondes;
-    }
-
+    Vector2f memPos = pos;
     moveTo(pos +vitesse*deltaUpdate.getElapsedTime().asSeconds());
+
+    if(pos==memPos)
+        choiceNewGoal();
+
+    if((centerPositionGoal.x-pos.x)*(centerPositionGoal.x-pos.x)+(centerPositionGoal.y-pos.y)*(centerPositionGoal.y-pos.y)
+      >(centerPositionGoal.x-memPos.x)*(centerPositionGoal.x-memPos.x)+(centerPositionGoal.y-memPos.y)*(centerPositionGoal.y-memPos.y)){
+            if(!chemin.empty()){
+                goal=chemin.top();
+                chemin.pop();
+            }else{
+                choiceNewGoal();
+            }
+            //pos=Vector2f(centerPositionGoal.x,centerPositionGoal.y);
+            vitesse=Vector2f(0,0);
+      }
 
         //GRAPHIC UPDATE
 
@@ -97,10 +98,12 @@ void IA::offenseAction(Graph& g){
     int dir_x[] = {-1,0,1,0};
     int dir_y[] = {0,-1,0,1};
     sf::FloatRect rect=getHitBox();
-    sf::Vector2i mapPosition=_map.getMapPosition(sf::Vector2i(rect.left+rect.width/2,rect.top+rect.height/2));
+    sf::Vector2i mapPosition=_map.getMapPosition(Vector2i(pos.x,pos.y));
     sf::Vector2i newMapPosition=sf::Vector2i(mapPosition.x+dir_x[n],mapPosition.y+dir_y[n]);
-    if(newMapPosition.x<0 || newMapPosition.x>=15 ||newMapPosition.y<0 || newMapPosition.y>=15 || !_map.canWalk(newMapPosition.x,newMapPosition.y))
+    if(!_map.canWalk(newMapPosition.x,newMapPosition.y)
+       || (*_dangerous)[newMapPosition.x][newMapPosition.y])
       return;
+
 
     int put=rand_int(0,7);
     if(put==0){
@@ -109,10 +112,8 @@ void IA::offenseAction(Graph& g){
     goal=newMapPosition;
 }
 void IA::defenseAction(Graph& g){
-    sf::FloatRect rect=getHitBox();
-    sf::Vector2i mapPosition=_map.getMapPosition(sf::Vector2i(rect.left+rect.width/2,rect.top+rect.height/2));
+    sf::Vector2i mapPosition=_map.getMapPosition(sf::Vector2i(pos.x,pos.y));
     sf::Vector2i tmp=g.breadFirstSearch(mapPosition,*_dangerous,_map);
-
     g.getPath(mapPosition,tmp,chemin);
 
     if(!chemin.empty()){
@@ -139,11 +140,12 @@ void IA::putBomb(){
 }
 bool IA::tryPutBomb(Graph& g){
     vector<vector<bool>> dangerous;
-    sf::Vector2i p=_map.getMapPosition(sf::Vector2i((int)pos.x,(int)pos.y));
+    sf::Vector2i p=_map.getMapPosition(sf::Vector2i(pos.x,pos.y));
     _bombeManager.testPutBomb(dangerous,p);
     sf::Vector2i tmp=g.breadFirstSearch(p,dangerous,_map);
-
-    if(tmp==sf::Vector2i(-1,-1))
+    stack<Vector2i> chm;
+    g.getPath(p,tmp,chm);
+    if(chm.size()>5 || chm.empty())
         return false ;
     else{
         putBomb();
