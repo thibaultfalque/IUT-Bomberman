@@ -11,6 +11,8 @@ float string_to_float( const string & Str);
 
 int string_to_int( const string & Str);
 
+bool string_to_bool( const string & Str);
+
 /*string to_string( int Value );
 
 string to_string( int Value, unsigned int nb_car );

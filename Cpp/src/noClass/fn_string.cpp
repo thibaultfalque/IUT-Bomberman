@@ -23,6 +23,16 @@ int string_to_int( const string & Str)
     return Dest;
 }
 
+bool string_to_bool( const string & Str)
+{
+	bool Dest;
+    // créer un flux à partir de la chaîne donnée
+    istringstream iss( Str );
+    // tenter la conversion vers Dest
+    iss >> Dest;
+    return Dest;
+}
+
 /*
 string to_string( int Value )
 {
