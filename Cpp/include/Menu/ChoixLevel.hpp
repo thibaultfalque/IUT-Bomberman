@@ -20,7 +20,7 @@ class ChoixLevel:public Menu
         virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;
     private:
      vector<ViewLevel*> listLevel;
-     ViewLevel* view[3];
+     ViewLevel* view[2];
      Bouton* _bouton;
      EventManager& eventManager;
 };
