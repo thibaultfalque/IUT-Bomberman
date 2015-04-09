@@ -332,6 +332,7 @@
 		<Unit filename="include/General/Screen.h" />
 		<Unit filename="include/General/ScreenManager.h" />
 		<Unit filename="include/Graph/Graph.hpp" />
+		<Unit filename="include/Menu/ChoixLevel.hpp" />
 		<Unit filename="include/Menu/Menu.hpp" />
 		<Unit filename="include/Menu/MenuChoixGame.hpp" />
 		<Unit filename="include/Menu/MenuIndex.hpp" />
@@ -386,6 +387,7 @@
 		<Unit filename="src/General/Screen.cpp" />
 		<Unit filename="src/General/ScreenManager.cpp" />
 		<Unit filename="src/Graph/Graph.cpp" />
+		<Unit filename="src/Menu/ChoixLevel.cpp" />
 		<Unit filename="src/Menu/Menu.cpp" />
 		<Unit filename="src/Menu/MenuChoixGame.cpp" />
 		<Unit filename="src/Menu/MenuIndex.cpp" />
