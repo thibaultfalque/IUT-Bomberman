@@ -12,7 +12,7 @@ class Bomb:public sf::Drawable
         Bomb(Personnage & p, int puissance);
         Bomb(sf::Vector2i& mapPosition);
         virtual ~Bomb();
-        void explode(Map& m);
+        vector<Vector2i> explode(Map& m);
         void setPosition(const sf::Vector2f& pos);
         void update(sf::Time tps);
         sf::Vector2i& getMapPosition();

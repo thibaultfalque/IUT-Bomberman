@@ -44,7 +44,7 @@ void Graph::add_edge(sf::Vector2i indice,sf::Vector2i neightboor){
     _graph[indice.x][indice.y].push_front(neightboor);
 }
 sf::Vector2i& Graph::breadFirstSearch(const sf::Vector2i& src,vector<vector<bool>>& dangerous,Map& m){
-    sf::Vector2i coordCaseSecure;
+    sf::Vector2i coordCaseSecure=src;
     color.resize(15);
     dist.resize(15);
     parent.resize(15);

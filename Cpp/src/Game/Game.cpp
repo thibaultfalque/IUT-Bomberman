@@ -1,8 +1,9 @@
 #include "Game.hpp"
 
 
+
 Game::Game(sf::Vector2i* s,EventManager& event,string filemap):_map(filemap,*s,_bombManager),_eventManager(event),
-_bombManager(_map),_background("backgroundGame.png"),
+_bombManager(_map,_perso),_background("backgroundGame.png"),
 _mapDangerousZone(_map.getSize().x)
 
 {

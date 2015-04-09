@@ -17,9 +17,8 @@ Bomb::Bomb(Personnage & p, int puissance):owner(&p)
 }
 Bomb::Bomb(sf::Vector2i& mapPosition){
     stratBomb=new StratBombSimple();
-    mapPosition=mapPosition;
+    _mapPosition=mapPosition;
 }
-
 void Bomb::update(sf::Time tps){
     tempTotal+=tps.asMilliseconds();
     if(_explosion)
@@ -51,10 +50,25 @@ bool Bomb::mustExplode(){
 void Bomb::getListCaseTouch(Map& m,vector<vector<bool>>& tab){
     stratBomb->getCaseTouch(m,tab,*this);
 }
-void Bomb::explode(Map& m){
+vector<Vector2i> Bomb::explode(Map& m){
+
+    vector<Vector2i> casesTouched;
+    vector<vector<bool>> tmp;
+    for(int i=0;i<15;i++){
+        vector<bool> tmp2;
+        for(int j=0;j<15;j++)
+            tmp2.push_back(false);
+        tmp.push_back(tmp2);
+    }
+    getListCaseTouch(m,tmp);
+    for(int x=0;x<15;x++)
+    for(int y=0;y<15;y++)
+        if(tmp[x][y])
+            casesTouched.push_back(Vector2i(x,y));
     stratBomb->explode(m,*this);
     owner->addBombe();
     _explosion=false;
+    return casesTouched;
 }
 void Bomb::setMapPosition(const sf::Vector2i& mapPosition){
     _mapPosition=mapPosition;

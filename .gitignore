@@ -35,3 +35,5 @@
 Cpp/bin/*
 Cpp/obj/*
 /build/
+Cpp/Bomberman.depend
+Cpp/Bomberman.layout

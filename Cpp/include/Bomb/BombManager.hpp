@@ -6,11 +6,12 @@
 #include "Map.hpp"
 #include "Personnage.hpp"
 #include "Explosion.hpp"
+#include <set>
 
 class BombManager
 {
     public:
-        BombManager(Map& m);
+        BombManager(Map& m,vector<Personnage*> & perso);
         virtual ~BombManager();
         Bomb* hasBomb(const unsigned int x,const unsigned int y);
         bool putBomb(Personnage& p,Bomb* b);
@@ -30,6 +31,7 @@ class BombManager
         vector<Bomb*> _listbombe;
         list<Explosion> _listExplosions;
         vector<int> _eraseIndex;
+        vector<Personnage*> & _perso;
         Map & _map;
         bool _pause;
 };

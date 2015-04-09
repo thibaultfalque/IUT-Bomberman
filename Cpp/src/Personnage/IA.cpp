@@ -64,12 +64,10 @@ void IA::choiceNewGoal(){
     vitesse=Vector2f(0,0);
     Graph g(_map,mapPosition);
     if((*_dangerous)[mapPosition.x][mapPosition.y]){
-            cout << "DEFENSE" << endl;
         defenseAction(g);
 
     }
     else{
-        cout << "OFFENSE" << endl;
         offenseAction(g);
     }
 }
@@ -124,13 +122,14 @@ bool IA::tryPutBomb(Graph& g){
     sf::Vector2i tmp=g.breadFirstSearch(p,dangerous,_map);
     stack<Vector2i> chm;
     g.getPath(p,tmp,chm);
-    cout << "NEXT :" << chm.top().x << " - " << chm.top().y << endl;
-    if(chm.size()>5 || chm.empty())
+
+    if(chm.size()>5 || dangerous[tmp.y][tmp.x])
         return false ;
     else{
         putBomb();
         return true;
     }
+
 }
 
 void IA::onEvent(sf::Event& event){}

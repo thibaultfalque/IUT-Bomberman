@@ -20,6 +20,7 @@ class Case:public sf::Drawable
         bool canWalk();
         void setCanWalk(bool b);
         sf::Vector2f& getPosition();
+        sf::FloatRect getHitBox();
     protected:
         sf::Sprite _sprite;
         bool _canWalk;

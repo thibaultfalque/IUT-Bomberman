@@ -10,6 +10,11 @@ Case::~Case()
 {
     //dtor
 }
+
+FloatRect Case::getHitBox(){
+    return _sprite.getGlobalBounds();
+}
+
 bool Case::canWalk(){
     return _canWalk;
 }
