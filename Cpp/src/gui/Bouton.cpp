@@ -13,6 +13,7 @@ Bouton::Bouton(const string text,Vector2f const& taille,Vector2f const& position
     _text.setCharacterSize(15);
     _text.setPosition(Vector2f(_pos.x+_size.x/2-_text.getGlobalBounds().width/2,_pos.y+_size.y/2-_text.getGlobalBounds().height/2));
     _action=str;
+    _hover=false;
 }
 
 Bouton::~Bouton()
@@ -22,7 +23,9 @@ Bouton::~Bouton()
 void Bouton::update(){
 
 }
-
+bool Bouton::getHover(){
+    return _hover;
+}
 void Bouton::onMouseClick(sf::Event& event){
     if (pointInRect(_pos,_size,Vector2f(event.mouseButton.x,event.mouseButton.y))){
         ScreenManager::goToScreen(_action);
@@ -30,10 +33,14 @@ void Bouton::onMouseClick(sf::Event& event){
 }
 
 void Bouton::onMouseHover(sf::Event& event){
-    if(pointInRect(_pos,_size,Vector2f(event.mouseMove.x,event.mouseMove.y)))
+    if(pointInRect(_pos,_size,Vector2f(event.mouseMove.x,event.mouseMove.y))){
         _rec.setFillColor(sf::Color(0,0,0,128));
-    else
+        _hover=true;
+    }
+    else{
         _rec.setFillColor(sf::Color(0,0,0,0));
+        _hover=false;
+    }
 }
 
 void Bouton::onEvent(sf::Event& event){

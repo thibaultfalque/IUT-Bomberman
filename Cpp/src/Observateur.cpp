@@ -12,3 +12,4 @@ Observateur::~Observateur()
 void Observateur::update(){};
 void Observateur::onEvent(sf::Event& event){}
 void Observateur::draw(sf::RenderTarget& target, sf::RenderStates states) const {}
+bool Observateur::getHover(){ }

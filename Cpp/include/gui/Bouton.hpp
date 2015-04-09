@@ -12,6 +12,7 @@ class Bouton:public Observateur
         Bouton(const string text,Vector2f const& taille,Vector2f const& position,string str);
         void onEvent(sf::Event & event);
         void update();
+        bool getHover();
         void setAction(string str);
         sf::Vector2f getSize();
         sf::Vector2f getPosition();
@@ -26,7 +27,7 @@ class Bouton:public Observateur
         sf::Text _text;
         string _action;
         Observable obs;
-
+        bool _hover;
 };
 
 #endif // BOUTON_HPP
