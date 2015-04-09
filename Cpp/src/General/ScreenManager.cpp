@@ -17,3 +17,4 @@ void ScreenManager::add(Screen* s,string str){
     _screen[str]=s;
 }
 
+

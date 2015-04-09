@@ -33,8 +33,6 @@ EditeurMap::EditeurMap(sf::Vector2i* s):_map(sf::Vector2f(570,570))
             _mapTab[i][j]=SOL;
         }
 
-
-
    file="";
    _choiceNameFile=false;
 
@@ -145,8 +143,6 @@ void EditeurMap::onEvent(sf::Event& event){
     else{
         input.onEvent(event);
         if(event.type==sf::Event::KeyReleased && event.key.code==sf::Keyboard::Return){
-            cout<<"toto"<<endl;
-            cout<<input.getString()<<endl;
             ofstream f("res/map/"+input.getString(),ios::out | ios::trunc);
             if(!f.good())
                 Console::say("Impossible de créer le fichier "+input.getString(),1);

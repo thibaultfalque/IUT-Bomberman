@@ -10,9 +10,11 @@ Application::Application():_window_size(WINDOW_WIDTH,WINDOW_HEIGHT),
     ScreenManager::add(m,"Menu");
     ScreenManager::goToScreen("Menu");
 
-    Game* g=new Game(&_window_size,_eventManager);
-    ScreenManager::add(g,"Game");
+    /*Game* g=new Game(&_window_size,_eventManager);
+    ScreenManager::add(g,"Game");*/
 
+    MenuChoixGame* mcg=new MenuChoixGame(&_window_size);
+    ScreenManager::add(mcg,"MenuChoixGame");
 
     EditeurMap* e=new EditeurMap(&_window_size);
     ScreenManager::add(e,"Editeur");
@@ -25,6 +27,9 @@ Application::Application():_window_size(WINDOW_WIDTH,WINDOW_HEIGHT),
 
     MenuOptionTouch* mot=new MenuOptionTouch(&_window_size,_eventManager);
     ScreenManager::add(mot,"OptionsTouches");
+
+    MenuPause* mp=new MenuPause(&_window_size);
+    ScreenManager::add(mp,"MenuPause");
 
 
 }

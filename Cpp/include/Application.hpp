@@ -12,6 +12,8 @@
 #include "Editeur/EditeurMap.hpp"
 #include "MusicManager.hpp"
 #include "SoundManager.hpp"
+#include "MenuPause.hpp"
+#include "MenuChoixGame.hpp"
 class Application
 {
     public:
