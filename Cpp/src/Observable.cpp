@@ -9,14 +9,14 @@ Observable::~Observable()
 {
     //dtor
 }
-void Observable::addObs(Observateur* ob){
+/*void Observable::addObs(Observateur* ob){
     obs.push_back(ob);
-}
-void Observable::removeObs(Observateur* ob){
-}
-void Observable::updateObs(){
+}*/
+/*void Observable::removeObs(Observateur* ob){
+}*/
+/*void Observable::updateObs(){
 
-}
+}*/
 void Observable::notifyChangeSlider(float volume){
 
 }

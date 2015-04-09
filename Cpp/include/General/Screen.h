@@ -4,7 +4,7 @@
 #include "Observable.hpp"
 using namespace sf;
 
-class Screen:public Drawable,public Observable
+class Screen:public Drawable
 {
     public:
         virtual void onEvent(sf::Event & event);

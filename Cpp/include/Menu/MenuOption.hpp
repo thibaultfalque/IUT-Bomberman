@@ -13,6 +13,7 @@ class MenuOption:public Menu
     public:
         MenuOption(MusicManager* mm,SoundManager* sm,sf::Vector2i* s);
         virtual ~MenuOption();
+        void setActionBoutonBack(string action);
     protected:
        // virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;
     private:

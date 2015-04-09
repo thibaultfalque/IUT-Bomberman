@@ -10,9 +10,7 @@ class Observable
 {
     public:
         Observable();
-        void addObs(Observateur* ob);
-        void removeObs(Observateur* ob);
-        void updateObs();
+
         virtual void notifyChangeSlider(float volume);
         virtual void notifyChangeCheckbox(bool checkbox);
         virtual ~Observable();
