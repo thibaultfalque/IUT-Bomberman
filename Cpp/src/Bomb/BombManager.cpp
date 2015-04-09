@@ -1,6 +1,6 @@
 #include "BombManager.hpp"
 
-BombManager::BombManager(Map& m):_map(m)
+BombManager::BombManager(Map& m,vector<Personnage*> & perso):_map(m),_perso(perso)
 {
     _dangerous.resize(_map.getSize().x);
     for(int i=0;i<_dangerous.size();i++){
@@ -34,10 +34,12 @@ void BombManager::updateDangerous(){
 }
 
 void BombManager::testPutBomb(vector<vector<bool>>& dangerous,sf::Vector2i& mapPosition){
-    dangerous.resize(15);
+    dangerous.clear();
     for(int i=0;i<_dangerous.size();i++){
+        vector<bool> tmp;
         for(int j=0;j<_dangerous.size();j++)
-            dangerous[i].push_back(_dangerous[i][j]) ;
+            tmp.push_back(_dangerous[i][j]) ;
+        dangerous.push_back(tmp);
     }
     Bomb b(mapPosition);
     b.getListCaseTouch(_map,dangerous);
@@ -60,10 +62,18 @@ bool BombManager::putBomb(Personnage& p,Bomb* b){
 
 void BombManager::update(){
    tps=clock.restart();
+   set<int> deletePerso;
     for(unsigned int i=0;i<_listbombe.size();i++){
         _listbombe[i]->update(tps);
         if(_listbombe[i]->mustExplode()){
-            _listbombe[i]->explode(_map);
+            vector<Vector2i> touched=_listbombe[i]->explode(_map);
+            for(Vector2i & _case:touched){
+                for(int p=0;p<_perso.size();p++)
+                    if(_map.getCase(_case.x,_case.y)->getHitBox().intersects(_perso[p]->getHitBox())){
+                        deletePerso.insert(p);
+                    }
+
+            }
             _listExplosions.push_back(Explosion(_listbombe[i]->getMapPosition()
                                                 ,_listbombe[i]->getPower()
                                                 ,_listbombe[i]->getPersonnage()->getType()
@@ -75,9 +85,15 @@ void BombManager::update(){
     }
     for(Explosion & e:_listExplosions)
         e.update();
+
     for(int i=0;i<_eraseIndex.size() && !_eraseIndex.empty();i++){
         _listbombe.erase(_listbombe.begin()+_eraseIndex[i]);
     }
+
+    for (set<int>::reverse_iterator it= deletePerso.rbegin(); it != deletePerso.rend(); it++){
+        _perso.erase(_perso.begin()+*it);
+    }
+
     if(_eraseIndex.size()>0)
         updateDangerous();
     _eraseIndex.clear();

@@ -2,7 +2,7 @@
 
 
 Game::Game(sf::Vector2i* s,EventManager& event):_map("res/map/map2.lvl",*s,_bombManager),_eventManager(event),
-_bombManager(_map),_background("backgroundGame.png"),
+_bombManager(_map,_perso),_background("backgroundGame.png"),
 _mapDangerousZone(_map.getSize().x)
 
 {
