@@ -5,8 +5,12 @@
 #include "General/Screen.h"
 #include "Bouton.hpp"
 #include "Background.h"
+#include "Label.hpp"
+
 #define DeathMatch 1
 #define ContreLaMontre 2
+
+
 #include <string>
 using namespace sf;
 class Menu: public Screen
