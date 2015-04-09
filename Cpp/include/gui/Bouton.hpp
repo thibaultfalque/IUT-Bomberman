@@ -16,12 +16,13 @@ class Bouton:public Observateur
         void setAction(string str);
         sf::Vector2f getSize();
         sf::Vector2f getPosition();
+        void onMouseClick(sf::Event& event);
+        void onMouseHover(sf::Event& event);
         virtual ~Bouton();
     protected:
         void draw(sf::RenderTarget& target, sf::RenderStates states) const;
     private:
-        void onMouseClick(sf::Event& event);
-        void onMouseHover(sf::Event& event);
+
         sf::Vector2f _size,_pos;
         sf::RectangleShape _rec;
         sf::Text _text;

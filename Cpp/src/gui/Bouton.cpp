@@ -27,7 +27,7 @@ bool Bouton::getHover(){
     return _hover;
 }
 void Bouton::onMouseClick(sf::Event& event){
-    if (pointInRect(_pos,_size,Vector2f(event.mouseButton.x,event.mouseButton.y))){
+    if (_hover){
         ScreenManager::goToScreen(_action);
     }
 }
