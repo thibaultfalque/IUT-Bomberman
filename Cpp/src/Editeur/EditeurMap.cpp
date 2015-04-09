@@ -151,6 +151,7 @@ void EditeurMap::onEvent(sf::Event& event){
                 f.close();
                 file=input.getString();
                 _choiceNameFile=true;
+                save();
             }
         }
 
