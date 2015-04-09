@@ -6,7 +6,7 @@ ViewLevel::ViewLevel(string file,sf::Vector2f pos):position(pos),file(file)
     _click=false;
     string ligne;
     ligne=readFileMap(file);
-    _size=sf::Vector2f(300,300);
+    _size=sf::Vector2f(275,275);
     rect.setSize(_size);
     rect.setPosition(pos);
     rect.setFillColor(sf::Color::Transparent);
@@ -15,7 +15,7 @@ ViewLevel::ViewLevel(string file,sf::Vector2f pos):position(pos),file(file)
     label.setCharacterSize(20);
     label.setColor(sf::Color::White);
     label.setString(file);
-    label.setPosition(Vector2f(position.x+_size.x/2-label.getGlobalBounds().width/2,position.y-label.getGlobalBounds().height/2));
+    label.setPosition(Vector2f(position.x+_size.x/2-label.getGlobalBounds().width/2,position.y+label.getGlobalBounds().height/2));
 
    for(int i=0;i<15;i++)
         for(int j=0;j<15;j++){
@@ -34,7 +34,7 @@ ViewLevel::ViewLevel(string file,sf::Vector2f pos):position(pos),file(file)
                 break;
 
             }
-            sprites[i][j].setPosition(sf::Vector2f(position.x+30+16*i,position.y+label.getGlobalBounds().height+16*j+20));
+            sprites[i][j].setPosition(sf::Vector2f(position.x+12.5+16*i,position.y+label.getGlobalBounds().height+16*j+20));
         }
 
 }

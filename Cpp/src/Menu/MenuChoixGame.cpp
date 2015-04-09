@@ -4,10 +4,12 @@ MenuChoixGame::MenuChoixGame(sf::Vector2i* s,EventManager& event):Menu(s)
 {
     sf::Vector2f boutonSize(_window_size->x*0.2,_window_size->y*0.1);
     sf::Vector2f positionBouton(_window_size->x/2-boutonSize.x/2,_window_size->y/2-boutonSize.y-boutonSize.y/2);
+    sf::Vector2f positionRetour(_window_size->x*0.1,_window_size->y*0.1);
 
     addObs("DeathMatch",new Bouton("Combat à Mort",boutonSize,Vector2f(positionBouton.x,positionBouton.y+0.1*_window_size->y*0),"ChoixLevelDeath"));
     addObs("ContreLaMontre",new Bouton("Contre la montre",boutonSize,Vector2f(positionBouton.x,positionBouton.y+0.1*_window_size->y*1),"ChoixLevelMontre"));
 
+    addObs("Retour",new Bouton("Retour",boutonSize,positionRetour,"Menu"));
 
     ScreenManager::add(new ChoixLevel(s,"res/map/",DeathMatch,event),"ChoixLevelDeath");
     ScreenManager::add(new ChoixLevel(s,"res/map/",ContreLaMontre,event),"ChoixLevelMontre");
@@ -30,7 +32,6 @@ MenuChoixGame::MenuChoixGame(sf::Vector2i* s,EventManager& event):Menu(s)
 
     vector<string> liste=listOfFiles("res/typeGame/");
     for(int i=0;i<liste.size();i++){
-        cout<<"fichier "<<liste[i]<<endl;
         ifstream f("res/typeGame/"+liste[i]);
         if(!f.good()){
             Console::say("Erreur Lecture fichier description ",1);
@@ -38,7 +39,6 @@ MenuChoixGame::MenuChoixGame(sf::Vector2i* s,EventManager& event):Menu(s)
         string ligne;
         string total;
         while(getline(f, ligne)){
-            cout<<ligne<<endl;
             total+=ligne;
             total+="\n";
         }
@@ -55,13 +55,15 @@ MenuChoixGame::~MenuChoixGame()
 }
 
 void MenuChoixGame::onEvent(sf::Event& event){
+    Menu::onEvent(event);
     _hover=false;
     for(map<string,Observateur*>::iterator it=_gui.begin();it!=_gui.end();it++){
+        if(it->first=="Retour")
+            continue;
         it->second->onEvent(event);
         bool b=_hover;
         _hover=_hover||it->second->getHover();
         if(_hover && !b){
-            cout<<"nom bouton "<<it->first<<endl;
             buttonHover=it->first;
         }
     }
@@ -70,7 +72,10 @@ void MenuChoixGame::onEvent(sf::Event& event){
 }
 
 void MenuChoixGame::update(sf::Time& time){
+    Menu::update(time);
     for(map<string,Observateur*>::iterator it=_gui.begin();it!=_gui.end();it++){
+        if(it->first=="Retour")
+            continue;
         it->second->update();
         if(_hover){
             if(typeDescription.find(buttonHover)!=typeDescription.end()){
@@ -88,9 +93,12 @@ void MenuChoixGame::update(sf::Time& time){
 
 }
 void MenuChoixGame::draw(sf::RenderTarget& target, sf::RenderStates states) const {
-    target.draw(_background);
-    for(map<string,Observateur*>::const_iterator it=_gui.begin();it!=_gui.end();it++)
+    Menu::draw(target,states);
+    for(map<string,Observateur*>::const_iterator it=_gui.begin();it!=_gui.end();it++){
+        if(it->first=="Retour")
+            continue;
        target.draw(*it->second,states);
+    }
     if(_hover){
         target.draw(labelDescription);
         target.draw(description);
