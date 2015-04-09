@@ -27,7 +27,10 @@ bool Bouton::getHover(){
     return _hover;
 }
 void Bouton::onMouseClick(sf::Event& event){
+    cout<<"toto"<<endl;
+    cout<<_hover<<endl;
     if (_hover){
+        cout<<"yéyéé"<<endl;
         ScreenManager::goToScreen(_action);
     }
 }
@@ -41,6 +44,7 @@ void Bouton::onMouseHover(sf::Event& event){
         _rec.setFillColor(sf::Color(0,0,0,0));
         _hover=false;
     }
+    cout<<_hover<<endl;
 }
 
 void Bouton::onEvent(sf::Event& event){

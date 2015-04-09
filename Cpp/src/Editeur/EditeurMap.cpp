@@ -104,7 +104,8 @@ void EditeurMap::onMouseClickRight(sf::Event& event){
 
 }
 void EditeurMap::onMouseHover(sf::Event& event){
-    _hover=pointInRect(_save.getPosition(),_save.getSize(),sf::Vector2f(event.mouseMove.x,event.mouseMove.y));
+    _save.onEvent(event);
+    _hover=_save.getHover();
 
    if(tmp!=nullptr){
         tmp->setPosition(sf::Vector2f(event.mouseMove.x-tmp->getGlobalBounds().width/2,event.mouseMove.y-tmp->getGlobalBounds().height/2));
@@ -156,6 +157,7 @@ void EditeurMap::onEvent(sf::Event& event){
     }
 }
 void EditeurMap::clickButtonSave(sf::Event& event){
+
     save();
     _save.onEvent(event);
 }
