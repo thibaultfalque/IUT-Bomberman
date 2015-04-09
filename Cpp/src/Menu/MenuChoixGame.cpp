@@ -1,12 +1,16 @@
 #include "MenuChoixGame.hpp"
 
-MenuChoixGame::MenuChoixGame(sf::Vector2i* s):Menu(s),view("res/map/map2.lvl",sf::Vector2f(0,0))
+MenuChoixGame::MenuChoixGame(sf::Vector2i* s,EventManager& event):Menu(s)
 {
     sf::Vector2f boutonSize(_window_size->x*0.2,_window_size->y*0.1);
     sf::Vector2f positionBouton(_window_size->x/2-boutonSize.x/2,_window_size->y/2-boutonSize.y-boutonSize.y/2);
 
     addObs("DeathMatch",new Bouton("Combat à Mort",boutonSize,Vector2f(positionBouton.x,positionBouton.y+0.1*_window_size->y*0),"ChoixLevelDeath"));
     addObs("ContreLaMontre",new Bouton("Contre la montre",boutonSize,Vector2f(positionBouton.x,positionBouton.y+0.1*_window_size->y*1),"ChoixLevelMontre"));
+
+
+    ScreenManager::add(new ChoixLevel(s,"res/map/",DeathMatch,event),"ChoixLevelDeath");
+    ScreenManager::add(new ChoixLevel(s,"res/map/",ContreLaMontre,event),"ChoixLevelMontre");
 
     labelDescription.setFont(Ressource::getFont("default.ttf"));
     labelDescription.setCharacterSize(25);
@@ -81,6 +85,7 @@ void MenuChoixGame::update(sf::Time& time){
             buttonHover="";
         }
     }
+
 }
 void MenuChoixGame::draw(sf::RenderTarget& target, sf::RenderStates states) const {
     target.draw(_background);
@@ -90,6 +95,6 @@ void MenuChoixGame::draw(sf::RenderTarget& target, sf::RenderStates states) cons
         target.draw(labelDescription);
         target.draw(description);
     }
-    target.draw(view);
+
 
 }

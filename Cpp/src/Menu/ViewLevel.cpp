@@ -1,19 +1,21 @@
 #include "ViewLevel.hpp"
 
-ViewLevel::ViewLevel(string file,sf::Vector2f pos):position(pos)
+ViewLevel::ViewLevel(string file,sf::Vector2f pos):position(pos),file(file)
 {
+    _hover=false;
+    _click=false;
     string ligne;
     ligne=readFileMap(file);
-
-    rect.setSize(sf::Vector2f(300,300));
+    _size=sf::Vector2f(300,300);
+    rect.setSize(_size);
     rect.setPosition(pos);
+    rect.setFillColor(sf::Color::Transparent);
 
-
-    label.setFont(Ressource::getFont("default.ttf"));
-    label.setCharacterSize(25);
+    label.setFont(Ressource::getFont("defaut.ttf"));
+    label.setCharacterSize(20);
     label.setColor(sf::Color::White);
     label.setString(file);
-    label.setPosition(Vector2f(position.x+position.x/2-label.getGlobalBounds().width/2,position.y+position.y/2-label.getGlobalBounds().height/2));
+    label.setPosition(Vector2f(position.x+_size.x/2-label.getGlobalBounds().width/2,position.y-label.getGlobalBounds().height/2));
 
    for(int i=0;i<15;i++)
         for(int j=0;j<15;j++){
@@ -32,7 +34,7 @@ ViewLevel::ViewLevel(string file,sf::Vector2f pos):position(pos)
                 break;
 
             }
-            sprites[i][j].setPosition(sf::Vector2f(position.x+16*i,position.y+label.getGlobalBounds().height+16*j));
+            sprites[i][j].setPosition(sf::Vector2f(position.x+30+16*i,position.y+label.getGlobalBounds().height+16*j+20));
         }
 
 }
@@ -44,7 +46,7 @@ ViewLevel::~ViewLevel()
 string ViewLevel::readFileMap(string str){
     ifstream f(str);
     if(!f.good()){
-        perror("echec de l'ouverture");
+        cerr<<"echec de l'ouverture de "<<str<<endl;
         exit(1);
     }
     string t;
@@ -52,7 +54,7 @@ string ViewLevel::readFileMap(string str){
     vector<string> tailles;
     tailles=explode(t,' ');
     if(tailles.size()!=2){
-        cerr<<"Fichier map mal forme: erreur taille map"<<endl;
+        cerr<<"Fichier map "<<str<<" mal forme: erreur taille map"<<endl;
         exit(1);
     }
     getline(f,t);
@@ -60,6 +62,7 @@ string ViewLevel::readFileMap(string str){
     return t;
 }
 void ViewLevel::draw(sf::RenderTarget& target, sf::RenderStates states) const{
+    target.draw(rect);
     target.draw(label);
     for(int i=0;i<15;i++)
             for(int j=0;j<15;j++)
@@ -67,5 +70,34 @@ void ViewLevel::draw(sf::RenderTarget& target, sf::RenderStates states) const{
 }
 
 void ViewLevel::onEvent(sf::Event& event){
-
+    if( event.type==sf::Event::MouseMoved)
+        onMouseHover(event);
+    if(event.type==sf::Event::MouseButtonReleased && event.mouseButton.button == sf::Mouse::Left)
+        onMouseClick(event);
+}
+void ViewLevel::onMouseHover(sf::Event& event){
+    _hover=pointInRect(position,_size,Vector2f(event.mouseMove.x,event.mouseMove.y));
+}
+void ViewLevel::onMouseClick(sf::Event& event){
+    if(_hover){
+        _click=true;
+    }
+    else{
+        _click=false;
+    }
+}
+void ViewLevel::update(sf::Time& tps){
+    if(_hover || _click){
+        rect.setOutlineColor(sf::Color::Red);
+        rect.setOutlineThickness(5);
+    }
+    else{
+        rect.setOutlineThickness(0);
+    }
+}
+string ViewLevel::getNameFile(){
+    return file;
+}
+bool ViewLevel::isClick(){
+    return _click;
 }

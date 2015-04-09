@@ -3,11 +3,14 @@
 
 #include "Menu.hpp"
 #include "ViewLevel.hpp"
+#include "ChoixLevel.hpp"
+
+
 class MenuChoixGame:public Menu
 {
     public:
         /** Default constructor */
-        MenuChoixGame(sf::Vector2i* s);
+        MenuChoixGame(sf::Vector2i* s,EventManager& event);
         /** Default destructor */
         virtual ~MenuChoixGame();
         virtual void onEvent(sf::Event & event);
@@ -21,7 +24,7 @@ class MenuChoixGame:public Menu
 
         bool _hover;
         string buttonHover;
-        ViewLevel view;
+
 
 };
 
