@@ -13,7 +13,7 @@ Application::Application():_window_size(WINDOW_WIDTH,WINDOW_HEIGHT),
     /*Game* g=new Game(&_window_size,_eventManager);
     ScreenManager::add(g,"Game");*/
 
-    MenuChoixGame* mcg=new MenuChoixGame(&_window_size);
+    MenuChoixGame* mcg=new MenuChoixGame(&_window_size,_eventManager);
     ScreenManager::add(mcg,"MenuChoixGame");
 
     EditeurMap* e=new EditeurMap(&_window_size);

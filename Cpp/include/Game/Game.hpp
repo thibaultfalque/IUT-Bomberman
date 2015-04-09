@@ -14,7 +14,7 @@ class Game:public Screen
 {
     public:
         /** Default constructor */
-        Game(sf::Vector2i* s,EventManager& event);
+        Game(sf::Vector2i* s,EventManager& event,string filemap);
         /** Default destructor */
         virtual ~Game();
         void update(sf::Time& tps);
