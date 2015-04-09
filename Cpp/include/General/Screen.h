@@ -8,7 +8,7 @@ class Screen:public Drawable,public Observable
 {
     public:
         virtual void onEvent(sf::Event & event);
-        virtual void update();
+        virtual void update(sf::Time& tps);
     protected:
         sf::Vector2i* _window_size;
         virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const ;

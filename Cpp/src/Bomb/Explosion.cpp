@@ -6,12 +6,14 @@ void Explosion::draw(sf::RenderTarget& target, sf::RenderStates states) const
 {
     for(Sprite s:sprites[etape])
         target.draw(s,states);
+
 }
 
-void Explosion::update()
+void Explosion::update(sf::Time& tps)
 {
-    if(_clock.getElapsedTime().asSeconds()>0.1){
-        _clock.restart();
+    tempsTotal+=tps.asSeconds();
+    if(tempsTotal>0.1){
+        tempsTotal=0;
         if(etape>0)
         etape--;
         else
@@ -22,6 +24,7 @@ void Explosion::update()
 
 Explosion::Explosion(sf::Vector2i center, int power, int numPerso,Map & _map)
 {
+    tempsTotal=0;
     needDestroy=false;
     etape=3;
     for(int i=0;i<4;i++){

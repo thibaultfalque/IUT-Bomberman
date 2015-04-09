@@ -28,7 +28,7 @@ class Personnage : public sf::Drawable
         int getnbBombe();
         int getdegatsBombes();
         void addBonusMalus(BonusMalus b);
-        virtual void update();
+        virtual void update(sf::Time& tps);
         virtual void onEvent(sf::Event & event);
         void moveTo(sf::Vector2f newPos);
         bool canMoveTo(sf::Vector2i newPos);
@@ -41,7 +41,7 @@ class Personnage : public sf::Drawable
     protected:
 
         virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;
-
+        void graphicUpdate(sf::Time& tps);
         sf::Vector2f pos, vitesse;
         int nbBombeMax, nbBombe, degatsBombes;
         vector<BonusMalus> bonusMalus;
@@ -50,8 +50,12 @@ class Personnage : public sf::Drawable
 
         int etapePas;
         int direction;
-        sf::Clock timerPas;
-        sf::Clock deltaUpdate;
+        //sf::Clock timerPas;
+        //sf::Clock deltaUpdate;
+
+        float tempsTotalPas;
+        float tempsTotalDelta;
+
         sf::Sprite _sprites[4][9];
         Map & _map;
 
@@ -60,6 +64,7 @@ class Personnage : public sf::Drawable
         int numType;
 
     private:
+
 
 };
 

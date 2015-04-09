@@ -3,6 +3,7 @@
 MusicManager::MusicManager(const string m)
 {
     _active=true;
+    music.setLoop(true);
     playMusic();
 }
 

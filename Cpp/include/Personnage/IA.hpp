@@ -13,7 +13,7 @@ class IA:public Personnage
         void choiceNewGoal();
         void offenseAction(Graph& g);
         void defenseAction(Graph& g);
-        virtual void update();
+        virtual void update(sf::Time& tps);
         virtual void putBomb();
         bool tryPutBomb(Graph& g);
         virtual void onEvent(sf::Event & event);

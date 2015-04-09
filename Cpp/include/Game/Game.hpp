@@ -17,7 +17,7 @@ class Game:public Screen
         Game(sf::Vector2i* s,EventManager& event);
         /** Default destructor */
         virtual ~Game();
-        void update();
+        void update(sf::Time& tps);
         void onEvent(sf::Event & event);
     protected:
         virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;
@@ -33,6 +33,10 @@ class Game:public Screen
         BombManager _bombManager;
         //Humain* p_test;
         vector<Personnage*> _perso;
+        sf::Text chrono;
+        float chronoDepart;
+        float tempsTotal;
+        bool lauch;
 
 };
 

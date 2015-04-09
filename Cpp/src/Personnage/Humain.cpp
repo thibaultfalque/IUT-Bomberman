@@ -19,7 +19,9 @@ void Humain::onEvent(sf::Event& event ){
         putBomb();
     }
 }
-void Humain::update(){
+void Humain::update(sf::Time& tps){
+    tempsTotalDelta+=tps.asSeconds();
+    tempsTotalPas+=tps.asSeconds();
     vitesse = Vector2f(0,0);
     float pixelParSecondes = 70;
     if(_eventManager.getEventState("Gauche"))
@@ -35,33 +37,11 @@ void Humain::update(){
         vitesse = (vitesse/sqrt(vitesse.x*vitesse.x + vitesse.y*vitesse.y))*pixelParSecondes;
     }
 
-    moveTo(pos +vitesse*deltaUpdate.getElapsedTime().asSeconds());
+    moveTo(pos +vitesse*tempsTotalDelta);
 
     //GRAPHIC UPDATE
+    graphicUpdate(tps);
 
-    for(int y=0;y<4;y++)
-    for(int x=0;x<9;x++)
-        _sprites[y][x].setPosition(pos);
-
-    if(timerPas.getElapsedTime().asSeconds()>=0.06){
-        timerPas.restart();
-        etapePas = (++etapePas)%9;
-    }
-    if(vitesse.x==0 && vitesse.y == 0){
-        etapePas = 0;
-    }
-    else if(abs(vitesse.x)>abs(vitesse.y)){
-        if(vitesse.x<0)
-            direction = 3;
-        else
-            direction = 1;
-    }else{
-        if(vitesse.y<0)
-            direction = 2;
-        else
-            direction = 0;
-    }
-    deltaUpdate.restart();
 }
 
 void Humain::putBomb(){
