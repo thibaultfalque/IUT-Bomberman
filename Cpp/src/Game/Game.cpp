@@ -35,7 +35,7 @@ Game::~Game()
 void Game::onEvent(sf::Event & event){
     if(event.type==sf::Event::KeyPressed){
         if(event.key.code==_eventManager.getEventKey("Menu")){
-            ScreenManager::goToScreen("Menu");
+            ScreenManager::goToScreen("MenuPause");
             lauch=false;
             chronoDepart=3;
         }
