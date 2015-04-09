@@ -350,6 +350,7 @@
 		<Unit filename="include/gui/Bouton.hpp" />
 		<Unit filename="include/gui/Checkbox.hpp" />
 		<Unit filename="include/gui/InputText.hpp" />
+		<Unit filename="include/gui/Label.hpp" />
 		<Unit filename="include/gui/Slider.hpp" />
 		<Unit filename="include/header.hpp" />
 		<Unit filename="include/noClass.hpp" />
@@ -406,6 +407,7 @@
 		<Unit filename="src/gui/Checkbox.cpp" />
 		<Unit filename="src/gui/InputKey.cpp" />
 		<Unit filename="src/gui/InputText.cpp" />
+		<Unit filename="src/gui/Label.cpp" />
 		<Unit filename="src/gui/Slider.cpp" />
 		<Unit filename="src/noClass/Collision.cpp" />
 		<Unit filename="src/noClass/fn_file.cpp" />
