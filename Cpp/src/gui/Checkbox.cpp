@@ -1,6 +1,6 @@
 #include "Checkbox.hpp"
 
-Checkbox::Checkbox(Observable* obs,sf::Vector2f posIn,sf::Vector2f posOut, sf::Vector2f sizeIn, sf::Vector2f sizeOut):_posRecIn(posIn),_posRecOut(posOut),_sizeRecIn(sizeIn),_sizeRecOut(sizeOut)
+Checkbox::Checkbox(Observable* obs,sf::Vector2f posIn,sf::Vector2f posOut, sf::Vector2f sizeIn, sf::Vector2f sizeOut,bool valDepart):_posRecIn(posIn),_posRecOut(posOut),_sizeRecIn(sizeIn),_sizeRecOut(sizeOut)
 {
     _recOut.setPosition(_posRecOut);
     _recOut.setSize(_sizeRecOut);
@@ -12,8 +12,8 @@ Checkbox::Checkbox(Observable* obs,sf::Vector2f posIn,sf::Vector2f posOut, sf::V
     _recIn.setSize(_sizeRecIn);
     _recIn.setFillColor(sf::Color::Red);
 
-    _click=false;
-    _hover=false;
+    _click=valDepart;
+    _hover=valDepart;
 
     _obs=obs;
 }

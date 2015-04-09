@@ -7,7 +7,7 @@
 class Checkbox : public Observateur
 {
     public:
-        Checkbox(Observable* obs,sf::Vector2f posIn,sf::Vector2f posOut, sf::Vector2f sizeIn, sf::Vector2f sizeOut);
+        Checkbox(Observable* obs,sf::Vector2f posIn,sf::Vector2f posOut, sf::Vector2f sizeIn, sf::Vector2f sizeOut,bool valDepart);
         virtual ~Checkbox();
         void onEvent(sf::Event& event);
         void onMouseClick(sf::Event& event);
