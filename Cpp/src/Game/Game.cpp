@@ -10,10 +10,15 @@ _mapDangerousZone(_map.getSize().x)
     _eventManager=event;
     _window_size=s;
     vector<sf::Vector2i> pos=_map.getPosDepartPerso();
-    _perso.push_back(new Humain(sf::Vector2f(_map.getPosition().x,_map.getPosition().y),0,_map,_eventManager,_bombManager));
-    for(int i=0;i<pos.size();i++){
+    if(pos.size()>0){
+        Vector2i position = _map.getScreenPosition(pos[0]);
+        position.x += LARGEUR/2;
+        position.y += HAUTEUR/2;
+        _perso.push_back(new Humain(Vector2f(position.x,position.y),0,_map,_eventManager,_bombManager));
+    }
+    for(int i=1;i<pos.size();i++){
         sf::Vector2f position=_map.getCase(pos[i].x,pos[i].y)->getPosition();
-        _perso.push_back(new IA(sf::Vector2f(position.x+LARGEUR/2,position.y+HAUTEUR/2),i+1,_map,_bombManager));
+        _perso.push_back(new IA(sf::Vector2f(position.x+LARGEUR/2,position.y+HAUTEUR/2),i,_map,_bombManager));
     }
 
     chronoDepart=3;
