@@ -14,8 +14,8 @@ class Personnage : public sf::Drawable
         Personnage(sf::Vector2f position,int numPersonnage, Map & __map,BombManager & bm);
 
         virtual ~Personnage();
-        void setVitesse(sf::Vector2f vitesse);
-        void setnbBombeMax(int nbBombeMax);
+        void setVitesse(float vitesse);
+        bool setnbBombeMax(int nbBombeMax);
         void setnbBombe(int nb);
         void addBombe();
         void removeBombe();
@@ -23,7 +23,7 @@ class Personnage : public sf::Drawable
         void setLauncher(bool launcher);
         void setPusher(bool pusher);
         sf::Vector2f getPos();
-        sf::Vector2f getVitesse();
+        float getVitesse();
         int getnbBombeMax();
         int getnbBombe();
         int getdegatsBombes();
@@ -63,8 +63,7 @@ class Personnage : public sf::Drawable
 
         int numType;
 
-    private:
-
+        float pixelParSecondes;
 
 };
 

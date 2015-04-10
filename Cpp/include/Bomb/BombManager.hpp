@@ -6,7 +6,9 @@
 #include "Map.hpp"
 #include "Personnage.hpp"
 #include "Explosion.hpp"
+#include "BonusMalus.hpp"
 #include <set>
+class Personnage;
 
 class BombManager
 {
@@ -32,6 +34,7 @@ class BombManager
         list<Explosion> _listExplosions;
         vector<int> _eraseIndex;
         vector<Personnage*> & _perso;
+
         Map & _map;
         bool _pause;
 };

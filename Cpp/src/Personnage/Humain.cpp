@@ -20,10 +20,11 @@ void Humain::onEvent(sf::Event& event ){
     }
 }
 void Humain::update(sf::Time& tps){
+    _map.checkBonusMalus(this);
     tempsTotalDelta+=tps.asSeconds();
     tempsTotalPas+=tps.asSeconds();
     vitesse = Vector2f(0,0);
-    float pixelParSecondes = 70;
+
     if(_eventManager.getEventState("Gauche"))
         vitesse.x -= pixelParSecondes;
     if(_eventManager.getEventState("Droite"))

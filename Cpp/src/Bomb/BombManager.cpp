@@ -1,5 +1,6 @@
 #include "BombManager.hpp"
 
+
 BombManager::BombManager(Map& m,vector<Personnage*> & perso):_map(m),_perso(perso)
 {
     _dangerous.resize(_map.getSize().x);
@@ -83,8 +84,7 @@ void BombManager::update(sf::Time& tps){
                                                 ,_listbombe[i]->getPersonnage()->getType()
                                                 ,_map));
 
-                _eraseIndex.push_back(i);
-
+                _eraseIndex.push_back(i);//*
             }
         }
         for(Explosion & e:_listExplosions)
@@ -114,4 +114,5 @@ void BombManager::draw(sf::RenderTarget& target,sf::RenderStates states) const {
         target.draw(*_listbombe[i],states);
     for(Explosion  e:_listExplosions)
         target.draw(e,states);
+
 }

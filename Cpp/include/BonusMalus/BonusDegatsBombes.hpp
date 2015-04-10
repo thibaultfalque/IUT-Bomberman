@@ -5,7 +5,7 @@
 class BonusDegatsBombes : public BonusMalus
 {
     public:
-        BonusDegatsBombes();
+        BonusDegatsBombes(Vector2i pos,Vector2i graphicPos);
         virtual ~BonusDegatsBombes();
         virtual void action(Personnage* perso);
     protected:

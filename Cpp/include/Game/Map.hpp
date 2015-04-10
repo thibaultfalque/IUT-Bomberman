@@ -18,6 +18,7 @@ class Map:public sf::Drawable
         /** Default destructor */
         virtual ~Map();
         void setCase(sf::Vector2i pos,Case* c);
+        void checkBonusMalus(Personnage * p);
         Case* getCase(int x,int y);
         Vector2i & getSize();
         Vector2i getMapPosition(Vector2i screenPosition);
@@ -25,6 +26,8 @@ class Map:public sf::Drawable
         bool canWalk(int x, int y, int type=-1);
         sf::Vector2i& getPosition();
         vector<Vector2i>& getPosDepartPerso();
+        void addBonusMalus(BonusMalus * b);
+
     protected:
         virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;
     private:
@@ -34,6 +37,7 @@ class Map:public sf::Drawable
         sf::Vector2i _size;
         Vector2i pos;
         vector<Vector2i> _posDepartPerso;
+        vector<BonusMalus*> _bonusMalus;
 
 };
 

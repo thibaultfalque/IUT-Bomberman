@@ -13,6 +13,7 @@ IA::~IA()
     //dtor
 }
 void IA::update(sf::Time& tps){
+     _map.checkBonusMalus(this);
     tempsTotalPas+=tps.asSeconds();
     tempsTotalDelta+=tps.asSeconds();
     //Position logique personnage
@@ -23,7 +24,6 @@ void IA::update(sf::Time& tps){
     centerPositionGoal.x += LARGEUR/2;
     centerPositionGoal.y += HAUTEUR/2;
 
-    float pixelParSecondes = 70;
     if(vitesse == Vector2f(0,0)){
         vitesse =  Vector2f(centerPositionGoal.x,centerPositionGoal.y) - pos;
         if(vitesse.x*vitesse.y!=0){

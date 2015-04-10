@@ -6,7 +6,7 @@ Personnage::Personnage(sf::Vector2f position,int numPersonnage, Map & __map,Bomb
     pos=position;
     etapePas = 0;
     direction = 0;
-
+    pixelParSecondes = 70;
     vitesse=sf::Vector2f(0,0);
     nbBombeMax=1;
     nbBombe=2;
@@ -26,16 +26,32 @@ Personnage::Personnage(sf::Vector2f position,int numPersonnage, Map & __map,Bomb
 
 }
 
-void Personnage::setVitesse(sf::Vector2f vit){
-    vitesse=vit;
+void Personnage::setVitesse(float vit){
+    pixelParSecondes=vit;
+    if(pixelParSecondes>150)
+        pixelParSecondes=150;
+    if(pixelParSecondes<30)
+        pixelParSecondes=30;
 }
-void Personnage::setnbBombeMax(int nb){
+bool Personnage::setnbBombeMax(int nb){
+
     nbBombeMax=nb;
+    if(nbBombeMax<1){
+        nbBombeMax=1;
+        return false;
+    }
+    if(nbBombeMax>10){
+        nbBombeMax=10;
+        return false;
+    }
+    return true;
 }
 void Personnage::addBombe(){
-    nbBombe++;
+    if(nbBombe<nbBombeMax)
+        nbBombe++;
 }
 void Personnage::removeBombe(){
+    if(nbBombe>0)
     nbBombe--;
 }
 void Personnage::setdegatsBombes(int d){
@@ -53,8 +69,8 @@ void Personnage::setnbBombe(int nb){
 sf::Vector2f Personnage::getPos(){
     return pos;
 }
-sf::Vector2f Personnage::getVitesse(){
-    return vitesse;
+float Personnage::getVitesse(){
+    return pixelParSecondes;
 }
 int Personnage::getnbBombeMax(){
     return nbBombeMax;

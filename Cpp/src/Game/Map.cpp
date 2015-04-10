@@ -53,11 +53,27 @@ void Map::draw(sf::RenderTarget& target, sf::RenderStates states) const{
             target.draw(*_matrix[i][j],states);
         }
     }
-
+    for(BonusMalus *b:_bonusMalus)
+        target.draw(*b,states);
 }
 sf::Vector2i& Map::getPosition(){
     return pos;
 }
+
+void Map::checkBonusMalus(Personnage * p){
+    FloatRect hb_p = p->getHitBox();
+    vector<int> toDelete;
+    for(int i=0;i<_bonusMalus.size();i++){
+        if(_bonusMalus[i]->getHitBox().intersects(hb_p)){
+            _bonusMalus[i]->action(p);
+            toDelete.push_back(i);
+        }
+    }
+    for(int i:toDelete)
+        _bonusMalus.erase(_bonusMalus.begin()+i);
+}
+
+
 string Map::readFileMap(string str){
     ifstream f(str);
     if(!f.good()){
@@ -115,6 +131,11 @@ bool Map::canWalk(int x, int y,int type){
 void Map::setCase(sf::Vector2i pos,Case* c){
     _matrix[pos.x][pos.y]=c;
 }
+
+void Map::addBonusMalus(BonusMalus * b){
+    _bonusMalus.push_back(b);
+}
+
 Vector2i Map::getScreenPosition(Vector2i mapPosition)
 {
     return pos + Vector2i(mapPosition.x*LARGEUR,mapPosition.y*HAUTEUR);

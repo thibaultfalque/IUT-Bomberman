@@ -32,11 +32,11 @@
 				<Linker>
 					<Add option="-lGL" />
 					<Add option="-lGLU" />
-					<Add library="SFML-2.1-linux64/lib/libsfml-audio.so" />
-					<Add library="SFML-2.1-linux64/lib/libsfml-graphics.so" />
-					<Add library="SFML-2.1-linux64/lib/libsfml-window.so" />
-					<Add library="SFML-2.1-linux64/lib/libsfml-system.so" />
-					<Add library="SFML-2.1-linux64/lib/libsfml-network.so" />
+					<Add library="SFML-2.1-linux64\lib\libsfml-audio.so" />
+					<Add library="SFML-2.1-linux64\lib\libsfml-graphics.so" />
+					<Add library="SFML-2.1-linux64\lib\libsfml-window.so" />
+					<Add library="SFML-2.1-linux64\lib\libsfml-system.so" />
+					<Add library="SFML-2.1-linux64\lib\libsfml-network.so" />
 					<Add directory="SFML-2.1-linux64/lib" />
 				</Linker>
 			</Target>
@@ -64,11 +64,11 @@
 					<Add option="-s" />
 					<Add option="-lGL" />
 					<Add option="-lGLU" />
-					<Add library="SFML-2.1-linux64/lib/libsfml-audio.so" />
-					<Add library="SFML-2.1-linux64/lib/libsfml-graphics.so" />
-					<Add library="SFML-2.1-linux64/lib/libsfml-window.so" />
-					<Add library="SFML-2.1-linux64/lib/libsfml-system.so" />
-					<Add library="SFML-2.1-linux64/lib/libsfml-network.so" />
+					<Add library="SFML-2.1-linux64\lib\libsfml-audio.so" />
+					<Add library="SFML-2.1-linux64\lib\libsfml-graphics.so" />
+					<Add library="SFML-2.1-linux64\lib\libsfml-window.so" />
+					<Add library="SFML-2.1-linux64\lib\libsfml-system.so" />
+					<Add library="SFML-2.1-linux64\lib\libsfml-network.so" />
 					<Add directory="SFML-2.1-linux64/lib" />
 				</Linker>
 			</Target>
@@ -366,13 +366,9 @@
 		<Unit filename="src/Bomb/BombManager.cpp" />
 		<Unit filename="src/Bomb/Explosion.cpp" />
 		<Unit filename="src/Bomb/StratBombSimple.cpp" />
-		<Unit filename="src/BonusMalus/BonusDegatsBombes.cpp" />
-		<Unit filename="src/BonusMalus/BonusLauncher.cpp" />
 		<Unit filename="src/BonusMalus/BonusMalus.cpp" />
 		<Unit filename="src/BonusMalus/BonusNbBombes.cpp" />
-		<Unit filename="src/BonusMalus/BonusPusher.cpp" />
 		<Unit filename="src/BonusMalus/BonusVitesse.cpp" />
-		<Unit filename="src/BonusMalus/MalusDegatsBombes.cpp" />
 		<Unit filename="src/BonusMalus/MalusNbBombes.cpp" />
 		<Unit filename="src/BonusMalus/MalusVitesse.cpp" />
 		<Unit filename="src/Editeur/EditeurMap.cpp" />

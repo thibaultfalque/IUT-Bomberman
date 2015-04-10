@@ -1,16 +1,13 @@
 #include "BonusVitesse.hpp"
 #include "Personnage.hpp"
-BonusVitesse::BonusVitesse():BonusMalus()
+BonusVitesse::BonusVitesse(Vector2i pos,Vector2i graphicPos):BonusMalus(pos,graphicPos,"bonusspeed.png")
 {
     //ctor
 }
 
 void BonusVitesse::action(Personnage* perso){
     //ici je définis qu'on augmente la vitesse de déplacement de 10, peut etre modifié après tests
-    perso->setVitesse(sf::Vector2f(perso->getVitesse().x+10,perso->getVitesse().y+10));
-    //ici je définis que la vitesse max est 100, peut etre modifié après tests
-    if(perso->getVitesse().x>100)
-        perso->setVitesse(sf::Vector2f(100,100));
+    perso->setVitesse(perso->getVitesse()+20.0);
 }
 
 BonusVitesse::~BonusVitesse()

@@ -3399,7 +3399,7 @@
 1428503263 source:c:\users\pablo behague\documents\github\bomberman\cpp\main.cpp
 	"Application.hpp"
 
-1428594608 c:\users\pablo behague\documents\github\bomberman\cpp\include\application.hpp
+1428600333 c:\users\pablo behague\documents\github\bomberman\cpp\include\application.hpp
 	<SFML/Graphics.hpp>
 	<General.hpp>
 	"header.hpp"
@@ -3412,6 +3412,8 @@
 	"Editeur/EditeurMap.hpp"
 	"MusicManager.hpp"
 	"SoundManager.hpp"
+	"MenuPause.hpp"
+	"MenuChoixGame.hpp"
 
 1428156594 c:\users\pablo behague\documents\github\bomberman\cpp\sfml-2.1\include\sfml\graphics.hpp
 	<SFML/Window.hpp>
@@ -3770,7 +3772,7 @@
 	"Screen.h"
 	"General/Console.hpp"
 
-1428594608 c:\users\pablo behague\documents\github\bomberman\cpp\include\general\screen.h
+1428600333 c:\users\pablo behague\documents\github\bomberman\cpp\include\general\screen.h
 	"header.hpp"
 	"Observable.hpp"
 
@@ -3855,9 +3857,9 @@
 	<SFML/System/Thread.hpp>
 	<vector>
 
-1428156594 c:\users\pablo behague\documents\github\bomberman\cpp\include\noclass.hpp
+1428655878 c:\users\pablo behague\documents\github\bomberman\cpp\include\noclass.hpp
 	"noClass/Collision.hpp"
-	"noClass/fileManager.hpp"
+	"noClass/fn_file.hpp"
 	"noClass/fn_random.hpp"
 	"noClass/fn_string.hpp"
 	"noClass/fn_time.hpp"
@@ -3871,33 +3873,34 @@
 1428156594 c:\users\pablo behague\documents\github\bomberman\cpp\include\noclass\fn_random.hpp
 	"header.hpp"
 
-1428156594 c:\users\pablo behague\documents\github\bomberman\cpp\include\noclass\fn_string.hpp
+1428655878 c:\users\pablo behague\documents\github\bomberman\cpp\include\noclass\fn_string.hpp
 	"header.hpp"
 
 1428156594 c:\users\pablo behague\documents\github\bomberman\cpp\include\noclass\fn_time.hpp
 	"header.hpp"
 	"fn_string.hpp"
 
-1428161491 c:\users\pablo behague\documents\github\bomberman\cpp\include\observable.hpp
+1428600333 c:\users\pablo behague\documents\github\bomberman\cpp\include\observable.hpp
 	<vector>
 	<iterator>
 	"Observateur.hpp"
 
-1428161483 c:\users\pablo behague\documents\github\bomberman\cpp\include\observateur.hpp
+1428600333 c:\users\pablo behague\documents\github\bomberman\cpp\include\observateur.hpp
 	"header.hpp"
 
 1428443447 c:\users\pablo behague\documents\github\bomberman\cpp\include\general\eventmanager.hpp
 	<map>
 	<SFML/Graphics.hpp>
 
-1428594608 c:\users\pablo behague\documents\github\bomberman\cpp\include\menu\menu.hpp
+1428655878 c:\users\pablo behague\documents\github\bomberman\cpp\include\menu\menu.hpp
 	"header.hpp"
 	"General/Screen.h"
 	"Bouton.hpp"
 	"Background.h"
+	"Label.hpp"
 	<string>
 
-1428159372 c:\users\pablo behague\documents\github\bomberman\cpp\include\gui\bouton.hpp
+1428600333 c:\users\pablo behague\documents\github\bomberman\cpp\include\gui\bouton.hpp
 	"Observateur.hpp"
 	"noClass.hpp"
 	"General.hpp"
@@ -3918,7 +3921,7 @@
 	<Observable.hpp>
 	<header.hpp>
 
-1428156594 c:\users\pablo behague\documents\github\bomberman\cpp\include\gui\checkbox.hpp
+1428655878 c:\users\pablo behague\documents\github\bomberman\cpp\include\gui\checkbox.hpp
 	"General.hpp"
 	<header.hpp>
 	<Observable.hpp>
@@ -3927,7 +3930,7 @@
 	"Observateur.hpp"
 	"General.hpp"
 
-1428156594 c:\users\pablo behague\documents\github\bomberman\cpp\include\menu\menuoption.hpp
+1428600333 c:\users\pablo behague\documents\github\bomberman\cpp\include\menu\menuoption.hpp
 	"header.hpp"
 	"Bouton.hpp"
 	"Slider.hpp"
@@ -3936,13 +3939,17 @@
 	"MusicManager.hpp"
 	"SoundManager.hpp"
 
-1428156594 c:\users\pablo behague\documents\github\bomberman\cpp\include\music\musicmanager.hpp
+1428655878 c:\users\pablo behague\documents\github\bomberman\cpp\include\music\musicmanager.hpp
 	"Observable.hpp"
 	"header.hpp"
+	"General.hpp"
+	"noClass.hpp"
 
-1428156594 c:\users\pablo behague\documents\github\bomberman\cpp\include\music\soundmanager.hpp
+1428655878 c:\users\pablo behague\documents\github\bomberman\cpp\include\music\soundmanager.hpp
 	"Observable.hpp"
 	"header.hpp"
+	"General.hpp"
+	"noClass.hpp"
 
 1428443447 c:\users\pablo behague\documents\github\bomberman\cpp\include\menu\menuoptiontouch.hpp
 	"General/EventManager.hpp"
@@ -3956,7 +3963,7 @@
 	"General/EventManager.hpp"
 	"General/Ressource.hpp"
 
-1428594608 c:\users\pablo behague\documents\github\bomberman\cpp\include\game\game.hpp
+1428600333 c:\users\pablo behague\documents\github\bomberman\cpp\include\game\game.hpp
 	"header.hpp"
 	"General.hpp"
 	"Map.hpp"
@@ -3966,7 +3973,7 @@
 	"General/EventManager.hpp"
 	"BombManager.hpp"
 
-1428443443 c:\users\pablo behague\documents\github\bomberman\cpp\include\game\map.hpp
+1428662511 c:\users\pablo behague\documents\github\bomberman\cpp\include\game\map.hpp
 	"header.hpp"
 	"General.hpp"
 	"Case.hpp"
@@ -3983,15 +3990,16 @@
 	"BonusMalus.hpp"
 	"Bomb/Bomb.hpp"
 
-1428156594 c:\users\pablo behague\documents\github\bomberman\cpp\include\bonusmalus\bonusmalus.hpp
+1428662609 c:\users\pablo behague\documents\github\bomberman\cpp\include\bonusmalus\bonusmalus.hpp
+	<SFML/Graphics.hpp>
 
-1428594604 c:\users\pablo behague\documents\github\bomberman\cpp\include\bomb\bomb.hpp
+1428658926 c:\users\pablo behague\documents\github\bomberman\cpp\include\bomb\bomb.hpp
 	"header.hpp"
 	"Background.h"
 	"StratBombSimple.hpp"
 	"Map.hpp"
 
-1428156594 c:\users\pablo behague\documents\github\bomberman\cpp\include\bomb\stratbombsimple.hpp
+1428662008 c:\users\pablo behague\documents\github\bomberman\cpp\include\bomb\stratbombsimple.hpp
 	"header.hpp"
 	"General.hpp"
 	"Map.hpp"
@@ -4010,19 +4018,20 @@
 	"Personnage.hpp"
 	"Graph.hpp"
 
-1428594608 c:\users\pablo behague\documents\github\bomberman\cpp\include\personnage\personnage.hpp
+1428667628 c:\users\pablo behague\documents\github\bomberman\cpp\include\personnage\personnage.hpp
 	"BonusMalus/BonusMalus.hpp"
 	"header.hpp"
 	"General.hpp"
 	"Game/Map.hpp"
 	"BombManager.hpp"
 
-1428594608 c:\users\pablo behague\documents\github\bomberman\cpp\include\bomb\bombmanager.hpp
+1428662104 c:\users\pablo behague\documents\github\bomberman\cpp\include\bomb\bombmanager.hpp
 	"header.hpp"
 	"Bomb.hpp"
 	"Map.hpp"
 	"Personnage.hpp"
 	"Explosion.hpp"
+	"BonusMalus.hpp"
 	<set>
 
 1428594608 c:\users\pablo behague\documents\github\bomberman\cpp\include\bomb\explosion.hpp
@@ -4068,15 +4077,17 @@
 	"BonusMalus.hpp"
 	"Personnage.hpp"
 
-1428156595 source:c:\users\pablo behague\documents\github\bomberman\cpp\src\bonusmalus\bonusmalus.cpp
+1428662635 source:c:\users\pablo behague\documents\github\bomberman\cpp\src\bonusmalus\bonusmalus.cpp
 	"BonusMalus.hpp"
+	"General/Ressource.hpp"
 
-1428156595 source:c:\users\pablo behague\documents\github\bomberman\cpp\src\bonusmalus\bonusnbbombes.cpp
+1428668042 source:c:\users\pablo behague\documents\github\bomberman\cpp\src\bonusmalus\bonusnbbombes.cpp
 	"BonusNbBombes.hpp"
 	"Personnage.hpp"
 
-1428156594 c:\users\pablo behague\documents\github\bomberman\cpp\include\bonusmalus\bonusnbbombes.hpp
+1428658992 c:\users\pablo behague\documents\github\bomberman\cpp\include\bonusmalus\bonusnbbombes.hpp
 	"BonusMalus.hpp"
+	"Personnage.hpp"
 
 1428156595 source:c:\users\pablo behague\documents\github\bomberman\cpp\src\bonusmalus\bonuspusher.cpp
 	"BonusPusher.h"
@@ -4085,11 +4096,11 @@
 	"BonusMalus.hpp"
 	"Personnage.hpp"
 
-1428156595 source:c:\users\pablo behague\documents\github\bomberman\cpp\src\bonusmalus\bonusvitesse.cpp
+1428666902 source:c:\users\pablo behague\documents\github\bomberman\cpp\src\bonusmalus\bonusvitesse.cpp
 	"BonusVitesse.hpp"
 	"Personnage.hpp"
 
-1428156594 c:\users\pablo behague\documents\github\bomberman\cpp\include\bonusmalus\bonusvitesse.hpp
+1428658091 c:\users\pablo behague\documents\github\bomberman\cpp\include\bonusmalus\bonusvitesse.hpp
 	"BonusMalus.hpp"
 
 1428156595 source:c:\users\pablo behague\documents\github\bomberman\cpp\src\bonusmalus\malusdegatsbombes.cpp
@@ -4099,24 +4110,24 @@
 1428156594 c:\users\pablo behague\documents\github\bomberman\cpp\include\bonusmalus\malusdegatsbombes.hpp
 	"BonusMalus.hpp"
 
-1428156595 source:c:\users\pablo behague\documents\github\bomberman\cpp\src\bonusmalus\malusnbbombes.cpp
+1428668059 source:c:\users\pablo behague\documents\github\bomberman\cpp\src\bonusmalus\malusnbbombes.cpp
 	"MalusNbBombes.hpp"
 	"Personnage.hpp"
 
-1428156594 c:\users\pablo behague\documents\github\bomberman\cpp\include\bonusmalus\malusnbbombes.hpp
+1428658105 c:\users\pablo behague\documents\github\bomberman\cpp\include\bonusmalus\malusnbbombes.hpp
 	"BonusMalus.hpp"
 
-1428156595 source:c:\users\pablo behague\documents\github\bomberman\cpp\src\bonusmalus\malusvitesse.cpp
+1428667357 source:c:\users\pablo behague\documents\github\bomberman\cpp\src\bonusmalus\malusvitesse.cpp
 	"MalusVitesse.hpp"
 	"Personnage.hpp"
 
-1428156594 c:\users\pablo behague\documents\github\bomberman\cpp\include\bonusmalus\malusvitesse.hpp
+1428658186 c:\users\pablo behague\documents\github\bomberman\cpp\include\bonusmalus\malusvitesse.hpp
 	"BonusMalus.hpp"
 
 1428156595 source:c:\users\pablo behague\documents\github\bomberman\cpp\src\game\block.cpp
 	"Block.hpp"
 
-1428443443 source:c:\users\pablo behague\documents\github\bomberman\cpp\src\game\map.cpp
+1428664169 source:c:\users\pablo behague\documents\github\bomberman\cpp\src\game\map.cpp
 	"Map.hpp"
 	"noClass/fn_string.hpp"
 	"BombManager.hpp"
@@ -4145,13 +4156,13 @@
 	"General.hpp"
 	<iostream>
 
-1428156595 source:c:\users\pablo behague\documents\github\bomberman\cpp\src\general\screenmanager.cpp
+1428600333 source:c:\users\pablo behague\documents\github\bomberman\cpp\src\general\screenmanager.cpp
 	"General/ScreenManager.h"
 
-1428503309 source:c:\users\pablo behague\documents\github\bomberman\cpp\src\gui\bouton.cpp
+1428655878 source:c:\users\pablo behague\documents\github\bomberman\cpp\src\gui\bouton.cpp
 	"Bouton.hpp"
 
-1428156595 source:c:\users\pablo behague\documents\github\bomberman\cpp\src\gui\checkbox.cpp
+1428655878 source:c:\users\pablo behague\documents\github\bomberman\cpp\src\gui\checkbox.cpp
 	"Checkbox.hpp"
 
 1428443447 source:c:\users\pablo behague\documents\github\bomberman\cpp\src\gui\inputkey.cpp
@@ -4163,16 +4174,16 @@
 1428163705 source:c:\users\pablo behague\documents\github\bomberman\cpp\src\gui\slider.cpp
 	"Slider.hpp"
 
-1428156595 source:c:\users\pablo behague\documents\github\bomberman\cpp\src\menu\menuindex.cpp
+1428600333 source:c:\users\pablo behague\documents\github\bomberman\cpp\src\menu\menuindex.cpp
 	"MenuIndex.hpp"
 
-1428156595 source:c:\users\pablo behague\documents\github\bomberman\cpp\src\menu\menuoption.cpp
+1428655878 source:c:\users\pablo behague\documents\github\bomberman\cpp\src\menu\menuoption.cpp
 	"MenuOption.hpp"
 
-1428443447 source:c:\users\pablo behague\documents\github\bomberman\cpp\src\menu\menuoptiontouch.cpp
+1428600333 source:c:\users\pablo behague\documents\github\bomberman\cpp\src\menu\menuoptiontouch.cpp
 	"MenuOptionTouch.hpp"
 
-1428156595 source:c:\users\pablo behague\documents\github\bomberman\cpp\src\music\soundmanager.cpp
+1428655878 source:c:\users\pablo behague\documents\github\bomberman\cpp\src\music\soundmanager.cpp
 	"SoundManager.hpp"
 
 1428156595 source:c:\users\pablo behague\documents\github\bomberman\cpp\src\noclass\collision.cpp
@@ -4187,19 +4198,19 @@
 1428156595 source:c:\users\pablo behague\documents\github\bomberman\cpp\src\noclass\fn_random.cpp
 	"noClass/fn_random.hpp"
 
-1428160144 source:c:\users\pablo behague\documents\github\bomberman\cpp\src\noclass\fn_string.cpp
+1428655878 source:c:\users\pablo behague\documents\github\bomberman\cpp\src\noclass\fn_string.cpp
 	"noClass/fn_string.hpp"
 
 1428156595 source:c:\users\pablo behague\documents\github\bomberman\cpp\src\noclass\fn_time.cpp
 	"noClass/fn_time.hpp"
 
-1428161486 source:c:\users\pablo behague\documents\github\bomberman\cpp\src\observable.cpp
+1428600333 source:c:\users\pablo behague\documents\github\bomberman\cpp\src\observable.cpp
 	"Observable.hpp"
 
-1428161499 source:c:\users\pablo behague\documents\github\bomberman\cpp\src\observateur.cpp
+1428600333 source:c:\users\pablo behague\documents\github\bomberman\cpp\src\observateur.cpp
 	"Observateur.hpp"
 
-1428594608 source:c:\users\pablo behague\documents\github\bomberman\cpp\src\application.cpp
+1428600333 source:c:\users\pablo behague\documents\github\bomberman\cpp\src\application.cpp
 	"Application.hpp"
 
 1428594604 source:c:\users\pablo behague\documents\github\bomberman\cpp\src\bomb\bomb.cpp
@@ -4210,16 +4221,20 @@
 	"Explosion.hpp"
 	"Map.hpp"
 
-1428594534 source:c:\users\pablo behague\documents\github\bomberman\cpp\src\bomb\stratbombsimple.cpp
+1428667101 source:c:\users\pablo behague\documents\github\bomberman\cpp\src\bomb\stratbombsimple.cpp
 	"StratBombSimple.hpp"
+	"BonusNbBombes.hpp"
+	"MalusNbBombes.hpp"
+	"BonusVitesse.hpp"
+	"MalusVitesse.hpp"
 
-1428594608 source:c:\users\pablo behague\documents\github\bomberman\cpp\src\editeur\editeurmap.cpp
+1428600333 source:c:\users\pablo behague\documents\github\bomberman\cpp\src\editeur\editeurmap.cpp
 	"Editeur/EditeurMap.hpp"
 
 1428594604 source:c:\users\pablo behague\documents\github\bomberman\cpp\src\game\case.cpp
 	"Case.hpp"
 
-1428594608 source:c:\users\pablo behague\documents\github\bomberman\cpp\src\game\game.cpp
+1428655861 source:c:\users\pablo behague\documents\github\bomberman\cpp\src\game\game.cpp
 	"Game.hpp"
 
 1428594608 source:c:\users\pablo behague\documents\github\bomberman\cpp\src\general\screen.cpp
@@ -4228,18 +4243,60 @@
 1428594604 source:c:\users\pablo behague\documents\github\bomberman\cpp\src\graph\graph.cpp
 	"Graph.hpp"
 
-1428594608 source:c:\users\pablo behague\documents\github\bomberman\cpp\src\menu\menu.cpp
+1428600333 source:c:\users\pablo behague\documents\github\bomberman\cpp\src\menu\menu.cpp
 	"Menu.hpp"
 
-1428594608 source:c:\users\pablo behague\documents\github\bomberman\cpp\src\music\musicmanager.cpp
+1428655878 source:c:\users\pablo behague\documents\github\bomberman\cpp\src\music\musicmanager.cpp
 	"MusicManager.hpp"
 
-1428594608 source:c:\users\pablo behague\documents\github\bomberman\cpp\src\personnage\humain.cpp
+1428664232 source:c:\users\pablo behague\documents\github\bomberman\cpp\src\personnage\humain.cpp
 	"Humain.hpp"
 
-1428594608 source:c:\users\pablo behague\documents\github\bomberman\cpp\src\personnage\ia.cpp
+1428664239 source:c:\users\pablo behague\documents\github\bomberman\cpp\src\personnage\ia.cpp
 	"IA.hpp"
 
-1428594608 source:c:\users\pablo behague\documents\github\bomberman\cpp\src\personnage\personnage.cpp
+1428668121 source:c:\users\pablo behague\documents\github\bomberman\cpp\src\personnage\personnage.cpp
 	"Personnage.hpp"
+
+1428655878 c:\users\pablo behague\documents\github\bomberman\cpp\include\gui\label.hpp
+	"header.hpp"
+	"General.hpp"
+	"Observateur.hpp"
+
+1428600333 c:\users\pablo behague\documents\github\bomberman\cpp\include\menu\menupause.hpp
+	"Menu.hpp"
+
+1428600333 c:\users\pablo behague\documents\github\bomberman\cpp\include\menu\menuchoixgame.hpp
+	"Menu.hpp"
+	"ViewLevel.hpp"
+	"ChoixLevel.hpp"
+
+1428600333 c:\users\pablo behague\documents\github\bomberman\cpp\include\menu\viewlevel.hpp
+	"header.hpp"
+	"General.hpp"
+
+1428655878 c:\users\pablo behague\documents\github\bomberman\cpp\include\menu\choixlevel.hpp
+	"header.hpp"
+	"General.hpp"
+	"Menu.hpp"
+	"ViewLevel.hpp"
+	"Game.hpp"
+
+1428661926 source:c:\users\pablo behague\documents\github\bomberman\cpp\src\bomb\bombmanager.cpp
+	"BombManager.hpp"
+
+1428600333 source:c:\users\pablo behague\documents\github\bomberman\cpp\src\menu\menupause.cpp
+	"MenuPause.hpp"
+
+1428655878 source:c:\users\pablo behague\documents\github\bomberman\cpp\src\menu\choixlevel.cpp
+	"ChoixLevel.hpp"
+
+1428655878 source:c:\users\pablo behague\documents\github\bomberman\cpp\src\menu\menuchoixgame.cpp
+	"MenuChoixGame.hpp"
+
+1428655878 source:c:\users\pablo behague\documents\github\bomberman\cpp\src\menu\viewlevel.cpp
+	"ViewLevel.hpp"
+
+1428655878 source:c:\users\pablo behague\documents\github\bomberman\cpp\src\gui\label.cpp
+	"Label.hpp"
 

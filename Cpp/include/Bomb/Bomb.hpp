@@ -6,6 +6,7 @@
 #include "Map.hpp"
 class Map;
 class StratBombSimple;
+class Personnage;
 class Bomb:public sf::Drawable
 {
     public:

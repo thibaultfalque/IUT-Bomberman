@@ -5,7 +5,7 @@
 class MalusVitesse : public BonusMalus
 {
     public:
-        MalusVitesse();
+        MalusVitesse(Vector2i pos,Vector2i graphicPos);
         virtual ~MalusVitesse();
         virtual void action(Personnage* perso);
     protected:

@@ -1,4 +1,8 @@
 #include "StratBombSimple.hpp"
+#include "BonusNbBombes.hpp"
+#include "MalusNbBombes.hpp"
+#include "BonusVitesse.hpp"
+#include "MalusVitesse.hpp"
 
 StratBombSimple::StratBombSimple()
 {
@@ -16,6 +20,26 @@ void StratBombSimple::explode(Map& m,Bomb& b){
     downExplode(m,b);
     topExplode(m,b);
 }
+void StratBombSimple::createBonusMalus(Map &m, Vector2i pos){
+    if(rand()%2==0){
+        switch(rand()%4){
+            case 0:
+                 m.addBonusMalus(new BonusVitesse(pos,m.getScreenPosition(pos)));
+            break;
+            case 1:
+                m.addBonusMalus(new MalusVitesse(pos,m.getScreenPosition(pos)));
+            break;
+            case 2:
+                m.addBonusMalus(new MalusNbBombes(pos,m.getScreenPosition(pos)));
+            break;
+            case 3:
+                m.addBonusMalus(new BonusNbBombes(pos,m.getScreenPosition(pos)));
+            break;
+        }
+
+    }
+}
+
 void StratBombSimple::rightCaseTouch(vector<vector<bool>>& tab,Map& m,Bomb& b){
 
     sf::Vector2i mapPosition=b.getMapPosition();
@@ -128,7 +152,7 @@ void StratBombSimple::downExplode(Map& m,Bomb& b){
 
             sf::Vector2f pos=block->getPosition();
             m.setCase(sf::Vector2i(mapPosition.x,y),new Sol("surfaces/sol.png",true,pos));
-
+            createBonusMalus(m,sf::Vector2i(mapPosition.x,y));
         }
         _continue=false;
     }
@@ -151,6 +175,7 @@ void StratBombSimple::leftExplode(Map& m,Bomb& b){
 
             sf::Vector2f pos=block->getPosition();
             m.setCase(sf::Vector2i(x,mapPosition.y),new Sol("surfaces/sol.png",true,pos));
+            createBonusMalus(m,sf::Vector2i(x,mapPosition.y));
 
         }
         _continue=false;
@@ -173,7 +198,7 @@ void StratBombSimple::rightExplode(Map& m,Bomb& b){
 
             sf::Vector2f pos=block->getPosition();
             m.setCase(sf::Vector2i(x,mapPosition.y),new Sol("surfaces/sol.png",true,pos));
-
+            createBonusMalus(m,sf::Vector2i(x,mapPosition.y));
         }
         _continue=false;
     }
@@ -196,6 +221,7 @@ void StratBombSimple::topExplode(Map& m,Bomb& b){
 
             sf::Vector2f pos=block->getPosition();
             m.setCase(sf::Vector2i(mapPosition.x,y),new Sol("surfaces/sol.png",true,pos));
+            createBonusMalus(m,sf::Vector2i(mapPosition.x,y));
 
         }
         _continue=false;
